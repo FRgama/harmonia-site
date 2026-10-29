@@ -1,43 +1,73 @@
-import { ArrowUpRight, Bookmark, Search, Share2 } from "lucide-react";
+import { Bookmark, LockKeyhole, Search, Share2 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const POSTS = [
-  { user: "@marina", palette: "Outono quente", tone: "linear-gradient(160deg,#a65f46,#6e2a2a)" },
-  { user: "@lucas", palette: "Inverno frio", tone: "linear-gradient(160deg,#3d4a5e,#121a2b)" },
-  { user: "@bia", palette: "Primavera clara", tone: "linear-gradient(160deg,#d8b36a,#a98842)" },
-  { user: "@joao", palette: "Verão suave", tone: "linear-gradient(160deg,#8a9466,#3d4a3a)" },
-  { user: "@carol", palette: "Outono profundo", tone: "linear-gradient(160deg,#7b3b3f,#2b2119)" },
-  { user: "@rafa", palette: "Neutros", tone: "linear-gradient(160deg,#b9a883,#5a5240)" },
+  { user: "@beatriz.af", palette: "Outono Quente · Ampulheta", tone: "linear-gradient(160deg,#a65f46,#6e2a2a)" },
+  { user: "@rafa.lima", palette: "Inverno Profundo · IHE 95%", tone: "linear-gradient(160deg,#3d4a5e,#121a2b)" },
+  { user: "@marina.s", palette: "Primavera Clara · Retângulo", tone: "linear-gradient(160deg,#d8b36a,#a98842)" },
+  { user: "@luiza.v", palette: "Verão Suave · Triângulo", tone: "linear-gradient(160deg,#8a9466,#3d4a3a)" },
+  { user: "@carol.m", palette: "Outono Profundo · Oval", tone: "linear-gradient(160deg,#7b3b3f,#2b2119)" },
+  { user: "@helena.c", palette: "Inverno Frio · Cápsula", tone: "linear-gradient(160deg,#b9a883,#5a5240)" },
 ];
 
 const ITEMS = [
-  { icon: Share2, title: "Publique seus looks", text: "Compartilhe as combinações montadas com o seu próprio armário." },
-  { icon: Bookmark, title: "Salve inspirações", text: "Guarde ideias para todas as ocasiões, como um mural de estilo." },
-  { icon: Search, title: "Encontre quem veste como você", text: "Busque pessoas com o mesmo tipo de corpo ou a mesma cartela de cores." },
+  {
+    icon: Share2,
+    title: "Looks reais com tags semânticas",
+    text: "Publicações enriquecidas com tags de ocasião, estilo e cartela cromática para facilitar a descoberta orgânica.",
+  },
+  {
+    icon: Bookmark,
+    title: "Painéis semânticos privados (moodboards)",
+    text: "Curadoria pessoal de inspirações de terceiros salvas em murais privados para consulta rápida antes de se vestir.",
+  },
+  {
+    icon: Search,
+    title: "Busca por mesmo biótipo e mesma cartela",
+    text: "Filtre referências criadas por pessoas que compartilham sua silhueta corporal ou uma das 12 cartelas sazonais.",
+  },
 ];
 
 export function Community() {
   return (
-    <section id="comunidade" className="community-section torn-sheet">
+    <div id="comunidade" className="community-section community-section--embedded torn-sheet">
       <div className="community-section__inner">
         <div className="community-section__heading">
           <div>
-            <span className="eyebrow">Comunidade / Feed / Parceiros</span>
-            <ScrollReveal><h2 className="display-title">Inspiração de quem veste como <em>você.</em></h2></ScrollReveal>
+            <span className="eyebrow">Experiência Social · Módulo 3.5 em ação</span>
+            <ScrollReveal>
+              <h2 className="display-title">
+                Inspiração de quem veste <em>como você.</em>
+              </h2>
+            </ScrollReveal>
           </div>
-          <p>Uma rede social dentro do app para publicar looks, salvar ideias e se conectar com quem pode te inspirar.</p>
+          <p>
+            Uma comunidade orientada por afinidade morfocromática, onde referências reais
+            encontram curadoria privada e controle total de visibilidade.
+          </p>
         </div>
 
         <div className="community-grid">
           <ScrollReveal>
             <div className="community-feed">
-              <div className="community-feed__head"><span>Feed / Inspirações</span><span>Para você</span></div>
-              <div className="community-feed__filters"><span className="is-active">Mesmo tipo de corpo</span><span>Mesma cartela</span><span>Ocasião</span></div>
+              <div className="community-feed__head">
+                <span>FEED COMUNITÁRIO · HARMONIA</span>
+                <span>RF14 · RF15</span>
+              </div>
+              <div className="community-feed__filters">
+                <span className="is-active">Mesmo biótipo</span>
+                <span>Mesma cartela</span>
+                <span>Ocasião</span>
+                <span>Moodboards</span>
+              </div>
               <div className="community-feed__posts">
                 {POSTS.map((p) => (
                   <div key={p.user} className="community-post" style={{ background: p.tone }}>
                     <Bookmark size={12} aria-hidden="true" />
-                    <span><b>{p.user}</b>{p.palette}</span>
+                    <span>
+                      <b>{p.user}</b>
+                      {p.palette}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -47,20 +77,37 @@ export function Community() {
           <div>
             <div className="community-list">
               {ITEMS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="community-item"><Icon size={18} aria-hidden="true" /><div><h3>{title}</h3><p>{text}</p></div></div>
+                <div key={title} className="community-item">
+                  <Icon size={18} aria-hidden="true" />
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </div>
+                </div>
               ))}
             </div>
+
             <ScrollReveal delay={0.1}>
               <div className="community-gap">
-                <span>Lacuna no armário</span>
-                <strong>Falta uma peça para fechar seus looks.</strong>
-                <p>A HarmonIA identifica o que falta e sugere produtos de lojas parceiras, levando você direto ao site da loja.</p>
-                <div><span>C&amp;A <ArrowUpRight size={12} aria-hidden="true" /></span><span>Renner <ArrowUpRight size={12} aria-hidden="true" /></span></div>
+                <span>Chave de Privacidade · RN05</span>
+                <strong>Controle absoluto: Perfil Público ou Privado.</strong>
+                <p>
+                  Usuários pragmáticos como Thiago mantêm o acervo 100% restrito em modo{" "}
+                  <strong>Privado</strong>, enquanto entusiastas e criadoras como Beatriz e
+                  Rafaela ativam o modo <strong>Público</strong> para transformar looks em
+                  portfólio e comunidade.
+                </p>
+                <div>
+                  <span>
+                    <LockKeyhole size={11} aria-hidden="true" /> Modo Privado (uso individual)
+                  </span>
+                  <span>Modo Público (visível no feed)</span>
+                </div>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

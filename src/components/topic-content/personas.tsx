@@ -1,58 +1,82 @@
-import { ArrowUpRight, Compass, Sparkles, UsersRound } from "lucide-react";
+import { ArrowUpRight, Compass, ExternalLink, Sparkles, UsersRound } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { DocumentPage } from "@/components/document-page";
 
 const personas = [
   {
-    number: "01",
-    archetype: "Hard User",
+    id: "persona-beatriz",
+    number: "2.1",
+    archetype: "Hard User · Entusiasta de Moda",
     name: "Beatriz Andrade Ferreira",
-    profile: "23 anos · Analista de Marketing Júnior · São Paulo, SP",
+    profile:
+      "23 anos · Analista de Marketing Júnior em agência de publicidade · Mora com uma amiga na Vila Madalena, São Paulo, SP",
+    quote:
+      "Eu tenho um armário lotado, mas sempre uso as mesmas cinco combinações. Eu só queria que alguém me mostrasse o que eu já tenho e não enxergo.",
     image: "/personas/beatriz.webp",
+    boardUrl: "/Docs/Persona%20Beatriz.png",
     icon: Sparkles,
-    introduction:
-      "Apaixonada por moda, tendências e expressão pessoal. Gosta de experimentar novas combinações e busca referências para aprimorar o próprio estilo.",
-    journey: [
-      "Cadastra peças e explora colorimetria e análise de estilo.",
-      "Gera looks para a rotina e para ocasiões específicas.",
-      "Publica combinações, interage no feed e salva inspirações.",
+    habits:
+      "Curiosa e detalhista, trata o momento de se vestir como ritual de autocuidado. Consome vídeos de “get ready with me”, perfis de styling, brechós e trocas de roupas com amigas no Instagram e TikTok. Já testou e abandonou outros apps de guarda-roupa por exigirem trabalho manual demais.",
+    pains: [
+      "Armário cheio acompanhado da sensação crônica de “nada para vestir”.",
+      "Esquecimento de combinações anteriores que já funcionaram.",
+      "Insegurança ao comprar peças diferentes das que já possui.",
     ],
-    need: "Uma experiência completa que reúna organização, criatividade e comunidade no dia a dia.",
+    modules:
+      "Onboarding completo (teste de colorimetria e biótipo), Motor de IA de combinação, Dashboard de peças ativas e esquecidas e Feed social para inspiração.",
+    frequency: "Uso diário",
+    tags: ["Moderna", "Autêntica", "Criativa", "Determinada"],
     tone: "person-card--warm",
   },
   {
-    number: "02",
-    archetype: "Casual User",
+    id: "persona-thiago",
+    number: "2.2",
+    archetype: "Casual User · Usuário Pragmático",
     name: "Thiago Mendes Costa",
-    profile: "28 anos · Analista de Dados · São Paulo, SP",
+    profile:
+      "28 anos · Analista de Dados em empresa de tecnologia · Mora sozinho no Itaim Bibi, São Paulo, SP",
+    quote:
+      "Eu não sou ligado em moda, mas gosto de me vestir bem. O problema é que, às vezes, compro uma peça e depois percebo que não combina com nada que eu já tenho.",
     image: "/personas/thiago.webp",
+    boardUrl: "/Docs/Persona%20Thiago.png",
     icon: Compass,
-    introduction:
-      "Pragmático: quer se vestir bem sem acompanhar tendências nem gastar muito tempo com moda. Prioriza um armário funcional e compras certeiras.",
-    journey: [
-      "Registra suas roupas para consultar o próprio acervo.",
-      "Usa a câmera na loja para comparar uma peça nova.",
-      "Consulta a HarmonIA pontualmente, sem depender do feed social.",
+    habits:
+      "Calmo, observador, objetivo e prático. Prefere peças básicas, versáteis, marcas confiáveis e bom custo-benefício. Não acompanha tendências de moda nem utiliza o feed social, e não se adaptou a aplicativos com cadastro manual extenso.",
+    pains: [
+      "Comprar peças em loja que não combinam com o acervo residencial.",
+      "Medo de compras por impulso e desperdício financeiro.",
+      "Falta de tempo para planejar combinações no cotidiano.",
     ],
-    need: "Segurança e rapidez para decidir se uma peça combina com o que já tem.",
+    modules:
+      "Comparação e paridade de peças na hora da compra em loja/shopping, Guarda-roupa virtual (inventário) e Dashboard simples de consulta.",
+    frequency: "Uso ocasional (focado em dias de compra ou consulta rápida)",
+    tags: ["Prático", "Objetivo", "Moderno", "Confiável", "Funcional"],
     tone: "person-card--green",
   },
   {
-    number: "03",
-    archetype: "Influenciadora de Moda",
+    id: "persona-rafaela",
+    number: "2.3",
+    archetype: "Influenciadora de Moda · Criadora e Consultora",
     name: "Rafaela Souza Lima",
-    profile: "26 anos · Criadora de conteúdo e consultora de estilo · Salvador, BA",
+    profile:
+      "26 anos · Criadora de conteúdo digital e consultora de estilo autônoma · Mora sozinha no Rio Vermelho, Salvador, BA",
+    quote:
+      "Não é só uma questão de estética. Eu consigo mostrar por que aquela combinação funciona e transformar isso em conteúdo.",
     image: "/personas/rafaela.webp",
+    boardUrl: "/Docs/Persona%20Rafaela.png",
     icon: UsersRound,
-    introduction:
-      "Profissional de moda que já cria conteúdo para redes sociais e busca fortalecer sua presença, autoridade e conexão com públicos interessados em estilo.",
-    journey: [
-      "Compartilha looks e amplia a conversa com a comunidade HarmonIA.",
-      "Apresenta consultorias, marcas e parcerias a um público segmentado.",
-      "Atrai novos usuários a partir da audiência que já construiu.",
+    habits:
+      "Extrovertida e estratégica quanto à imagem online, orientada a métricas de alcance, engajamento e salvamentos no Instagram, TikTok e Reels. Planeja pauta semanal e monetiza com parcerias comerciais e consultoria de estilo.",
+    pains: [
+      "Falta de tempo para planejar looks variados em ritmo de publicação.",
+      "Dificuldade em comprovar autoridade técnica sobre estilo além do gosto subjetivo.",
+      "Alta concorrência com outras criadoras de conteúdo no nicho de moda.",
     ],
-    need: "Um canal complementar de visibilidade, descoberta e oportunidades de negócio.",
+    modules:
+      "Feed social comunitário (portfólio e canal de aquisição/crescimento), Motor de combinação estilística (cita o IHE e a cartela de colorimetria para fundamentar recomendações) e Guarda-roupa virtual integrado.",
+    frequency: "Uso diário (produção e publicação de conteúdo)",
+    tags: ["Liberal", "Criativa", "Autêntica", "Ambiciosa", "Sociável"],
     tone: "person-card--wine",
   },
 ];
@@ -61,51 +85,115 @@ export function PersonasContent() {
   return (
     <DocumentPage
       embedded
-      eyebrow="02 / Pesquisa de produto"
-      index="02"
-      title={<>Três rotinas. <em>Um armário com mais sentido.</em></>}
-      description="As personas do projeto tornam explícitos os diferentes motivos para usar a HarmonIA: explorar o estilo, resolver uma compra ou compartilhar conhecimento."
+      eyebrow="03 / Pesquisa de usuário"
+      index="03"
+      title={<>Três rotinas reais. <em>Um ecossistema com propósito.</em></>}
+      description="As personas mapeadas na Seção 2 do documento fundamentam cada decisão de escopo, monetização e experiência da HarmonIA."
     >
       <section id="personas-cards" aria-label="Personas da HarmonIA" className="personas-grid">
-        {personas.map(({ number, archetype, name, profile, image, icon: Icon, introduction, journey, need, tone }) => (
-          <article className={`person-card ${tone}`} key={number}>
-            <div className="person-card__top">
-              <span>{number} / {archetype}</span>
-              <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
-            </div>
-            <div className="person-card__portrait">
-              <Image
-                src={image}
-                alt={`Retrato ilustrativo da persona ${name}`}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
-              />
-            </div>
-            <h2>{name}</h2>
-            <p className="person-card__profile">{profile}</p>
-            <p className="person-card__introduction">{introduction}</p>
-            <h3>Como usa o produto</h3>
-            <ol>
-              {journey.map((step) => <li key={step}>{step}</li>)}
-            </ol>
-            <div className="person-card__need">
-              <span>O que procura</span>
-              <p>{need}</p>
-            </div>
-          </article>
-        ))}
+        {personas.map(
+          ({
+            id,
+            number,
+            archetype,
+            name,
+            profile,
+            quote,
+            image,
+            boardUrl,
+            icon: Icon,
+            habits,
+            pains,
+            modules,
+            frequency,
+            tags,
+            tone,
+          }) => (
+            <article id={id} className={`person-card ${tone}`} key={number}>
+              <div className="person-card__top">
+                <span>{number} / {archetype}</span>
+                <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+              </div>
+
+              <div className="person-card__portrait">
+                <Image
+                  src={image}
+                  alt={`Retrato ilustrativo da persona ${name}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+                />
+              </div>
+
+              <h2>{name}</h2>
+              <p className="person-card__profile">{profile}</p>
+
+              <blockquote className="person-card__quote">
+                “{quote}”
+              </blockquote>
+
+              <div className="person-card__block">
+                <h3>Personalidade e hábitos</h3>
+                <p>{habits}</p>
+              </div>
+
+              <div className="person-card__block">
+                <h3>Principais dores</h3>
+                <ol>
+                  {pains.map((pain) => (
+                    <li key={pain}>{pain}</li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="person-card__meta">
+                <div>
+                  <span>Módulos principais</span>
+                  <p>{modules}</p>
+                </div>
+                <div>
+                  <span>Frequência estimada</span>
+                  <strong>{frequency}</strong>
+                </div>
+              </div>
+
+              <div className="person-card__tags" aria-label={`Estilo de ${name} em palavras`}>
+                <span>Seu estilo em palavras</span>
+                <ul>
+                  {tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="person-card__actions">
+                <a
+                  href={boardUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="person-card__board-link"
+                >
+                  Visualizar prancha original (PNG)
+                  <ExternalLink size={13} aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          ),
+        )}
       </section>
 
       <aside className="document-callout mt-10">
-        <span className="eyebrow">Da pesquisa à experiência</span>
-        <p>
-          O mesmo produto precisa atender quem explora cada recurso, quem entra
-          somente na hora da compra e quem cria conteúdo para outras pessoas.
-          Essa diversidade orienta os módulos e requisitos descritos no projeto.
-        </p>
-        <Link className="document-text-link" href="/#tema-experiencia">
-          Explorar os módulos do MVP <ArrowUpRight size={14} aria-hidden="true" />
-        </Link>
+        <UsersRound size={20} aria-hidden="true" />
+        <div>
+          <span className="eyebrow">Das dores reais à sustentabilidade do negócio</span>
+          <p>
+            Enquanto Beatriz impulsiona retenção diária e conversão Premium, Thiago valida a
+            utilidade imediata em momentos de compra e Rafaela atua como vetor orgânico de
+            aquisição de usuários e geração de conteúdo qualificado.
+          </p>
+          <Link className="document-text-link" href="/#tema-negocio">
+            Avançar para modelo de negócio e viabilidade <ArrowUpRight size={14} aria-hidden="true" />
+          </Link>
+        </div>
       </aside>
     </DocumentPage>
   );

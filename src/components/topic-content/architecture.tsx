@@ -1,85 +1,152 @@
-import { ArrowDown, Cloud, Database, Layers3, LockKeyhole, Smartphone } from "lucide-react";
+import { ArrowDown, CloudCog, Cpu, Database, LockKeyhole, Server, Smartphone } from "lucide-react";
 import { DocumentPage } from "@/components/document-page";
 
-const layers = [
+const soaPillars = [
   {
-    number: "01",
-    name: "Visualização",
+    code: "5.1.1",
+    name: "Pilar 1 · Camada de Visualização",
     icon: Smartphone,
-    technology: "Flutter · Dart · API REST",
-    description:
-      "Aplicativo mobile para Android e iOS. Route 53 e CloudFront encaminham e distribuem conteúdo; a interface consome a API de forma assíncrona.",
+    headline: "Flutter / Dart · AWS Route 53 · CDN AWS CloudFront",
+    summary:
+      "Construída no ecossistema multiplataforma em Flutter/Dart, garantindo execução fluida e compilação nativa para Android e iOS a partir de uma base unificada de código.",
+    details: [
+      "Roteamento DNS e borda: conexão direcionada pelo AWS Route 53 e acelerada pela CDN AWS CloudFront, distribuindo cópias das imagens tratadas em servidores de borda sob protocolo HTTPS estrito.",
+      "Isolamento front/back: as interfaces de guarda-roupa, cards de looks e feed comunitário consomem exclusivamente a API RESTful de forma assíncrona, mantendo desacoplamento total das regras de negócio.",
+    ],
   },
   {
-    number: "02",
-    name: "Lógica do produto",
-    icon: Layers3,
-    technology: "Python · FastAPI · Docker · AWS EC2 / App Runner",
-    description:
-      "Serviços desacoplados atendem as regras de negócio; o FastAPI é a API central e tarefas de processamento pesado podem rodar em AWS Lambda.",
+    code: "5.1.2",
+    name: "Pilar 2 · Lógica do Sistema (3 Módulos Autônomos)",
+    icon: Cpu,
+    headline: "FastAPI em Docker (EC2 / App Runner) · AWS Lambda · AWS Cognito",
+    summary:
+      "Para escalar sob demanda sem gargalos de processamento visual, a lógica de aplicação divide-se em três módulos independentes:",
+    modules: [
+      {
+        tag: "Módulo 1 · API Central",
+        icon: Server,
+        title: "Python FastAPI em Docker (AWS EC2 / App Runner)",
+        text: "Servidor de aplicação conteinerizado com alta velocidade de resposta assíncrona, documentação automática de endpoints e interoperabilidade nativa com bibliotecas de aprendizado de máquina.",
+      },
+      {
+        tag: "Módulo 2 · Serverless Paralelo",
+        icon: CloudCog,
+        title: "AWS Lambda orientada a eventos assíncronos",
+        text: "Terceiriza tarefas computacionalmente intensivas de segmentação semântica (remoção de fundo) e extração cromática para funções Lambda individuais, preservando a disponibilidade da API central.",
+      },
+      {
+        tag: "Módulo 3 · Identidade e Sessão",
+        icon: LockKeyhole,
+        title: "AWS Cognito · Tokens JWT & RBAC",
+        text: "Serviço gerenciado responsável pela autenticação segura, controle de sessões e emissão de tokens JWT de curta expiração com governança de perfis baseada em papéis (RBAC).",
+      },
+    ],
   },
   {
-    number: "03",
-    name: "Identidade e acesso",
-    icon: LockKeyhole,
-    technology: "AWS Cognito · JWT · RBAC",
-    description:
-      "Gestão de contas, sessões e tokens de acesso, com controle de permissões por perfil.",
-  },
-  {
-    number: "04",
-    name: "Dados e mídias",
+    code: "5.1.3",
+    name: "Pilar 3 · Camada de Armazenamento Híbrido",
     icon: Database,
-    technology: "Amazon RDS · PostgreSQL / pgvector · Amazon S3",
-    description:
-      "Dados relacionais e vetores no PostgreSQL; imagens em bucket privado no S3, acessadas por URLs pré-assinadas temporárias.",
-  },
-  {
-    number: "05",
-    name: "Processamento e distribuição",
-    icon: Cloud,
-    technology: "AWS Lambda · CloudFront · Route 53",
-    description:
-      "Funções acionadas por eventos podem processar segmentação e atributos visuais sem bloquear a API. A CDN aproxima mídia da pessoa usuária.",
+    headline: "Amazon RDS PostgreSQL + pgvector · Amazon S3 Privado",
+    summary:
+      "Persistência otimizada que separa metadados transacionais e vetoriais do repositório seguro de arquivos binários de mídia:",
+    details: [
+      "Relacional + Vetorial (Amazon RDS PostgreSQL + pgvector): armazena com confiabilidade transacional usuários, biótipos, cartelas, peças e histórico de looks, enquanto a extensão pgvector indexa embeddings multidimensionais das redes neurais para cálculos SQL instantâneos de similaridade de cosseno.",
+      "Repositório de Mídias (Amazon S3 em Bucket Privado): persiste fotos brutas e recortes PNG com canal alfa transparente em bucket estritamente privado, com leitura condicionada a URLs pré-assinadas temporárias.",
+    ],
   },
 ];
 
 const technologies = [
-  ["App mobile", "Flutter e Dart", "Base unificada com compilação nativa para Android e iOS."],
-  ["API e backend", "Python e FastAPI", "Respostas assíncronas, documentação de API e integração com modelos de IA."],
-  ["Processamento", "AWS Lambda", "Execução sob demanda de tarefas de imagem."],
-  ["Autenticação", "AWS Cognito", "Gestão de credenciais, sessões, tokens JWT e perfis RBAC."],
-  ["Dados", "PostgreSQL e pgvector", "Persistência relacional e busca de similaridade vetorial."],
-  ["Mídia e entrega", "AWS S3 e CloudFront", "Armazenamento de imagens e distribuição por CDN."],
+  [
+    "Visualização",
+    "Flutter; Dart",
+    "Desenvolvimento mobile unificado com compilação nativa para Android e iOS, reaproveitamento de componentes e tipagem estática contra erros em runtime.",
+  ],
+  [
+    "Lógica do Sistema",
+    "Python; FastAPI",
+    "Alta velocidade de resposta assíncrona, documentação automática de endpoints e integração imediata com bibliotecas de visão computacional e IA.",
+  ],
+  [
+    "Processamento Paralelo",
+    "AWS Lambda",
+    "Terceiriza o processamento pesado de segmentação de imagens para contêineres serverless sob demanda, evitando gargalos no servidor principal.",
+  ],
+  [
+    "Autenticação",
+    "AWS Cognito",
+    "Serviço robusto de autenticação e governança de acessos com suporte a tokens JWT, credenciais seguras e controle de perfis (RBAC).",
+  ],
+  [
+    "Armazenamento Relacional e Vetorial",
+    "PostgreSQL + pgvector",
+    "Banco relacional open-source de alta confiabilidade associado à extensão vetorial para consultas SQL de similaridade de cosseno entre roupas.",
+  ],
+  [
+    "Armazenamento de Mídias e CDN",
+    "AWS S3; AWS CloudFront",
+    "Persistência estática escalável e econômica para imagens com canal alfa transparente e distribuição global de baixa latência via CDN.",
+  ],
 ];
 
 export function ArchitectureContent() {
   return (
     <DocumentPage
       embedded
-      eyebrow="05 / Fundamentos técnicos"
-      index="05"
-      title={<>Serviços em conjunto. <em>Decisões com contexto.</em></>}
-      description="A arquitetura proposta no documento separa interface mobile, API, tarefas de visão computacional, identidade e armazenamento para permitir evolução independente."
+      eyebrow="06 / Seções 5.1 & 5.2 · Engenharia de sistemas em nuvem"
+      index="06"
+      title={<>Arquitetura Orientada a Serviços <em>(SOA).</em></>}
+      description="Pautada pelo desacoplamento (Loose Coupling) entre visualização, processamento assíncrono de IA e persistência híbrida relacional-vetorial na nuvem AWS."
     >
       <section id="arquitetura" className="architecture-section">
         <div className="document-section-heading">
-          <span className="eyebrow">5.1 / Arquitetura orientada a serviços</span>
-          <h2 className="display-title">Do acervo à <em>resposta.</em></h2>
-          <p>Fluxo conceitual descrito para o MVP; não representa serviços já implantados.</p>
+          <span className="eyebrow">5.1 / Três pilares com desacoplamento (Loose Coupling)</span>
+          <h2 className="display-title">
+            Serviços autônomos. <em>Escala sem gargalos.</em>
+          </h2>
+          <p>
+            Cada camada opera de forma independente, isolando inferências pesadas de visão
+            computacional da navegação fluida do usuário no aplicativo móvel.
+          </p>
         </div>
-        <div className="architecture-flow">
-          {layers.map(({ number, name, icon: Icon, technology, description }, index) => (
-            <div className="architecture-flow__item" key={number}>
-              <article className="architecture-layer">
+
+        <div className="architecture-flow architecture-flow--wide">
+          {soaPillars.map(({ code, name, icon: Icon, headline, summary, details, modules }, index) => (
+            <div className="architecture-flow__item" key={code}>
+              <article className="architecture-layer architecture-layer--pillar">
                 <div className="architecture-layer__top">
-                  <span>{number} / {name}</span>
+                  <span>{code} / {name}</span>
                   <Icon size={19} aria-hidden="true" />
                 </div>
-                <h3>{technology}</h3>
-                <p>{description}</p>
+                <h3>{headline}</h3>
+                <p>{summary}</p>
+
+                {details && (
+                  <ul className="architecture-layer__bullets">
+                    {details.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {modules && (
+                  <div className="architecture-submodules">
+                    {modules.map(({ tag, icon: SubIcon, title, text }) => (
+                      <div className="architecture-submodule" key={tag}>
+                        <div className="architecture-submodule__top">
+                          <span>{tag}</span>
+                          <SubIcon size={15} aria-hidden="true" />
+                        </div>
+                        <h4>{title}</h4>
+                        <p>{text}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </article>
-              {index < layers.length - 1 && <ArrowDown className="architecture-flow__arrow" size={18} aria-hidden="true" />}
+              {index < soaPillars.length - 1 && (
+                <ArrowDown className="architecture-flow__arrow" size={18} aria-hidden="true" />
+              )}
             </div>
           ))}
         </div>
@@ -87,63 +154,38 @@ export function ArchitectureContent() {
 
       <section id="tecnologias" className="architecture-section">
         <div className="document-section-heading">
-          <span className="eyebrow">5.2 / Tecnologias utilizadas</span>
-          <h2 className="display-title">A stack <em>descrita no PDF.</em></h2>
+          <span className="eyebrow">5.2 / Quadro 4 — Tecnologias Utilizadas</span>
+          <h2 className="display-title">
+            Mapeamento tecnológico <em>e justificativas de engenharia.</em>
+          </h2>
         </div>
-        <div className="technology-table" role="table" aria-label="Tecnologias previstas">
+
+        <div className="technology-table" role="table" aria-label="Quadro 4 — Tecnologias Utilizadas no MVP">
           <div className="technology-table__head" role="row">
-            <span role="columnheader">Camada</span><span role="columnheader">Tecnologia</span><span role="columnheader">Papel no sistema</span>
+            <span role="columnheader">Camada</span>
+            <span role="columnheader">Tecnologia</span>
+            <span role="columnheader">Justificativa de engenharia</span>
           </div>
           {technologies.map(([layer, technology, reason]) => (
             <div className="technology-table__row" role="row" key={layer}>
-              <strong role="cell">{layer}</strong><span role="cell">{technology}</span><p role="cell">{reason}</p>
+              <strong role="cell">{layer}</strong>
+              <span role="cell">{technology}</span>
+              <p role="cell">{reason}</p>
             </div>
           ))}
         </div>
+
         <aside className="document-note">
-          <span className="document-note__mark">!</span>
+          <span className="document-note__mark">i</span>
           <p>
-            <strong>Divergência no próprio documento:</strong> a arquitetura
-            especifica Flutter/Dart, mas as premissas de custos citam React
-            Native/TypeScript. É necessário decidir qual stack será usada antes
-            de fechar o planejamento. Este site institucional é separado do
-            aplicativo mobile proposto.
+            <strong>Nota editorial de stack mobile:</strong> a arquitetura técnica oficial
+            (Seções 5.1.1 e 5.2) especifica <strong>Flutter / Dart</strong> para a camada de
+            visualização multiplataforma, enquanto as premissas orçamentárias da Seção 6.1 fazem
+            menção pontual a <em>React Native + TypeScript</em> como referência equivalente de
+            mercado para desenvolvimento mobile.
           </p>
         </aside>
       </section>
-
-      <section id="ihe" className="ihe-section">
-        <div className="ihe-section__heading">
-          <span className="eyebrow">5.3 / Índice de Harmonia Estética</span>
-          <h2 className="display-title">Quatro dimensões. <em>Uma referência.</em></h2>
-          <p>
-            O IHE combina cor, morfologia, contexto e similaridade de estilo.
-            Trata-se de apoio à descoberta, não de uma regra sobre como alguém
-            deve se vestir.
-          </p>
-        </div>
-        <div className="ihe-equation" aria-label="IHE é igual a 0,35 vezes escore de cor, mais 0,25 vezes escore morfológico, mais 0,20 vezes escore de ocasião, mais 0,20 vezes similaridade vetorial">
-          <span>IHE =</span>
-          <strong>0,35 · S<sub>cor</sub></strong>
-          <strong>+ 0,25 · S<sub>bio</sub></strong>
-          <strong>+ 0,20 · S<sub>ocasião</sub></strong>
-          <strong>+ 0,20 · S<sub>cos</sub></strong>
-        </div>
-        <p className="ihe-normalization">Os pesos somam 1,00. A pontuação final é apresentada entre 0% e 100%.</p>
-        <div className="ihe-factors">
-          <article><span>01 / S<sub>cor</sub></span><h3>Harmonia cromática · 35%</h3><p>Distância euclidiana ΔE*ab no espaço CIE L*a*b*, convertida em escore por exp(−ΔE*ab / 18).</p></article>
-          <article><span>02 / S<sub>bio</sub></span><h3>Compatibilidade morfológica · 25%</h3><p>Matriz de compatibilidade entre modelagem e os perfis corporais registrados no onboarding.</p></article>
-          <article><span>03 / S<sub>ocasião</sub></span><h3>Contexto e clima · 20%</h3><p>Adequação da formalidade ao evento e compatibilidade com as condições meteorológicas.</p></article>
-          <article><span>04 / S<sub>cos</sub></span><h3>Similaridade vetorial · 20%</h3><p>Similaridade de cosseno entre o vetor do perfil e os vetores das peças, com pgvector.</p></article>
-        </div>
-        <div className="ihe-threshold"><strong>≥ 75%</strong><span>O documento classifica resultados acima deste limiar como “Looks Fortemente Recomendados”.</span></div>
-      </section>
-
-      <p className="architecture-footnote">
-        Os serviços, fornecedores e limites de desempenho são decisões descritas
-        para o MVP. A página não afirma que contas AWS, integrações ou modelos de
-        processamento já estejam configurados.
-      </p>
     </DocumentPage>
   );
 }

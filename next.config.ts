@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       { source: "/personas", destination: "/#tema-pessoas", permanent: true },
       { source: "/requisitos", destination: "/#tema-requisitos", permanent: true },
       { source: "/arquitetura", destination: "/#tema-tecnologia", permanent: true },
-      { source: "/investimento", destination: "/#tema-tecnologia", permanent: true },
+      { source: "/investimento", destination: "/#tema-negocio", permanent: true },
     ];
   },
   images: {

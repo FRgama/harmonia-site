@@ -1,148 +1,317 @@
-import { ArrowUpRight, Camera, ChartNoAxesCombined, CloudSun, Layers3, ScanSearch, ShoppingBag, Sparkles, UsersRound } from "lucide-react";
-import Link from "next/link";
+import type { ReactNode } from "react";
+import {
+  ArrowUpRight,
+  Camera,
+  Layers3,
+  ScanSearch,
+  ShoppingBag,
+  Sparkles,
+  Store,
+  UsersRound,
+} from "lucide-react";
+import { Community } from "@/components/community";
 import { DocumentPage } from "@/components/document-page";
+import { PinnedStory } from "@/components/pinned-story";
 
-const modules = [
+type ProductModule = {
+  id: string;
+  anchorId: string;
+  number: string;
+  title: string;
+  summary: string;
+  icon: typeof Camera;
+  steps: [string, string][];
+  requirements: string;
+  visual?: ReactNode;
+};
+
+const modules: ProductModule[] = [
   {
     id: "onboarding",
-    number: "3.1",
-    title: "Conheça seu estilo. Digitalize seu acervo.",
+    anchorId: "onboarding",
+    number: "Módulo 3.1",
+    title: "Onboarding, Perfil de Estilo e Digitalização do Acervo.",
     summary:
-      "O onboarding mapeia o perfil estético e transforma fotografias de roupas em itens organizados para o guarda-roupa virtual.",
+      "Etapa primordial concebida para eliminar a fricção de entrada, mapear o perfil morfocromático com precisão e converter fotos domésticas em ativos padronizados de catálogo.",
     icon: Camera,
     steps: [
-      ["3.1.1 · Perfil morfológico e colorimetria", "Questionário de biótipo — ampulheta, retângulo, triângulo, triângulo invertido ou oval — seguido de um teste assistido de colorimetria para identificar subtom, contraste e uma das 12 cartelas sazonais expandidas."],
-      ["3.1.2 · Captura e remoção de fundo", "A peça pode ser fotografada ou escolhida na galeria. A segmentação identifica a vestimenta e remove o cenário para preparar uma imagem de catálogo."],
-      ["3.1.3 · Atributos e catálogo", "Visão computacional estima cores no espaço CIE L*a*b*, categoria, estampa e formalidade. O usuário pode confirmar ou corrigir os dados."],
+      [
+        "3.1.1 · Perfil Morfológico e Teste Assistido de Colorimetria",
+        "Fluxo interativo para definição dos 5 biótipos corporais (Ampulheta, Retângulo, Triângulo, Triângulo Invertido ou Oval), seguido de teste assistido via câmera frontal que calcula temperatura de subtom de pele, contraste e saturação para enquadramento em uma das 12 cartelas sazonais expandidas.",
+      ],
+      [
+        "3.1.2 · Digitalização Ágil por Segmentação e Remoção de Fundo",
+        "Adição simplificada por câmera ou galeria em até 3 toques (RNF06). O pipeline serverless em nuvem detecta o contorno da vestimenta, remove cenários como lençóis, cabides e paredes e gera um PNG transparente padronizado.",
+      ],
+      [
+        "3.1.3 · Extração de Atributos e Catalogação Taxonômica",
+        "O motor de visão computacional extrai centróides cromáticos predominantes no espaço CIE L*a*b*, categoria da peça (camisa, calça, vestido, saia, calçado), padrão têxtil e formalidade intrínseca, com confirmação rápida pelo usuário.",
+      ],
     ],
-    requirements: "RF02–RF05",
+    requirements: "RF02–RF05 · RNF03 · RNF06",
   },
   {
     id: "inventario",
-    number: "3.2",
-    title: "Um inventário que ajuda a usar, não só a guardar.",
+    anchorId: "inventario",
+    number: "Módulo 3.2",
+    title: "Dashboards e Inventário Virtual.",
     summary:
-      "A área do acervo reúne as roupas e mostra como elas circulam pelo guarda-roupa.",
+      "Banco de dados visual do patrimônio têxtil do usuário, centralizando a gestão do acervo e entregando inteligência analítica sobre rotação e custo por uso.",
     icon: Layers3,
     steps: [
-      ["3.2.1 · Organização e filtros", "Grade visual com filtros combináveis por categoria, cores, estação e formalidade."],
-      ["3.2.2 · Rotação do acervo", "Dashboard analítico com peças ativas e itens sem uso há mais de 30, 60 ou 90 dias, além da distribuição das cores predominantes."],
-      ["3.2.3 · Edição e cápsulas", "Ajuste manual de atributos, registro de peças doadas ou descartadas e organização em cápsulas temáticas, como viagem ou academia."],
+      [
+        "3.2.1 · Organização Dinâmica em Grade e Filtros Avançados",
+        "Interface em grade (grid) otimizada para baixa latência via CDN, equipada com filtros multicritérios combináveis por tipo de peça, paletas de cores isoladas, estações do ano e grau de formalidade.",
+      ],
+      [
+        "3.2.2 · Dashboard Analítico de Rotação de Acervo",
+        "Painel de saúde do guarda-roupa que contrasta a taxa de peças ativas com peças ociosas sem uso há mais de 30, 60 ou 90 dias, além de mapear a proporção cromática dominante e a métrica de Custo por Uso (CPU).",
+      ],
+      [
+        "3.2.3 · Gestão Manual de Metadados e Cápsulas Temáticas",
+        "Controle total para reclassificar categorias, ajustar formalidade, registrar exclusão de peças doadas ou descartadas e agrupar itens em cápsulas temáticas — como mala de viagem ou roupas de ginástica.",
+      ],
     ],
-    requirements: "RF06",
+    requirements: "RF06 · RN01",
   },
   {
     id: "combinacoes",
-    number: "3.3",
-    title: "Combinações que consideram o seu dia.",
+    anchorId: "combinacoes",
+    number: "Módulo 3.3",
+    title: "Motor de Cálculo e IA de Combinação Estilística.",
     summary:
-      "A recomendação cruza o acervo e o perfil com as condições do momento; o retorno de quem usa ajuda a refinar as próximas sugestões.",
+      "Núcleo de inteligência que automatiza a consultoria diária de estilo, eliminando a sobrecarga cognitiva matinal por meio de cruzamento multivariável e aprendizado contínuo.",
     icon: Sparkles,
     steps: [
-      ["3.3.1 · Contexto", "A previsão de temperatura e chuva pode vir de uma API de clima; a localização depende da permissão da pessoa. A ocasião — trabalho, encontro ou evento — completa o contexto."],
-      ["3.3.2 · Índice de Harmonia Estética", "O cálculo considera harmonia cromática, compatibilidade morfológica, ocasião e similaridade vetorial de estilo. A equação e os pesos estão detalhados na página de arquitetura."],
-      ["3.3.3 · Recomendações e feedback", "Cards apresentam a composição do look com ações para aprovar, salvar ou descartar. Esse feedback é descrito como sinal para melhorar futuras sugestões."],
+      [
+        "3.3.1 · Coleta de Variáveis de Contexto e Telemetria Climática",
+        "Captura de telemetria climática em tempo real via API externa (temperatura e previsão de chuva por geolocalização mediante permissão explícita) combinada à seleção da ocasião de destino (corporativo, casual ou gala).",
+      ],
+      [
+        "3.3.2 · Processamento do Índice de Harmonia Estética (IHE)",
+        "Cruzamento matemático entre o inventário disponível, restrições meteorológicas, biótipo corporal e cartela de colorimetria pessoal para assegurar harmonia cromática e compensação de silhueta.",
+      ],
+      [
+        "3.3.3 · Interface em Cards Visuais e Retroalimentação Contínua",
+        "Recomendações entregues em cards visuais detalhando o look completo, com botões interativos de aprovar/salvar ou descartar que retroalimentam o vetor latente de preferências do usuário.",
+      ],
     ],
-    requirements: "RF07, RF13 e RF16",
+    requirements: "RF07 · RF13 · RF16",
+    visual: (
+      <div className="product-module__visual">
+        <PinnedStory
+          mode="outfit"
+          eyebrow="Módulo 3.3 / Composição Assistida por IA"
+          title="Peças diferentes. Uma leitura só sua."
+          chapters={[
+            {
+              number: "01",
+              title: "Clima, ocasião e ponto de partida",
+              text: "Telemetria meteorológica e evento do dia definem as restrições iniciais para selecionar a peça-base no acervo.",
+            },
+            {
+              number: "02",
+              title: "Equilíbrio cromático e morfológico",
+              text: "Centróides em CIE L*a*b* e matrizes de biótipo orientam a escolha de camadas que valorizam sua silhueta.",
+            },
+            {
+              number: "03",
+              title: "Afinidade vetorial de estilo",
+              text: "Consultas em pgvector aproximam a composição do histórico de aprovações e do repertório pessoal.",
+            },
+            {
+              number: "04",
+              title: "Card de look e retroalimentação",
+              text: "Combinação pronta em menos de 1,5 s (RNF03), com botões de aprovar, salvar ou descartar para aprendizado contínuo.",
+            },
+          ]}
+        />
+      </div>
+    ),
   },
   {
     id: "provador",
-    number: "3.4",
-    title: "Leve o seu armário para o provador.",
+    anchorId: "provador",
+    number: "Módulo 3.4",
+    title: "Paridade de Peças em Provador e Provador em Realidade Aumentada (AR).",
     summary:
-      "A câmera e o acervo dão contexto à peça encontrada em uma loja, antes da decisão de compra.",
+      "Assistente de compras em tempo real concebido para substituir fotos indecisas no WhatsApp por validação analítica e visual dentro da loja física.",
     icon: ScanSearch,
     steps: [
-      ["3.4.1 · Captura no ponto de venda", "Fotografe uma peça na arara ou no provador para estimar seus atributos e comparar com o que já está em casa."],
-      ["3.4.2 · Paridade e combinações", "Uma lista ranqueada mostra itens do acervo com maior compatibilidade e looks que a nova peça pode completar."],
-      ["3.4.3 · Provador em realidade aumentada", "O documento propõe uma visualização em formato espelho, sobrepondo itens do armário à imagem da câmera. A viabilidade e o momento de entrega aparecem entre os riscos de escopo."],
+      [
+        "3.4.1 · Captura e Análise de Similaridade no Ponto de Venda",
+        "Ao fotografar uma peça de interesse na arara ou no provador, o sistema extrai instantaneamente seus atributos cromáticos e taxonômicos e executa uma varredura comparativa em todo o banco de dados residencial.",
+      ],
+      [
+        "3.4.2 · Ranqueamento de Combinações Viáveis",
+        "Exibição imediata de uma lista ranqueada com as roupas que o usuário já possui em casa de maior paridade estética com a peça da loja, comprovando a utilidade prática antes da compra.",
+      ],
+      [
+        "3.4.3 · Simulação de Caimento em Realidade Aumentada (“Espelho Inteligente”)",
+        "Câmera em modo “espelho inteligente” sobrepõe graficamente peças selecionadas do armário virtual sobre o reflexo do usuário em tempo real, permitindo visualizar a coordenação física e digital simultaneamente.",
+      ],
     ],
     requirements: "RF08–RF10",
+    visual: (
+      <div className="product-module__visual product-module__visual--stack">
+        <PinnedStory
+          mode="compare"
+          eyebrow="Módulo 3.4 / Paridade Instantânea no Ponto de Venda"
+          title="Uma nova peça na loja. Conexão imediata com o seu armário."
+          chapters={[
+            {
+              number: "01",
+              title: "Captura na arara ou provador",
+              text: "Antes de passar no caixa, fotografe a peça para extrair cor CIE L*a*b*, categoria e formalidade.",
+            },
+            {
+              number: "02",
+              title: "Varredura vetorial no acervo de casa",
+              text: "A HarmonIA cruza o novo item com todas as peças já cadastradas no seu guarda-roupa virtual.",
+            },
+            {
+              number: "03",
+              title: "Ranking de looks já viáveis",
+              text: "Veja a nota de paridade e quantas combinações completas a peça destrava antes da decisão comercial.",
+            },
+          ]}
+        />
+        <PinnedStory
+          mode="ar"
+          eyebrow="Módulo 3.4 / Espelho Inteligente em Realidade Aumentada"
+          title="Experimente a combinação completa sobre o seu reflexo."
+          chapters={[
+            {
+              number: "01",
+              title: "Enquadramento em modo espelho inteligente",
+              text: "A Realidade Aumentada reconhece a silhueta e posiciona graficamente itens do seu acervo digital.",
+            },
+            {
+              number: "02",
+              title: "Físico e virtual na mesma cena",
+              text: "Valide caimento, contraste cromático e proporção combinando a peça da loja com o que já está em casa.",
+            },
+          ]}
+        />
+      </div>
+    ),
   },
   {
     id: "comunidade",
-    number: "3.5",
-    title: "Inspiração também é troca.",
+    anchorId: "modulo-comunidade",
+    number: "Módulo 3.5",
+    title: "Feed Social Comunitário.",
     summary:
-      "O feed aproxima pessoas, looks e referências sem tirar do usuário o controle sobre a privacidade.",
+      "Rede de inspiração e prova social integrada ao guarda-roupa virtual, unindo descoberta qualificada por perfil físico/cromático e governança estrita de privacidade.",
     icon: UsersRound,
     steps: [
-      ["3.5.1 · Publicação", "Compartilhe looks com descrições e tags de ocasião, estilo e paleta."],
-      ["3.5.2 · Curadoria", "Reaja às publicações e salve referências em painéis privados de inspiração."],
-      ["3.5.3 · Busca e privacidade", "Explore looks por tipo de corpo ou cartela e escolha se o perfil e as publicações serão públicos ou privados."],
+      [
+        "3.5.1 · Criação de Conteúdo e Compartilhamento de Looks Reais",
+        "Montagem e fotografia de combinações reais publicadas em um feed central, enriquecidas com tags estruturadas de ocasião, estilo e paleta de cores.",
+      ],
+      [
+        "3.5.2 · Engajamento e Curadoria em Moodboards Privados",
+        "Interação por curtidas e reações aliada ao salvamento de looks de terceiros em painéis semânticos privados (moodboards) para consulta posterior como repertório de estilo.",
+      ],
+      [
+        "3.5.3 · Busca Direcionada por Biótipo/Cartela e Chave de Privacidade",
+        "Filtro dedicado para encontrar pessoas com o mesmo biótipo ou a mesma cartela sazonal, acompanhado da chave Perfil Público vs. Privado (RN05).",
+      ],
     ],
-    requirements: "RF14–RF15 e RN05",
+    requirements: "RF14–RF15 · RN05",
+    visual: (
+      <div className="product-module__visual">
+        <Community />
+      </div>
+    ),
   },
   {
     id: "afiliacao",
-    number: "3.6",
-    title: "Preencher lacunas com intenção.",
+    anchorId: "afiliacao",
+    number: "Módulo 3.6",
+    title: "Afiliação com E-commerces Parceiros — C&A e Lojas Renner.",
     summary:
-      "Quando uma peça complementar pode destravar novas combinações, a recomendação conecta o inventário aos parceiros de varejo.",
+      "Canal estratégico de recomendação e monetização B2B2C voltado para suprir lacunas reais do guarda-roupa com precisão contextual e estoque sincronizado.",
     icon: ShoppingBag,
     steps: [
-      ["3.6.1 · Análise de lacunas", "A IA identifica peças estratégicas ausentes — por exemplo, um tom neutro que combina com várias partes de baixo."],
-      ["3.6.2 · Oferta contextual", "Sugestões de produtos da C&A e da Renner são associadas ao look, com preço e disponibilidade vindos do catálogo do parceiro."],
-      ["3.6.3 · Redirecionamento", "Links de afiliação levam ao e-commerce oficial, com parâmetros de rastreamento. A compra e o checkout ocorrem fora do aplicativo."],
+      [
+        "3.6.1 · Mapeamento Analítico de Lacunas (Gap Analysis)",
+        "O motor de IA audita periodicamente o inventário e identifica ausências estratégicas — como uma peça neutra capaz de destravar dezenas de novas combinações com partes de baixo existentes.",
+      ],
+      [
+        "3.6.2 · Sugestão Contextual Sincronizada via API de Estoque",
+        "Integração com os catálogos da C&A e das Lojas Renner injeta produtos específicos com imagens reais e preços atualizados, ocultando automaticamente itens esgotados (RN03).",
+      ],
+      [
+        "3.6.3 · Redirecionamento Externo e Rastreamento UTM",
+        "Ao tocar no item sugerido, o usuário é direcionado ao e-commerce oficial da marca parceira via link parametrizado (UTM/Afiliação), realizando o checkout no ambiente seguro do varejista.",
+      ],
     ],
-    requirements: "RF11–RF12 e RN03",
+    requirements: "RF11–RF12 · RN03",
+    visual: (
+      <div className="product-module__visual">
+        <div className="affiliation-showcase">
+          <div className="affiliation-showcase__header">
+            <div className="affiliation-showcase__badge">
+              <Store size={18} strokeWidth={1.5} aria-hidden="true" />
+              <span>Gap Analysis · Integração B2B2C</span>
+            </div>
+            <span className="affiliation-showcase__code">RF11 · RF12 · RN03</span>
+          </div>
+          <div className="affiliation-showcase__grid">
+            <div>
+              <h3>Uma peça-chave faltante. Dezenas de novos looks destravados.</h3>
+              <p>
+                Em vez de vitrines genéricas, a recomendação nasce de uma lacuna matemática do
+                acervo pessoal: a plataforma verifica disponibilidade ativa nas APIs de catálogo
+                da <strong>C&amp;A</strong> e das <strong>Lojas Renner</strong> e encaminha o
+                usuário com parâmetros UTM de afiliação — sem intermediar pagamento físico dentro
+                do aplicativo.
+              </p>
+            </div>
+            <div className="affiliation-showcase__partners">
+              <div className="affiliation-partner-pill">
+                <span>Parceiro Varejista 01</span>
+                <strong>C&amp;A Brasil <ArrowUpRight size={14} aria-hidden="true" /></strong>
+                <small>Catálogo sincronizado · Link UTM · Checkout externo</small>
+              </div>
+              <div className="affiliation-partner-pill">
+                <span>Parceiro Varejista 02</span>
+                <strong>Lojas Renner <ArrowUpRight size={14} aria-hidden="true" /></strong>
+                <small>Verificação dinâmica de estoque (RN03) · Sem item esgotado</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
   },
 ];
 
 type ProductContentProps = {
   moduleIds?: string[];
-  showIntroduction?: boolean;
-  showCallouts?: boolean;
 };
 
 export function ProductContent({
   moduleIds = modules.map(({ id }) => id),
-  showIntroduction = true,
-  showCallouts = true,
 }: ProductContentProps = {}) {
   const visibleModules = modules.filter(({ id }) => moduleIds.includes(id));
 
   return (
     <DocumentPage
       embedded
-      eyebrow="03 / Escopo do MVP"
-      index="03"
-      title={<>Da primeira peça ao <em>próximo look.</em></>}
-      description="O documento organiza o produto em seis módulos: perfil e digitalização, inventário, recomendações, paridade em loja, comunidade e afiliação."
+      eyebrow="05 / Seção 3 · Escopo completo do MVP"
+      index="05"
+      title={<>Seis módulos unificados. <em>Uma jornada contínua.</em></>}
+      description="Todos os módulos delimitados para o Produto Mínimo Viável (3.1 a 3.6) organizados em fluxo sequencial, articulando visão computacional, análise de acervo, motor IHE, provador AR, comunidade e varejo parceiro."
     >
-      {showIntroduction && <div className="product-intro-grid">
-        <article className="document-card product-intro-card">
-          <span className="document-card__index">A / PONTO DE PARTIDA</span>
-          <h2>O armário real, em novas perspectivas.</h2>
-          <p>
-            O problema não é apenas escolher uma roupa. É lembrar o que já
-            existe, saber como combinar e decidir com mais segurança quando
-            surge uma peça nova.
-          </p>
-        </article>
-        <article className="document-card product-intro-card product-intro-card--dark">
-          <span className="document-card__index">B / OBJETIVO DO PRODUTO</span>
-          <h2>Mais uso. Menos compra no escuro.</h2>
-          <p>
-            Digitalização, contexto e recomendações ajudam a reativar peças
-            esquecidas, reduzir compras impulsivas e aproveitar melhor o
-            vestuário que a pessoa já possui.
-          </p>
-        </article>
-      </div>}
-
-      <div className="document-section-heading mt-16">
-        <span className="eyebrow">
-          {visibleModules.length} {visibleModules.length === 1 ? "módulo" : "módulos"} · ciclo do produto
-        </span>
-        <h2 className="display-title">Módulos previstos <em>no MVP.</em></h2>
-      </div>
-
       <div className="product-modules">
-        {visibleModules.map(({ id, number, title, summary, icon: Icon, steps, requirements }) => (
-          <section className="product-module" id={id === "comunidade" ? "modulo-comunidade" : id} key={id}>
+        {visibleModules.map(({ id, anchorId, number, title, summary, icon: Icon, steps, requirements, visual }) => (
+          <section className="product-module" id={anchorId} key={id}>
             <div className="product-module__heading">
-              <div className="product-module__icon"><Icon size={20} strokeWidth={1.5} aria-hidden="true" /></div>
+              <div className="product-module__icon">
+                <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
+              </div>
               <span>{number} / {requirements}</span>
             </div>
             <h2>{title}</h2>
@@ -155,34 +324,10 @@ export function ProductContent({
                 </article>
               ))}
             </div>
+            {visual}
           </section>
         ))}
       </div>
-
-      {showCallouts && <aside className="document-callout mt-14">
-        <ChartNoAxesCombined size={19} aria-hidden="true" />
-        <div>
-          <h2>O produto é uma proposta, não um app em produção.</h2>
-          <p>
-            Esta página descreve o escopo do documento acadêmico. A presença de
-            uma funcionalidade no site institucional não significa que ela já
-            tenha backend, dados, integrações ou operação no aplicativo.
-          </p>
-          <Link className="document-text-link" href="/documentacao">
-            Consultar cobertura das seções <ArrowUpRight size={14} aria-hidden="true" />
-          </Link>
-        </div>
-      </aside>}
-
-      {showCallouts && <div className="product-context-strip mt-10">
-        <CloudSun size={18} aria-hidden="true" />
-        <p>
-          <strong>Contexto e responsabilidade:</strong> localização e dados de
-          perfil exigem transparência e controle; veja os requisitos de
-          privacidade e as regras de negócio.
-        </p>
-        <Link href="/#requisitos-funcionais">Ler requisitos <ArrowUpRight size={13} aria-hidden="true" /></Link>
-      </div>}
     </DocumentPage>
   );
 }

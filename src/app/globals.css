@@ -976,3 +976,798 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-event
 	.documentation-entry__initial { grid-column: 2; grid-row: 2; }
 	.documentation-entry__arrow { grid-column: 3; grid-row: 1 / span 2; }
 }
+
+
+/* ===== Reestruturação em 8 Atos: Alinhamento Documental Integral ===== */
+
+/* Ato 02: Cenários As-Is vs To-Be e Justificativa (CPU + Base Vetorial) */
+.problem-scenarios {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+	width: min(100% - 80px, 1360px);
+	margin: 56px auto 0;
+}
+.problem-scenario-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 24px;
+	background: rgba(248, 242, 232, .82);
+	border: 1px solid rgba(110, 80, 30, .42);
+	outline: 1px solid rgba(110, 80, 30, .2);
+	outline-offset: -6px;
+}
+.problem-scenario-card--tobe {
+	background: var(--night);
+	color: var(--paper);
+	border-color: rgba(194, 160, 90, .65);
+	outline-color: rgba(194, 160, 90, .28);
+}
+.problem-scenario-card__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	color: var(--coral);
+}
+.problem-scenario-card__top > span {
+	font-family: var(--display);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+.problem-scenario-card--tobe .problem-scenario-card__top,
+.problem-scenario-card--tobe .problem-scenario-card__top > span {
+	color: var(--gilt);
+}
+.problem-scenario-card h3 {
+	margin: 18px 0 0;
+	font-family: var(--serif);
+	font-size: clamp(22px, 2.2vw, 29px);
+	font-weight: 500;
+	line-height: 1.08;
+}
+.problem-scenario-card p {
+	margin: 12px 0 0;
+	color: #5d5848;
+	font-size: 11.5px;
+	line-height: 1.75;
+}
+.problem-scenario-card--tobe p {
+	color: #c5c2b6;
+}
+
+.solution-justification {
+	padding: 56px 0 72px;
+	background: var(--paper);
+	border-bottom: 1px solid rgba(110, 80, 30, .28);
+}
+.solution-justification__inner {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+	width: min(100% - 80px, 1360px);
+	margin: auto;
+}
+.solution-pillar-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 25px;
+	background: #efe6d2;
+	border: 1px solid rgba(110, 80, 30, .48);
+	outline: 1px solid rgba(110, 80, 30, .22);
+	outline-offset: -6px;
+}
+.solution-pillar-card__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	color: var(--coral);
+}
+.solution-pillar-card__top > span {
+	font-family: var(--display);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+.solution-pillar-card h3 {
+	margin: 18px 0 0;
+	font-family: var(--serif);
+	font-size: clamp(23px, 2.3vw, 30px);
+	font-weight: 500;
+	line-height: 1.06;
+}
+.solution-pillar-card p {
+	margin: 10px 0 0;
+	color: #62645c;
+	font-size: 11.5px;
+	line-height: 1.75;
+}
+
+/* Ato 03: Personas enriquecidas com citações, tags e pranchas PNG */
+.person-card {
+	scroll-margin-top: 28px;
+}
+.person-card__quote {
+	margin: 16px 0 0;
+	padding: 13px 15px;
+	border-left: 3px solid var(--coral);
+	background: rgba(194, 160, 90, .12);
+	color: var(--ink);
+	font-family: var(--serif);
+	font-size: 18px;
+	font-style: italic;
+	line-height: 1.28;
+}
+.person-card__block h3 {
+	margin: 20px 0 0;
+	font-family: var(--serif);
+	font-size: 21px;
+	font-weight: 500;
+}
+.person-card__block p {
+	margin: 8px 0 0;
+	color: #62645c;
+	font-size: 11px;
+	line-height: 1.72;
+}
+.person-card__block ol {
+	margin: 9px 0 0;
+}
+.person-card__meta {
+	display: grid;
+	gap: 12px;
+	margin-top: 18px;
+	border-top: 1px solid #151a1f20;
+	padding-top: 14px;
+}
+.person-card__meta span,
+.person-card__tags > span {
+	display: block;
+	color: var(--coral);
+	font-family: var(--display);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: .15em;
+	text-transform: uppercase;
+}
+.person-card__meta p {
+	margin: 5px 0 0;
+	color: #5d5848;
+	font-size: 11px;
+	line-height: 1.65;
+}
+.person-card__meta strong {
+	display: inline-block;
+	margin-top: 5px;
+	color: var(--ink);
+	font-size: 11px;
+}
+.person-card__tags {
+	margin-top: 16px;
+}
+.person-card__tags ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 8px 0 0;
+	padding: 0;
+	list-style: none;
+}
+.person-card__tags li {
+	padding: 5px 9px;
+	border: 1px solid rgba(110, 80, 30, .4);
+	background: rgba(255, 255, 255, .45);
+	color: var(--ink);
+	font-size: 9.5px;
+	font-weight: 600;
+}
+.person-card__actions {
+	margin-top: auto;
+	padding-top: 18px;
+}
+.person-card__board-link {
+	display: inline-flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 11px 14px;
+	border: 1px solid rgba(110, 80, 30, .5);
+	background: var(--ink);
+	color: var(--paper);
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	transition: background .2s ease;
+}
+.person-card__board-link:hover {
+	background: var(--coral);
+}
+
+/* Ato 04: Modelo de negócio e memória de cálculo do Break-Even */
+.plan-card__desc {
+	margin: 12px 0 0;
+	max-width: 520px;
+	color: #62645c;
+	font-size: 12px;
+	line-height: 1.72;
+}
+.plan-card--premium .plan-card__desc {
+	color: #c5c2b6;
+}
+.plans-b2b-banner {
+	display: grid;
+	grid-template-columns: 46px 1fr;
+	align-items: start;
+	gap: 18px;
+	margin-top: 12px;
+	padding: 24px 26px;
+	background: #efe6d2;
+	border: 1px solid rgba(110, 80, 30, .5);
+	outline: 1px solid rgba(110, 80, 30, .22);
+	outline-offset: -6px;
+}
+.plans-b2b-banner__icon {
+	display: grid;
+	width: 44px;
+	height: 44px;
+	place-items: center;
+	background: var(--ink);
+	color: var(--gilt);
+}
+.plans-b2b-banner span {
+	color: var(--coral);
+	font-family: var(--display);
+	font-size: 9px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+.plans-b2b-banner h3 {
+	margin: 6px 0 0;
+	font-family: var(--serif);
+	font-size: clamp(23px, 2.5vw, 31px);
+	font-weight: 500;
+	line-height: 1.08;
+}
+.plans-b2b-banner p {
+	margin: 8px 0 0;
+	max-width: 920px;
+	color: #62645c;
+	font-size: 12px;
+	line-height: 1.72;
+}
+
+.break-even__header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 18px;
+	color: var(--gilt);
+}
+.break-even__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: 20px;
+}
+.break-even__card {
+	padding: 18px;
+	border: 1px solid rgba(255, 255, 255, .18);
+	background: rgba(255, 255, 255, .04);
+}
+.break-even__card--result {
+	border-color: rgba(194, 160, 90, .65);
+	background: rgba(194, 160, 90, .1);
+}
+.break-even__card > span {
+	display: block;
+	color: var(--gilt);
+	font-family: var(--display);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+}
+.break-even__card > strong {
+	display: block;
+	margin-top: 10px;
+	color: var(--paper);
+	font-family: var(--serif);
+	font-size: 28px;
+	font-weight: 500;
+	line-height: 1;
+}
+.break-even__card p {
+	margin: 8px 0 0;
+	color: #c5c2b6;
+	font-size: 10.5px;
+	line-height: 1.7;
+}
+
+/* Ato 05: Integração visual dentro dos 6 módulos do MVP */
+.product-module__visual {
+	margin-top: 32px;
+}
+.product-module__visual--stack {
+	display: grid;
+	gap: 20px;
+}
+.community-section--embedded {
+	padding: 88px 0;
+}
+.affiliation-showcase {
+	padding: 28px;
+	background: var(--night);
+	color: var(--paper);
+	border: 1px solid rgba(194, 160, 90, .6);
+	outline: 1px solid rgba(194, 160, 90, .28);
+	outline-offset: -6px;
+}
+.affiliation-showcase__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+.affiliation-showcase__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	color: var(--gilt);
+	font-family: var(--display);
+	font-size: 9.5px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+.affiliation-showcase__code {
+	color: #aeb0a6;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: .12em;
+}
+.affiliation-showcase__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+	align-items: center;
+	gap: 28px;
+	margin-top: 22px;
+}
+.affiliation-showcase__grid h3 {
+	margin: 0;
+	font-family: var(--serif);
+	font-size: clamp(26px, 3vw, 38px);
+	font-weight: 500;
+	line-height: 1.05;
+}
+.affiliation-showcase__grid p {
+	margin: 12px 0 0;
+	color: #c5c2b6;
+	font-size: 12px;
+	line-height: 1.75;
+}
+.affiliation-showcase__partners {
+	display: grid;
+	gap: 10px;
+}
+.affiliation-partner-pill {
+	display: grid;
+	gap: 4px;
+	padding: 15px 17px;
+	border: 1px solid rgba(194, 160, 90, .45);
+	background: rgba(255, 255, 255, .05);
+}
+.affiliation-partner-pill > span {
+	color: var(--gilt);
+	font-size: 8.5px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+}
+.affiliation-partner-pill > strong {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--serif);
+	font-size: 23px;
+	font-weight: 500;
+}
+.affiliation-partner-pill > small {
+	color: #b7b9ae;
+	font-size: 10px;
+}
+
+/* Ato 06: Painel Matemático do IHE e Pilares SOA */
+.ihe-math-panel {
+	margin-top: 38px;
+	padding: 30px;
+	border: 1px solid rgba(194, 160, 90, .55);
+	background: rgba(255, 255, 255, .04);
+}
+.ihe-math-panel__eq-main {
+	padding-bottom: 24px;
+	border-bottom: 1px solid rgba(194, 160, 90, .3);
+}
+.ihe-math-panel__tag {
+	display: inline-block;
+	color: var(--gilt);
+	font-family: var(--display);
+	font-size: 9px;
+	font-weight: 600;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+}
+.ihe-formula-block {
+	display: block;
+	margin: 14px 0 12px;
+	padding: 16px 18px;
+	border-left: 3px solid var(--gilt);
+	background: rgba(10, 14, 24, .65);
+	color: #f5ebd2;
+	font-family: Consolas, "Courier New", monospace;
+	font-size: clamp(13px, 1.55vw, 18px);
+	overflow-x: auto;
+}
+.ihe-math-panel__eq-main p {
+	margin: 0;
+	color: #c5c2b6;
+	font-size: 11.5px;
+	line-height: 1.75;
+}
+.ihe-math-panel__eq-main p code {
+	color: var(--gilt);
+	font-family: Consolas, "Courier New", monospace;
+}
+.ihe-math-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+	margin-top: 24px;
+}
+.ihe-math-card {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border: 1px solid rgba(255, 255, 255, .18);
+	background: rgba(255, 255, 255, .03);
+}
+.ihe-math-card__index {
+	color: var(--gilt);
+	font-family: var(--display);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: .15em;
+	text-transform: uppercase;
+}
+.ihe-math-card h3 {
+	margin: 12px 0 0;
+	font-family: var(--serif);
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.08;
+}
+.ihe-math-card p {
+	margin: 10px 0 0;
+	color: #c0c1b9;
+	font-size: 11px;
+	line-height: 1.75;
+}
+.ihe-math-card__formulas {
+	display: grid;
+	gap: 10px;
+	margin-top: 16px;
+	padding-top: 14px;
+	border-top: 1px solid rgba(255, 255, 255, .12);
+}
+.ihe-math-card__formulas small {
+	display: block;
+	margin-bottom: 5px;
+	color: #aeb0a6;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+}
+.ihe-math-card__formulas code {
+	display: block;
+	padding: 10px 12px;
+	border: 1px solid rgba(194, 160, 90, .35);
+	background: rgba(10, 14, 24, .65);
+	color: var(--gilt);
+	font-family: Consolas, "Courier New", monospace;
+	font-size: 11.5px;
+	overflow-x: auto;
+}
+
+.architecture-flow--wide {
+	max-width: 1160px;
+}
+.architecture-layer--pillar {
+	padding: 26px 28px;
+}
+.architecture-layer__bullets {
+	display: grid;
+	gap: 8px;
+	margin: 14px 0 0;
+	padding-left: 18px;
+	color: #5d5848;
+	font-size: 11px;
+	line-height: 1.72;
+}
+.architecture-layer__bullets li::marker {
+	color: var(--coral);
+}
+.architecture-submodules {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: 18px;
+}
+.architecture-submodule {
+	padding: 16px;
+	border-left: 2px solid var(--acid);
+	background: rgba(255, 255, 255, .52);
+}
+.architecture-submodule__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	color: var(--coral);
+	font-size: 8.5px;
+	font-weight: 700;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+.architecture-submodule h4 {
+	margin: 10px 0 0;
+	font-family: var(--serif);
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.1;
+}
+.architecture-submodule p {
+	margin: 7px 0 0;
+	color: #62645c;
+	font-size: 10.5px;
+	line-height: 1.68;
+}
+
+/* Ato 07: Pilares de Confiança embutidos */
+.trust-section--embedded {
+	margin-top: 56px;
+	padding: 72px 0;
+}
+
+/* Ato 08: Referências Fundamentais & Chancela Acadêmica FECAP */
+.institutional-references {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+.institutional-ref-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 26px;
+	background: rgba(248, 242, 232, .76);
+	border: 1px solid rgba(110, 80, 30, .48);
+	outline: 1px solid rgba(110, 80, 30, .22);
+	outline-offset: -6px;
+}
+.institutional-ref-card__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	color: var(--coral);
+}
+.institutional-ref-card__top > span {
+	font-family: var(--display);
+	font-size: 8.5px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+.institutional-ref-card h3 {
+	margin: 18px 0 0;
+	font-family: var(--serif);
+	font-size: clamp(23px, 2.3vw, 30px);
+	font-weight: 500;
+	line-height: 1.08;
+}
+.institutional-ref-card p {
+	margin: 12px 0 0;
+	color: #62645c;
+	font-size: 11.5px;
+	line-height: 1.75;
+}
+
+.institutional-dossier {
+	display: grid;
+	grid-template-columns: minmax(0, 1.35fr) minmax(280px, .75fr);
+	gap: 36px;
+	margin-top: 16px;
+	padding: 36px;
+	background-color: var(--night);
+	background-image:
+		radial-gradient(1.2px 1.2px at 14% 22%, rgba(240, 222, 170, .7), transparent),
+		radial-gradient(1px 1px at 68% 18%, rgba(240, 222, 170, .55), transparent),
+		radial-gradient(1.2px 1.2px at 84% 76%, rgba(240, 222, 170, .6), transparent),
+		radial-gradient(ellipse at 15% 0%, rgba(60, 80, 120, .32), transparent 55%);
+	color: var(--paper);
+	border: 1px solid rgba(194, 160, 90, .65);
+	outline: 1px solid rgba(194, 160, 90, .28);
+	outline-offset: -7px;
+}
+.institutional-dossier__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--gilt);
+	font-family: var(--display);
+	font-size: 9.5px;
+	font-weight: 600;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+}
+.institutional-dossier__main h3 {
+	margin: 18px 0 0;
+	font-family: var(--serif);
+	font-size: clamp(30px, 4vw, 48px);
+	font-weight: 500;
+	line-height: 1;
+}
+.institutional-dossier__main h3 em {
+	color: var(--gilt);
+	font-weight: 500;
+}
+.institutional-dossier__subtitle {
+	margin: 14px 0 0;
+	max-width: 720px;
+	color: #dfd8c4;
+	font-size: 13px;
+	line-height: 1.75;
+}
+.institutional-dossier__note {
+	margin: 18px 0 0;
+	padding: 14px 16px;
+	border-left: 2px solid var(--gilt);
+	background: rgba(255, 255, 255, .05);
+	color: #c5c2b6;
+	font-size: 11px;
+	line-height: 1.75;
+}
+.institutional-dossier__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 24px;
+}
+.institutional-btn {
+	display: inline-flex;
+	min-height: 46px;
+	align-items: center;
+	gap: 9px;
+	padding: 0 20px;
+	font-size: 10.5px;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	transition: background .2s ease, border-color .2s ease;
+}
+.institutional-btn--primary {
+	border: 1px solid #e3c783;
+	background: var(--gilt);
+	color: #151a1f;
+}
+.institutional-btn--primary:hover {
+	background: #ae8d49;
+}
+.institutional-btn--secondary {
+	border: 1px solid rgba(194, 160, 90, .55);
+	background: transparent;
+	color: var(--paper);
+}
+.institutional-btn--secondary:hover {
+	background: rgba(194, 160, 90, .14);
+}
+.institutional-dossier__credits {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+	padding-left: 28px;
+	border-left: 1px solid rgba(194, 160, 90, .3);
+}
+.institutional-credits-block > span {
+	display: block;
+	color: var(--gilt);
+	font-family: var(--display);
+	font-size: 9px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+.institutional-credits-block ul {
+	display: grid;
+	gap: 8px;
+	margin: 12px 0 0;
+	padding: 0;
+	list-style: none;
+}
+.institutional-credits-block li {
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+	font-family: var(--serif);
+	font-size: 21px;
+	line-height: 1.15;
+}
+.institutional-credits-block--advisor strong {
+	display: block;
+	margin-top: 10px;
+	font-family: var(--serif);
+	font-size: 25px;
+	font-weight: 500;
+	line-height: 1.1;
+}
+.institutional-credits-block--advisor small {
+	display: block;
+	margin-top: 5px;
+	color: #aeb0a6;
+	font-size: 10px;
+}
+
+@media (max-width: 960px) {
+	.problem-scenarios,
+	.solution-justification__inner,
+	.break-even__grid,
+	.architecture-submodules,
+	.institutional-references {
+		grid-template-columns: 1fr;
+	}
+	.affiliation-showcase__grid,
+	.ihe-math-grid,
+	.institutional-dossier {
+		grid-template-columns: 1fr;
+	}
+	.institutional-dossier__credits {
+		padding-left: 0;
+		padding-top: 22px;
+		border-left: 0;
+		border-top: 1px solid rgba(194, 160, 90, .3);
+	}
+}
+
+@media (max-width: 767px) {
+	.problem-scenarios,
+	.solution-justification__inner {
+		width: calc(100% - 40px);
+	}
+	.plans-b2b-banner {
+		grid-template-columns: 1fr;
+		padding: 20px;
+	}
+	.ihe-math-panel,
+	.affiliation-showcase,
+	.institutional-dossier {
+		padding: 22px;
+	}
+	.affiliation-showcase__header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.trust-section--embedded {
+		padding: 52px 0;
+	}
+}

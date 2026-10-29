@@ -1,120 +1,282 @@
-import { AlertCircle, Gauge, LockKeyhole, ShieldCheck } from "lucide-react";
+import {
+  Accessibility,
+  AlertCircle,
+  CheckCircle2,
+  Gauge,
+  LockKeyhole,
+  ServerCrash,
+  ShieldCheck,
+} from "lucide-react";
 import { DocumentPage } from "@/components/document-page";
+import { Requirements } from "@/components/requirements";
 
 const functionalRequirements = [
-  ["RF01", "Autenticação e gestão de acesso", "Criação e autenticação segura de contas por e-mail e senha, tokens JWT e gestão de acesso prevista com AWS Cognito."],
-  ["RF02", "Perfil morfológico e colorimetria", "Questionário assistido para registrar o biótipo e executar o teste de colorimetria pessoal."],
-  ["RF03", "Captura e upload de imagens", "Captura pela câmera ou envio de imagens de peças do guarda-roupa."],
-  ["RF04", "Remoção automática de fundo", "Segmentação da fotografia para isolar a roupa em uma imagem com fundo transparente."],
-  ["RF05", "Extração de atributos e metadados", "Estimativa de cores em CIE L*a*b* e catalogação de categoria, estampa e formalidade."],
-  ["RF06", "Guarda-roupa virtual e filtros", "Acervo organizado com filtros por categoria, cor, formalidade e frequência de uso."],
-  ["RF07", "Geração de looks por IHE", "Combinações que consideram acervo, biótipo, cartela cromática e ocasião."],
-  ["RF08", "Captura de peças em lojas", "Fotografia de uma roupa na arara ou no provador para compará-la com o acervo."],
-  ["RF09", "Ranqueamento e análise de paridade", "Lista de itens do acervo com maior compatibilidade com a peça capturada."],
-  ["RF10", "Provador em realidade aumentada", "Sobreposição de itens do armário à imagem do usuário em tempo real."],
-  ["RF11", "Sugestão de peças complementares", "Recomendação de itens que preencham lacunas identificadas nos looks e no acervo."],
-  ["RF12", "Redirecionamento de afiliação", "Links parametrizados para as lojas parceiras; sem checkout de produtos físicos dentro do MVP."],
-  ["RF13", "Feedback de recomendações", "Ações para aprovar, salvar ou descartar combinações sugeridas."],
-  ["RF14", "Feed social e compartilhamento", "Publicação de looks, descrições, reações e salvamento de inspirações."],
-  ["RF15", "Busca e filtros comunitários", "Busca de looks e inspirações publicados pela comunidade."],
-  ["RF16", "Previsão meteorológica", "Consulta de clima e temperatura por API, com geolocalização somente mediante permissão."],
-  ["RF18", "Configurações de conta e perfil", "Edição de dados, biótipo, colorimetria, notificações e recuperação ou alteração de senha."],
+  [
+    "RF01",
+    "Autenticação e Gestão de Acesso",
+    "Permitir criação e autenticação segura de contas via e-mail e senha, com suporte a tokens JWT e controle de acesso gerenciado pelo AWS Cognito.",
+  ],
+  [
+    "RF02",
+    "Perfil Morfológico e Colorimetria",
+    "Disponibilizar questionário assistido para registro do perfil morfológico (biótipo corporal) e execução do teste assistido de colorimetria pessoal.",
+  ],
+  [
+    "RF03",
+    "Captura e Upload de Imagens",
+    "Permitir upload da galeria e captura direta por câmera de imagens das peças físicas do guarda-roupa do usuário.",
+  ],
+  [
+    "RF04",
+    "Remoção Automática de Fundo",
+    "Executar a remoção automática do fundo ambiente das fotos de roupas via modelos de segmentação de imagem, isolando a peça em camada transparente.",
+  ],
+  [
+    "RF05",
+    "Extração de Atributos e Metadados",
+    "Extrair automaticamente os centróides cromáticos dominantes no espaço CIE L*a*b* e catalogar metadados taxonômicos (categoria, estampa e formalidade).",
+  ],
+  [
+    "RF06",
+    "Guarda-roupa Virtual e Filtros",
+    "Disponibilizar visualização estruturada do guarda-roupa virtual com filtros dinâmicos por categoria, cor, formalidade e frequência de uso.",
+  ],
+  [
+    "RF07",
+    "Geração de Looks por IHE",
+    "Calcular o Índice de Harmonia Estética (IHE) e gerar automaticamente combinações completas cruzando acervo pessoal, biótipo, cartela cromática e ocasião informada.",
+  ],
+  [
+    "RF08",
+    "Captura de Peças em Lojas",
+    "Permitir capturar a fotografia de uma peça física em provador ou arara de loja física para comparação imediata com as roupas já cadastradas em casa.",
+  ],
+  [
+    "RF09",
+    "Ranqueamento e Análise de Paridade",
+    "Ranquear e listar as peças do guarda-roupa virtual que possuem maior paridade estética com a nova peça fotografada em loja.",
+  ],
+  [
+    "RF10",
+    "Provador em Realidade Aumentada (AR)",
+    "Disponibilizar simulação de Provador em Realidade Aumentada (AR), sobrepondo graficamente a peça do armário sobre o reflexo do usuário em tempo real.",
+  ],
+  [
+    "RF11",
+    "Sugestão de Peças Complementares",
+    "Sugerir novas peças de vestuário complementares aos looks cadastrados com base em lacunas estratégicas identificadas no acervo do usuário.",
+  ],
+  [
+    "RF12",
+    "Redirecionamento de Afiliação",
+    "Permitir redirecionamento externo para as páginas de compra dos parceiros (C&A e Lojas Renner) via links parametrizados de afiliação, sem checkout in-app no MVP.",
+  ],
+  [
+    "RF13",
+    "Feedback de Recomendações",
+    "Disponibilizar botões de feedback rápido (aprovar/salvar ou descartar) nas combinações sugeridas para retroalimentação contínua do algoritmo de IA.",
+  ],
+  [
+    "RF14",
+    "Feed Social e Compartilhamento",
+    "Disponibilizar feed social onde o usuário publique fotos de seus looks, adicione descrições e interaja com outros membros por reações e salvamento de inspirações.",
+  ],
+  [
+    "RF15",
+    "Busca e Filtros Comunitários",
+    "Possuir mecanismo de busca e filtros no feed comunitário para encontrar inspirações de looks compartilhados por outros membros (incluindo biótipo e cartela).",
+  ],
+  [
+    "RF16",
+    "Integração de Previsão Meteorológica",
+    "Integrar-se a API externa de meteorologia para capturar previsão do tempo e temperatura do dia, utilizando a geolocalização mediante permissão explícita do usuário.",
+  ],
+  [
+    "RF18",
+    "Configurações de Conta e Perfil",
+    "Disponibilizar área de configurações para editar dados pessoais, atualizar biótipo corporal, recalibrar o teste de colorimetria, gerenciar notificações e recuperar ou alterar senha.",
+  ],
 ];
 
 const nonFunctionalRequirements = [
-  ["RNF01", "Privacidade e LGPD", "Consentimento explícito, criptografia AES-256 em repouso, TLS 1.3 em trânsito e exclusão definitiva, incluindo imagens em até 24 horas."],
-  ["RNF02", "Segurança da informação", "Tokens JWT com expiração curta, controle de acesso RBAC e gestão segura de segredos."],
-  ["RNF03", "Desempenho e resposta", "Segmentação e extração cromática em até 3,5 s; geração de looks em menos de 1,5 s sob rede móvel estável."],
-  ["RNF04", "Disponibilidade e resiliência", "SLA de 99,5%, backup diário do PostgreSQL e capacidade de rollback na esteira CI/CD."],
-  ["RNF05", "Qualidade e cobertura de testes", "Mínimo de 80% de cobertura automatizada unitária e de integração (pytest) por sprint; mudanças na branch principal passam por Pull Request aprovado."],
-  ["RNF06", "Usabilidade e aderência ao design", "Cadastro e captura de roupa em no máximo três toques, com interface acessível e experiência mobile."],
+  {
+    id: "RNF01",
+    title: "Privacidade e LGPD (Lei nº 13.709/2018)",
+    detail:
+      "Cumprir integralmente a LGPD, assegurando consentimento explícito no 1º acesso, criptografia AES-256 em repouso, TLS 1.3 em trânsito e módulo de exclusão definitiva com expurgo físico de imagens em até 24 horas.",
+    icon: LockKeyhole,
+  },
+  {
+    id: "RNF02",
+    title: "Segurança da Informação",
+    detail:
+      "Todas as chamadas de API devem ser autenticadas via tokens JWT com tempo de expiração curto, implementando controle de acesso RBAC e gestão segura de segredos no repositório.",
+    icon: ShieldCheck,
+  },
+  {
+    id: "RNF03",
+    title: "Desempenho e Tempo de Resposta",
+    detail:
+      "O processamento de segmentação de imagem e extração cromática não deve ultrapassar 3,5 segundos (≤ 3,5 s), e a geração de looks por IA deve ocorrer em menos de 1,5 segundo (< 1,5 s) sob rede móvel estável.",
+    icon: Gauge,
+  },
+  {
+    id: "RNF04",
+    title: "Disponibilidade e Resiliência",
+    detail:
+      "A infraestrutura em nuvem deve manter SLA de 99,5%, contando com rotinas automatizadas de backup diário do banco PostgreSQL e capacidade de rollback instantâneo na esteira CI/CD.",
+    icon: ServerCrash,
+  },
+  {
+    id: "RNF05",
+    title: "Qualidade e Cobertura de Testes",
+    detail:
+      "Manter cobertura de testes automatizados (unitários e de integração com pytest) de no mínimo 80% por sprint, bloqueando merges diretos na branch main sem Pull Request aprovado.",
+    icon: CheckCircle2,
+  },
+  {
+    id: "RNF06",
+    title: "Usabilidade e Aderência de Design",
+    detail:
+      "O fluxo de cadastro e foto de peças deve requerer no máximo 3 toques na tela, aderindo aos padrões visuais e de acessibilidade validados nos protótipos.",
+    icon: Accessibility,
+  },
 ];
 
 const businessRules = [
-  ["RN01", "Isolamento estrito de dados", "Cada pessoa só acessa suas próprias peças, fotos e looks; o documento prevê isolamento multi-tenant."],
-  ["RN02", "Cota do plano gratuito", "Até 30 peças e cinco combinações diárias por IA; ao chegar ao limite, o app informa a opção Premium."],
-  ["RN03", "Estoque de produtos parceiros", "Sugestões e links deixam de aparecer quando o item estiver indisponível no inventário do parceiro."],
-  ["RN04", "Direito ao esquecimento", "Excluir a conta revoga credenciais, remove registros e solicita exclusão definitiva das imagens no S3."],
-  ["RN05", "Visibilidade e privacidade", "A pessoa escolhe entre perfil e publicações públicos ou privados."],
+  [
+    "RN01",
+    "Isolamento Estrito de Dados",
+    "Um usuário só tem visibilidade sobre as peças, fotos e looks vinculados à própria conta, respeitando a arquitetura Multi-Tenant isolada.",
+  ],
+  [
+    "RN02",
+    "Limite da Cota Freemium",
+    "Usuários no plano gratuito podem cadastrar até 30 peças e solicitar até 5 combinações diárias por IA; ao atingir o teto, o sistema emite alerta de upgrade ao plano Premium.",
+  ],
+  [
+    "RN03",
+    "Verificação Dinâmica de Estoque Parceiro",
+    "Links de recomendação externa (C&A e Lojas Renner) são ocultados automaticamente caso o produto atinja status de esgotado no inventário do parceiro.",
+  ],
+  [
+    "RN04",
+    "Direito ao Esquecimento e Eliminação Física",
+    "A solicitação formal de exclusão de conta revoga todas as credenciais ativas, apaga os registros no banco relacional e deleta definitivamente as imagens no bucket Amazon S3.",
+  ],
+  [
+    "RN05",
+    "Controle de Privacidade e Visibilidade de Perfil",
+    "O usuário define a visibilidade do perfil e das publicações, alternando livremente entre modo “Público” (visível no feed comunitário) e “Privado” (visível apenas para si).",
+  ],
 ];
 
 export function RequirementsContent() {
   return (
     <DocumentPage
       embedded
-      eyebrow="04 / Escopo verificável"
-      index="04"
-      title={<>O que o sistema faz. <em>E o que precisa garantir.</em></>}
-      description="A documentação separa os serviços esperados (RF), os critérios de qualidade (RNF) e as políticas que determinam como a HarmonIA deve se comportar (RN)."
+      eyebrow="07 / Seção 4 · Especificação de engenharia de software"
+      index="07"
+      title={<>Escopo verificável. <em>Garantias mensuráveis.</em></>}
+      description="Consolidação dos 4 pilares de confiança com os Quadros 1, 2 e 3 da documentação oficial: Requisitos Funcionais (RF), Requisitos Não Funcionais (RNF) e Regras de Negócio (RN)."
     >
-      <section className="requirements-summary" aria-label="Resumo dos requisitos">
-        <div><strong>17</strong><span>requisitos funcionais listados no PDF</span></div>
-        <div><strong>06</strong><span>requisitos não funcionais</span></div>
-        <div><strong>05</strong><span>regras de negócio</span></div>
+      <section className="requirements-summary" aria-label="Resumo quantitativo da especificação">
+        <div>
+          <strong>17</strong>
+          <span>Requisitos Funcionais (Quadro 1 · RF01–RF18)</span>
+        </div>
+        <div>
+          <strong>06</strong>
+          <span>Requisitos Não Funcionais (Quadro 2 · RNF01–RNF06)</span>
+        </div>
+        <div>
+          <strong>05</strong>
+          <span>Regras de Negócio (Quadro 3 · RN01–RN05)</span>
+        </div>
       </section>
+
+      <Requirements />
 
       <section id="funcionais" className="requirement-section">
         <div className="document-section-heading">
-          <span className="eyebrow">4.1 / Requisitos funcionais</span>
-          <h2 className="display-title">Serviços que <em>entregam valor.</em></h2>
-          <p>A lista abaixo preserva os identificadores e o escopo descritos no documento do MVP.</p>
+          <span className="eyebrow">4.1 / Quadro 1 — Requisitos Funcionais</span>
+          <h2 className="display-title">
+            Dezessete capacidades <em>essenciais do MVP.</em>
+          </h2>
+          <p>
+            Ações, fluxos de entrada/saída e serviços que o sistema HarmonIA executa da
+            autenticação via AWS Cognito à recalibração morfocromática.
+          </p>
         </div>
+
         <div className="requirements-list">
           {functionalRequirements.map(([id, title, detail]) => (
             <article className="requirement-row" key={id}>
               <span>{id}</span>
-              <div><h3>{title}</h3><p>{detail}</p></div>
+              <div>
+                <h3>{title}</h3>
+                <p>{detail}</p>
+              </div>
             </article>
           ))}
         </div>
+
         <aside className="document-note">
           <AlertCircle size={17} aria-hidden="true" />
           <p>
-            <strong>Observação de origem:</strong> no PDF, a numeração pula de
-            RF16 para RF18. Não foi fornecido um RF17; esta página mantém a
-            lacuna e não cria um requisito por suposição.
+            <strong>Fidelidade documental (numeração original):</strong> no Quadro 1 do documento
+            oficial, a sequência passa diretamente de <strong>RF16</strong> para{" "}
+            <strong>RF18</strong> (sem registro de <code>RF17</code>), totalizando 17 requisitos
+            funcionais preservados com seus identificadores originais.
           </p>
         </aside>
       </section>
 
       <section id="nao-funcionais" className="requirement-section requirement-section--dark">
         <div className="document-section-heading">
-          <span className="eyebrow">4.2 / Requisitos não funcionais</span>
-          <h2 className="display-title">Qualidade também <em>é requisito.</em></h2>
-          <p>Metas mensuráveis ou princípios de operação indicados para o produto.</p>
+          <span className="eyebrow">4.2 / Quadro 2 — Requisitos Não Funcionais</span>
+          <h2 className="display-title">
+            SLAs, criptografia e <em>qualidade automatizada.</em>
+          </h2>
+          <p>
+            Parâmetros técnicos verificáveis de conformidade legal, latência, disponibilidade,
+            testes e ergonomia mobile.
+          </p>
         </div>
+
         <div className="quality-grid">
-          {nonFunctionalRequirements.map(([id, title, detail], index) => {
-            const Icon = [LockKeyhole, ShieldCheck, Gauge][index % 3];
-            return (
-              <article className="quality-card" key={id}>
-                <div><span>{id}</span><Icon size={18} aria-hidden="true" /></div>
-                <h3>{title}</h3>
-                <p>{detail}</p>
-              </article>
-            );
-          })}
+          {nonFunctionalRequirements.map(({ id, title, detail, icon: Icon }) => (
+            <article className="quality-card" key={id}>
+              <div>
+                <span>{id}</span>
+                <Icon size={18} aria-hidden="true" />
+              </div>
+              <h3>{title}</h3>
+              <p>{detail}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section id="regras" className="requirement-section">
         <div className="document-section-heading">
-          <span className="eyebrow">4.3 / Regras de negócio</span>
-          <h2 className="display-title">Limites claros. <em>Controle da pessoa.</em></h2>
+          <span className="eyebrow">4.3 / Quadro 3 — Regras de Negócio</span>
+          <h2 className="display-title">
+            Diretrizes operacionais e <em>soberania do usuário.</em>
+          </h2>
         </div>
+
         <div className="business-rules">
           {businessRules.map(([id, title, detail]) => (
             <article className="business-rule" key={id}>
               <span>{id}</span>
-              <div><h3>{title}</h3><p>{detail}</p></div>
+              <div>
+                <h3>{title}</h3>
+                <p>{detail}</p>
+              </div>
             </article>
           ))}
         </div>
-        <p className="requirements-footnote">
-          Os valores e controles desta página são requisitos propostos no
-          documento; sua presença aqui não certifica que já estejam ativos em
-          uma aplicação.
-        </p>
       </section>
     </DocumentPage>
   );

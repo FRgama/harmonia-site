@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 890.3670000000001 846.4" width="890.3670000000001" height="846.4" style="--bg:#18181B;--fg:#F4F4F5;--line:#71717A;--muted:#A1A1AA;--surface:#27272A;--border:#3F3F46;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="A" data-to="B" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,93.80000000000001 445.18350000000004,141.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="B" data-to="C" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,195.60000000000002 445.18350000000004,243.60000000000002" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="C" data-to="D" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,297.40000000000003 445.18350000000004,345.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="D" data-to="E" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,399.20000000000005 445.18350000000004,447.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="E" data-to="F" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,501.00000000000006 445.18350000000004,549" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="F" data-to="G" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,602.8000000000001 445.18350000000004,650.8000000000001" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="G" data-to="H" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="445.18350000000004,704.6 445.18350000000004,752.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="node" data-id="A" data-label="1. Hero &amp; Proposta de Valor Instantânea
+(O que é a HarmonIA)" data-shape="rectangle">
+  <rect x="310.8355000000001" y="40" width="268.6959999999999" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">1. Hero &amp; Proposta de Valor Instantânea</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(O que é a HarmonIA)</tspan></text>
+</g>
+<g class="node" data-id="B" data-label="2. O Problema (As-Is), a Solução (To-Be) e o Impacto ESG
+(Seção 1 do PDF: ABVTEX, WhatsApp no provador, Custo por Uso, ODS 12)" data-shape="rectangle">
+  <rect x="209.68900000000014" y="141.8" width="470.9889999999998" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="168.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">2. O Problema (As-Is), a Solução (To-Be) e o Impacto ESG</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Seção 1 do PDF: ABVTEX, WhatsApp no provador, Custo por Uso, ODS 12)</tspan></text>
+</g>
+<g class="node" data-id="C" data-label="3. Para Quem Construímos: As 3 Personas
+(Seção 2 do PDF: Beatriz, Thiago e Rafaela — dores que justificam o escopo)" data-shape="rectangle">
+  <rect x="205.98400000000018" y="243.60000000000002" width="478.3989999999997" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="270.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">3. Para Quem Construímos: As 3 Personas</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Seção 2 do PDF: Beatriz, Thiago e Rafaela — dores que justificam o escopo)</tspan></text>
+</g>
+<g class="node" data-id="D" data-label="4. A Experiência do Produto: Os 6 Módulos do MVP
+(Seção 3 do PDF: 3.1 Onboarding → 3.2 Inventário → 3.3 Combinações → 3.4 Provador/AR → 3.5 Comunidade → 3.6 Afiliação C&amp;A/Renner)" data-shape="rectangle">
+  <rect x="40" y="345.40000000000003" width="810.3670000000001" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="372.3" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">4. A Experiência do Produto: Os 6 Módulos do MVP</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Seção 3 do PDF: 3.1 Onboarding → 3.2 Inventário → 3.3 Combinações → 3.4 Provador/AR → 3.5 Comunidade → 3.6 Afiliação C&amp;A/Renner)</tspan></text>
+</g>
+<g class="node" data-id="E" data-label="5. O Diferencial Científico e Tecnológico: Motor IHE &amp; Arquitetura SOA
+(Seção 5 do PDF: Equações do IHE, CIE L&lt;i&gt;a&lt;/i&gt;b*, pgvector, AWS + FastAPI + Lambda)" data-shape="rectangle">
+  <rect x="185.23600000000005" y="447.20000000000005" width="519.895" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="474.1" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">5. O Diferencial Científico e Tecnológico: Motor IHE &amp; Arquitetura SOA</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Seção 5 do PDF: Equações do IHE, CIE L<tspan font-style="italic">a</tspan>b*, pgvector, AWS + FastAPI + Lambda)</tspan></text>
+</g>
+<g class="node" data-id="F" data-label="6. Engenharia de Software: Requisitos (RF, RNF) e Regras de Negócio (RN)
+(Seção 4 do PDF: LGPD, SLA 99,5%, meta de 3,5s, 80% pytest, Multi-Tenant)" data-shape="rectangle">
+  <rect x="208.2070000000001" y="549" width="473.95299999999986" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="575.9" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">6. Engenharia de Software: Requisitos (RF, RNF) e Regras de Negócio (RN)</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Seção 4 do PDF: LGPD, SLA 99,5%, meta de 3,5s, 80% pytest, Multi-Tenant)</tspan></text>
+</g>
+<g class="node" data-id="G" data-label="7. Modelo de Negócio, Viabilidade Financeira e Cronograma
+(Seção 6 do PDF: Freemium/Afiliação, Cenário A vs. Cenário B TCC, Break-even 10k MAU, Riscos)" data-shape="rectangle">
+  <rect x="141.51700000000005" y="650.8000000000001" width="607.333" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="677.7" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">7. Modelo de Negócio, Viabilidade Financeira e Cronograma</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Seção 6 do PDF: Freemium/Afiliação, Cenário A vs. Cenário B TCC, Break-even 10k MAU, Riscos)</tspan></text>
+</g>
+<g class="node" data-id="H" data-label="8. Referências, Equipe e Chancela FECAP
+(Capa e Seção 7 do PDF: Autores, Orientador, Ciência da Computação e PDF Oficial)" data-shape="rectangle">
+  <rect x="182.2720000000001" y="752.6" width="525.8229999999999" height="53.800000000000004" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="445.18350000000004" y="779.5" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)"><tspan x="445.18350000000004" dy="-3.9000000000000012">8. Referências, Equipe e Chancela FECAP</tspan><tspan x="445.18350000000004" dy="16.900000000000002">(Capa e Seção 7 do PDF: Autores, Orientador, Ciência da Computação e PDF Oficial)</tspan></text>
+</g>
+</svg>

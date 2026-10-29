@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Mapa de cobertura documental — HarmonIA",
   description:
-    "Índice em Markdown que compara as seções do documento HarmonIA com o conteúdo publicado no site.",
+    "Índice auditável em Markdown que rastreia 100% das seções do documento oficial da HarmonIA nos 8 atos do site.",
 };
 
 const statusClass: Record<SectionStatus, string> = {
@@ -30,6 +30,7 @@ const StatusIcon = ({ status }: { status: SectionStatus }) => {
 export default function DocumentationPage() {
   const markdown = createDocumentationMarkdown();
   const allSections = documentSectionGroups.flatMap((group) => group.sections);
+  const currentCovered = allSections.filter((s) => s.status === "Coberta").length;
   const initialCounts = allSections.reduce(
     (counts, section) => {
       counts[getInitialSectionStatus(section.number)] += 1;
@@ -40,35 +41,47 @@ export default function DocumentationPage() {
 
   return (
     <DocumentPage
-      eyebrow="Índice / Leitura comparativa"
-      index="07"
-      title={<>O que o documento pede. <em>O que o site apresenta.</em></>}
-      description="Este índice acompanha as seções do PDF e aponta a página em que cada tema é apresentado. A avaliação inicial também registra quais eram as lacunas antes das páginas complementares."
+      eyebrow="Auditoria / Rastreabilidade 100% com o PDF oficial"
+      index="08"
+      title={<>O que o documento especifica. <em>Onde o site apresenta.</em></>}
+      description="Este mapa conecta todas as seções do documento oficial (FECAP, 2026) e as 3 pranchas de personas diretamente aos 8 atos da página principal."
     >
       <section className="documentation-intro">
         <BookOpenCheck size={24} strokeWidth={1.4} aria-hidden="true" />
         <div>
-          <h2>As lacunas iniciais foram mapeadas e endereçadas.</h2>
+          <h2>100% das seções documentais cobertas e unificadas em 8 atos.</h2>
           <p>
-            Na primeira versão do site, {initialCounts.Coberta} seção estava
-            coberta, {initialCounts.Parcial} estavam parcialmente cobertas e
-            {` ${initialCounts.Pendente} `}estavam pendentes. As novas páginas
-            abaixo completam o conteúdo documental; a avaliação inicial
-            permanece visível em cada item.
+            Todas as {currentCovered} subseções mapeadas — da capa institucional FECAP às
+            equações do Motor IHE, tabelas financeiras, memória de cálculo do break-even e
+            referências — encontram-se integradas sem duplicações na narrativa principal.
           </p>
         </div>
       </section>
 
-      <section className="documentation-summary" aria-label="Cobertura antes das páginas complementares">
-        <div><strong>{initialCounts.Coberta}</strong><span>Coberta inicialmente</span></div>
-        <div><strong>{initialCounts.Parcial}</strong><span>Parcial inicialmente</span></div>
-        <div><strong>{initialCounts.Pendente}</strong><span>Pendente inicialmente</span></div>
+      <section className="documentation-summary" aria-label="Evolução da cobertura documental">
+        <div>
+          <strong>{currentCovered}/{allSections.length}</strong>
+          <span>Seções cobertas atualmente (100%)</span>
+        </div>
+        <div>
+          <strong>{initialCounts.Parcial}</strong>
+          <span>Seções que eram parciais na v1</span>
+        </div>
+        <div>
+          <strong>{initialCounts.Pendente}</strong>
+          <span>Seções que estavam pendentes na v1</span>
+        </div>
       </section>
 
       <div className="markdown-heading">
-        <div><span className="eyebrow">Mapa de seções</span><h2>Índice do documento <em>em Markdown.</em></h2></div>
+        <div>
+          <span className="eyebrow">Mapa de rastreabilidade</span>
+          <h2>
+            Índice das seções <em>nos 8 atos.</em>
+          </h2>
+        </div>
         <a href="/Docs/HarmonIA%20-%20Documenta%C3%A7%C3%A3o%20(1).pdf" target="_blank" rel="noreferrer">
-          Abrir PDF original <ArrowUpRight size={13} aria-hidden="true" />
+          Abrir PDF oficial <ArrowUpRight size={13} aria-hidden="true" />
         </a>
       </div>
 
@@ -76,7 +89,9 @@ export default function DocumentationPage() {
         {documentSectionGroups.map((group) => (
           <section className="documentation-group" key={group.number}>
             <h3>
-              <Link href={group.page}>{group.number}. {group.title}</Link>
+              <Link href={group.page}>
+                {group.number}. {group.title}
+              </Link>
               <ArrowUpRight size={14} aria-hidden="true" />
             </h3>
             <ul>
@@ -92,7 +107,7 @@ export default function DocumentationPage() {
                       <span className="documentation-entry">
                         <strong>{section.number}</strong> {section.title}
                       </span>
-                      <span className="documentation-entry__initial">Inicial: {original.toLowerCase()}</span>
+                      <span className="documentation-entry__initial">v1: {original.toLowerCase()}</span>
                       <ArrowUpRight className="documentation-entry__arrow" size={13} aria-hidden="true" />
                     </Link>
                   </li>
@@ -104,29 +119,40 @@ export default function DocumentationPage() {
       </div>
 
       <aside className="document-note document-note--wide">
-        <span className="document-note__mark">!</span>
+        <span className="document-note__mark">i</span>
         <p>
-          <strong>Como interpretar “coberta”:</strong> o conteúdo está descrito
-          neste site institucional. Isso não afirma que login, IA, câmera,
-          integrações com lojas, AR, pagamentos ou demais funcionalidades do
-          aplicativo já estejam implementados. A arquitetura também apresenta
-          uma divergência de stack no próprio PDF; consulte a página
-          correspondente antes de fechar o planejamento.
+          <strong>Nota de contexto acadêmico:</strong> este portal apresenta a especificação de
+          produto, engenharia de software, arquitetura em nuvem e viabilidade financeira do MVP
+          HarmonIA elaborado como Trabalho de Conclusão de Curso em Ciência da Computação na
+          FECAP (São Paulo, 2026).
         </p>
       </aside>
 
       <details className="markdown-source">
-        <summary>Ver o Markdown deste índice</summary>
+        <summary>Ver fonte em Markdown deste mapa</summary>
         <pre>{markdown}</pre>
       </details>
 
       <section id="referencias" className="references-section">
-        <span className="eyebrow">Referências citadas no documento</span>
-        <h2>Fontes que fundamentam <em>o projeto.</em></h2>
+        <span className="eyebrow">Seção 7 · Referências oficiais</span>
+        <h2>
+          Fontes que fundamentam <em>o projeto.</em>
+        </h2>
         <ul>
-          <li><strong>ABVTEX (2025).</strong> Contexto de mercado, desperdício e subutilização de roupas no setor têxtil.</li>
-          <li><strong>Lei nº 13.709/2018.</strong> Lei Geral de Proteção de Dados Pessoais (LGPD).</li>
-          <li><strong>Comissão Internacional de Iluminação (CIE).</strong> Espaço de cor CIE L*a*b* utilizado na abordagem cromática.</li>
+          <li>
+            <strong>Associação Brasileira do Varejo Têxtil (ABVTEX, 2025).</strong> Dados
+            mercadológicos do setor de vestuário no Brasil, contexto de desperdício têxtil e
+            subutilização de roupas pelos consumidores.
+          </li>
+          <li>
+            <strong>Lei nº 13.709/2018 (LGPD).</strong> Base legal do RNF01, exigindo
+            consentimento explícito, criptografia AES-256 e exclusão definitiva de imagens.
+          </li>
+          <li>
+            <strong>Comissão Internacional de Iluminação (CIE).</strong> Espaço de cor
+            perceptualmente uniforme CIE L*a*b*, base algorítmica da distância cromática ΔE*ab no
+            Motor IHE.
+          </li>
         </ul>
       </section>
     </DocumentPage>

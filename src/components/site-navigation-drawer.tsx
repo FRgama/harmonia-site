@@ -33,7 +33,7 @@ export function SiteNavigationDrawer() {
         onClick={() => setIsOpen(true)}
       >
         <Menu size={17} aria-hidden="true" />
-        <span>Páginas</span>
+        <span>8 Atos</span>
       </button>
       <dialog
         id="site-navigation-dialog"
@@ -63,8 +63,8 @@ export function SiteNavigationDrawer() {
         <div className="site-navigation-dialog__inner">
           <div className="site-navigation-dialog__header">
             <div>
-              <span className="eyebrow">Explore a HarmonIA</span>
-              <h2 id="site-navigation-title">Navegue por tema.</h2>
+              <span className="eyebrow">Estrutura em 8 Atos</span>
+              <h2 id="site-navigation-title">Navegue pela HarmonIA.</h2>
             </div>
             <button
               type="button"
@@ -76,11 +76,11 @@ export function SiteNavigationDrawer() {
               <X size={19} aria-hidden="true" />
             </button>
           </div>
-          <nav aria-label="Todas as páginas por tema" className="site-navigation-groups">
+          <nav aria-label="Todos os 8 atos do projeto" className="site-navigation-groups">
             {topicGroups.map(({ number, title, links }) => (
               <section className="site-navigation-group" key={number}>
                 <h3>
-                  <span>{number}</span>
+                  <span>ATO {number}</span>
                   {title}
                 </h3>
                 <ul>
@@ -97,7 +97,7 @@ export function SiteNavigationDrawer() {
             ))}
           </nav>
           <Link className="site-navigation-index-link" href="/explorar" onClick={closeDrawer}>
-            Ver índice temático completo
+            Ver índice completo dos 8 atos
             <ArrowUpRight size={14} aria-hidden="true" />
           </Link>
         </div>
