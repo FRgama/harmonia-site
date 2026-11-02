@@ -34,7 +34,7 @@ export function Community() {
       <div className="community-section__inner">
         <div className="community-section__heading">
           <div>
-            <span className="eyebrow">Experiência Social · Módulo 3.5 em ação</span>
+            <span className="eyebrow">Experiência Social · Módulo 5.5 em ação</span>
             <ScrollReveal>
               <h2 className="display-title">
                 Inspiração de quem veste <em>como você.</em>

@@ -26,12 +26,13 @@ const PLANS = [
     unit: "acervo & IA ilimitados",
     title: "O guarda-roupa inteiro, sem limites diários.",
     description:
-      "Desbloqueia peças cadastradas e gerações de looks por IA ilimitadas. O valor de R$ 19,90/mês é adotado como referência nas premissas operacionais de equilíbrio (Seção 6.7).",
+      "Desbloqueia peças cadastradas e gerações de looks por IA ilimitadas, além de acesso contínuo à paridade em loja e à experiência de Realidade Aumentada. R$ 19,90/mês é o valor de referência nas projeções operacionais (Seção 3.7.3).",
     items: [
       "Peças cadastradas ilimitadas",
       "Combinações diárias por IA ilimitadas",
       "Referência operacional: R$ 19,90/mês",
       "Dashboards completos de Custo por Uso e cápsulas",
+      "Paridade por câmera e provador em Realidade Aumentada",
     ],
   },
 ];
@@ -39,18 +40,23 @@ const PLANS = [
 const REVENUE = [
   [
     "01",
-    "Recorrência B2C (Freemium → Premium)",
-    "Conversão estimada de 5% dos usuários ativos para assinatura mensal, sustentando a receita recorrente previsível.",
+    "Assinatura Freemium → Premium (B2C)",
+    "Até 30 peças e 5 looks por dia no plano gratuito; assinatura recorrente para ampliar o acervo e liberar recursos avançados.",
   ],
   [
     "02",
-    "Afiliação B2B2C (C&A e Lojas Renner)",
-    "Recomendação contextual para suprir lacunas estratégicas do armário (Gap Analysis), com comissão sobre vendas via links parametrizados (UTM).",
+    "Comissão por afiliação (B2B2C)",
+    "Recomendações contextuais da C&A e Lojas Renner para suprir lacunas do armário, com comissão por compras feitas via links parametrizados.",
   ],
   [
     "03",
-    "Arquitetura Leve sem Gateway In-App",
-    "Checkout realizado no e-commerce oficial das varejistas parceiras (RF12) com verificação dinâmica de estoque (RN03), eliminando complexidade transacional no MVP.",
+    "Inteligência de moda agregada (B2B)",
+    "Relatórios de tendências, uso e preferências para varejistas e marcas, exclusivamente com dados agregados e anonimizados em conformidade com a LGPD.",
+  ],
+  [
+    "04",
+    "Brechó circular entre usuários (C2C)",
+    "Evolução prevista para anúncios e compra de peças seminovas compatíveis com o perfil, com comissão de intermediação e reaproveitamento dos dados do acervo.",
   ],
 ];
 
@@ -60,7 +66,7 @@ export function Plans() {
       <div className="plans-section__inner">
         <div className="plans-section__heading">
           <div>
-            <span className="eyebrow">Monetização / Freemium (RN02) & Afiliação B2B2C</span>
+            <span className="eyebrow">3.5 / Quatro fontes de receita complementares</span>
             <ScrollReveal>
               <h2 className="display-title">
                 Comece grátis. Escale com <em>recorrência e varejo.</em>
@@ -68,8 +74,8 @@ export function Plans() {
             </ScrollReveal>
           </div>
           <p>
-            Duas frentes complementares de receita alinham a utilidade diária para o usuário
-            com vendas de alta conversão para varejistas parceiras.
+            Assinaturas e afiliação sustentam a proposta inicial; inteligência de dados e
+            marketplace circular são frentes de expansão previstas no modelo.
           </p>
         </div>
 
@@ -115,7 +121,7 @@ export function Plans() {
           </div>
         </ScrollReveal>
 
-        <div className="plans-section__revenue">
+        <div id="fontes-receita" className="plans-section__revenue">
           {REVENUE.map(([n, title, text]) => (
             <div key={n}>
               <span>{n} / {title}</span>

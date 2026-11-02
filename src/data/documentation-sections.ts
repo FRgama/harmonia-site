@@ -14,124 +14,166 @@ export type DocumentSectionGroup = {
   sections: DocumentSection[];
 };
 
-export function getInitialSectionStatus(number: string): SectionStatus {
-  if (number === "1.1") return "Coberta";
-  if (number === "1.2") return "Parcial";
-  if (number.startsWith("3.")) {
-    return ["3.1.3", "3.2.2", "3.2.3"].includes(number) ? "Pendente" : "Parcial";
-  }
-  if (number.startsWith("4.")) return "Parcial";
-  if (number === "5.2" || number === "5.3") return "Parcial";
-  return "Pendente";
-}
+const covered = (number: string, title: string, page: string): DocumentSection => ({
+  number,
+  title,
+  status: "Coberta",
+  page,
+});
 
 export const documentSectionGroups: DocumentSectionGroup[] = [
   {
     number: "0",
-    title: "Elementos Pré-Textuais (Capa e Folha de Rosto — Ato 08)",
+    title: "Elementos pré-textuais",
     page: "/#autoria-fecap",
     sections: [
-      { number: "0.1", title: "Instituição FECAP e Curso de Ciência da Computação", status: "Coberta", page: "/#autoria-fecap" },
-      { number: "0.2", title: "Autores e Orientador (Prof. Leonardo Fabris Lugoboni)", status: "Coberta", page: "/#autoria-fecap" },
+      covered("0.1", "FECAP e Curso de Ciência da Computação", "/#autoria-fecap"),
+      covered("0.2", "Autores e orientador", "/#autoria-fecap"),
     ],
   },
   {
     number: "1",
-    title: "Introdução (Ato 02 — Visão & ESG)",
+    title: "Introdução",
     page: "/#tema-visao",
     sections: [
-      { number: "1.1", title: "Problema atacado (As-Is: ABVTEX 2025 e WhatsApp no provador) e solução proposta (To-Be)", status: "Coberta", page: "/#parte-problema" },
-      { number: "1.2", title: "Justificativa (patrimônio têxtil relacional/vetorial, Custo por Uso, ODS 12 e varejo)", status: "Coberta", page: "/#solucao" },
+      covered("1.1", "Problema atacado e solução proposta", "/#parte-problema"),
+      covered("1.2", "Justificativa da solução, Custo por Uso, ODS 12 e varejo", "/#solucao"),
     ],
   },
   {
     number: "2",
-    title: "Personas do projeto (Ato 03 — Personas)",
+    title: "Personas do projeto",
     page: "/#tema-pessoas",
     sections: [
-      { number: "2.1", title: "Beatriz Andrade Ferreira — Hard User (Entusiasta de Moda)", status: "Coberta", page: "/#persona-beatriz" },
-      { number: "2.2", title: "Thiago Mendes Costa — Casual User (Usuário Pragmático)", status: "Coberta", page: "/#persona-thiago" },
-      { number: "2.3", title: "Rafaela Souza Lima — Influenciadora de Moda (Criadora e Consultora)", status: "Coberta", page: "/#persona-rafaela" },
+      covered("2.1", "Beatriz Andrade Ferreira · Hard User", "/#persona-beatriz"),
+      covered("2.2", "Thiago Mendes Costa · Casual User", "/#persona-thiago"),
+      covered("2.3", "Rafaela Souza Lima · Influenciadora de Moda", "/#persona-rafaela"),
     ],
   },
   {
     number: "3",
-    title: "Funcionalidades do MVP (Ato 05 — 6 Módulos Unificados)",
-    page: "/#tema-experiencia",
+    title: "Modelo de negócio",
+    page: "/#tema-negocio",
     sections: [
-      { number: "3.1", title: "Onboarding, perfil de estilo e digitalização do acervo", status: "Coberta", page: "/#onboarding" },
-      { number: "3.1.1", title: "Perfil morfológico (5 biótipos) e teste assistido (12 cartelas sazonais)", status: "Coberta", page: "/#onboarding" },
-      { number: "3.1.2", title: "Digitalização ágil por segmentação e remoção de fundo em nuvem", status: "Coberta", page: "/#onboarding" },
-      { number: "3.1.3", title: "Extração de atributos (CIE L*a*b*) e catalogação taxonômica", status: "Coberta", page: "/#onboarding" },
-      { number: "3.2", title: "Dashboards e inventário virtual", status: "Coberta", page: "/#inventario" },
-      { number: "3.2.1", title: "Organização dinâmica em grade e filtros multicritérios", status: "Coberta", page: "/#inventario" },
-      { number: "3.2.2", title: "Dashboard analítico de rotação (30/60/90 dias) e Custo por Uso", status: "Coberta", page: "/#inventario" },
-      { number: "3.2.3", title: "Gestão manual de metadados e cápsulas temáticas", status: "Coberta", page: "/#inventario" },
-      { number: "3.3", title: "Motor de cálculo e IA de combinação estilística", status: "Coberta", page: "/#combinacoes" },
-      { number: "3.3.1", title: "Coleta de variáveis de contexto: telemetria climática e ocasião", status: "Coberta", page: "/#combinacoes" },
-      { number: "3.3.2", title: "Processamento do Índice de Harmonia Estética (IHE)", status: "Coberta", page: "/#combinacoes" },
-      { number: "3.3.3", title: "Interface de recomendação em cards e retroalimentação contínua", status: "Coberta", page: "/#combinacoes" },
-      { number: "3.4", title: "Paridade de peças em provador e Realidade Aumentada (AR)", status: "Coberta", page: "/#provador" },
-      { number: "3.4.1", title: "Captura e análise de similaridade no ponto de venda", status: "Coberta", page: "/#provador" },
-      { number: "3.4.2", title: "Ranqueamento de combinações viáveis com o acervo residencial", status: "Coberta", page: "/#provador" },
-      { number: "3.4.3", title: "Simulação de caimento em AR (“espelho inteligente”)", status: "Coberta", page: "/#provador" },
-      { number: "3.5", title: "Feed social comunitário", status: "Coberta", page: "/#modulo-comunidade" },
-      { number: "3.5.1", title: "Criação de conteúdo e compartilhamento de looks com tags", status: "Coberta", page: "/#modulo-comunidade" },
-      { number: "3.5.2", title: "Engajamento e curadoria em moodboards privados", status: "Coberta", page: "/#modulo-comunidade" },
-      { number: "3.5.3", title: "Busca por mesmo biótipo/cartela e chave Público vs. Privado", status: "Coberta", page: "/#modulo-comunidade" },
-      { number: "3.6", title: "Afiliação com e-commerces parceiros (C&A e Lojas Renner)", status: "Coberta", page: "/#afiliacao" },
-      { number: "3.6.1", title: "Mapeamento analítico de lacunas (Gap Analysis)", status: "Coberta", page: "/#afiliacao" },
-      { number: "3.6.2", title: "Sugestão contextual sincronizada via API de estoque", status: "Coberta", page: "/#afiliacao" },
-      { number: "3.6.3", title: "Redirecionamento e rastreamento via link parametrizado (UTM)", status: "Coberta", page: "/#afiliacao" },
+      covered("3.1", "Proposta de valor B2C e B2B", "/#proposta-valor"),
+      covered("3.1.1", "Proposta de valor para o consumidor final", "/#proposta-valor"),
+      covered("3.1.2", "Proposta de valor corporativa e dados anonimizados", "/#proposta-valor"),
+      covered("3.2", "Segmentos de clientes", "/#segmentos-clientes"),
+      covered("3.2.1", "Segmentação B2C", "/#segmentos-clientes"),
+      covered("3.2.2", "Segmentação B2B", "/#segmentos-clientes"),
+      covered("3.3", "Canais de distribuição, comunicação e parcerias", "/#canais"),
+      covered("3.3.1", "Lojas de aplicativos móveis", "/#canais"),
+      covered("3.3.2", "Redes sociais visuais e marketing de conteúdo", "/#canais"),
+      covered("3.3.3", "Marketing de influência e criadores de moda", "/#canais"),
+      covered("3.3.4", "Feed social comunitário in-app", "/#canais"),
+      covered("3.3.5", "Links de afiliação e parcerias comerciais", "/#canais"),
+      covered("3.3.6", "Canais comerciais diretos e eventos do setor", "/#canais"),
+      covered("3.4", "Relacionamento com clientes", "/#relacionamento"),
+      covered("3.4.1", "Autosserviço inteligente e personalização por IA", "/#relacionamento"),
+      covered("3.4.2", "Engajamento comunitário e co-criação", "/#relacionamento"),
+      covered("3.5", "Fontes de receita e estratégia de monetização", "/#fontes-receita"),
+      covered("3.5.1", "Assinatura Freemium e plano Premium", "/#planos"),
+      covered("3.5.2", "Comissão por afiliação com e-commerces", "/#planos"),
+      covered("3.5.3", "Inteligência agregada de moda e tendências", "/#fontes-receita"),
+      covered("3.5.4", "Brechó integrado e marketplace circular C2C", "/#fontes-receita"),
+      covered("3.6", "Parcerias-chave", "/#parcerias"),
+      covered("3.6.1", "Redes varejistas e e-commerces de moda", "/#parcerias"),
+      covered("3.6.2", "Infraestrutura em nuvem e serviços tecnológicos", "/#parcerias"),
+      covered("3.6.3", "Plataformas globais de distribuição móvel", "/#parcerias"),
+      covered("3.6.4", "Criadores, consultores e entidades setoriais", "/#parcerias"),
+      covered("3.7", "Estrutura de custos e equilíbrio operacional", "/#estrutura-custos"),
+      covered("3.7.1", "Infraestrutura em nuvem e processamento elástico", "/#estrutura-custos"),
+      covered("3.7.2", "Distribuição móvel, aquisição e sustentação", "/#estrutura-custos"),
+      covered("3.7.3", "Escala e ponto de equilíbrio operacional", "/#operacao"),
     ],
   },
   {
     number: "4",
-    title: "Levantamento de requisitos do MVP (Ato 07 — Engenharia de Software)",
-    page: "/#tema-requisitos",
+    title: "Análise de mercado e posicionamento competitivo",
+    page: "/#analise-mercado",
     sections: [
-      { number: "4.1", title: "Quadro 1 — 17 Requisitos Funcionais (RF01 a RF16 e RF18)", status: "Coberta", page: "/#funcionais" },
-      { number: "4.2", title: "Quadro 2 — 6 Requisitos Não Funcionais (RNF01 a RNF06)", status: "Coberta", page: "/#nao-funcionais" },
-      { number: "4.3", title: "Quadro 3 — 5 Regras de Negócio (RN01 a RN05)", status: "Coberta", page: "/#regras" },
+      covered("4.1", "Panorama do setor, tendências e dores do varejo", "/#panorama-mercado"),
+      covered("4.2", "Dimensionamento TAM, SAM e SOM", "/#dimensionamento-mercado"),
+      covered("4.3", "Análise de concorrência", "/#concorrencia"),
+      covered("4.3.1", "Concorrência direta: Acloset e Whering", "/#concorrencia"),
+      covered("4.3.2", "Concorrência indireta e serviços fragmentados", "/#concorrencia"),
+      covered("4.4", "Matriz de benchmarking e diferenciais competitivos", "/#concorrencia"),
     ],
   },
   {
     number: "5",
-    title: "Características técnicas e arquitetura (Ato 06 — Motor IHE & SOA)",
-    page: "/#tema-tecnologia",
+    title: "Funcionalidades do MVP",
+    page: "/#tema-experiencia",
     sections: [
-      { number: "5.1", title: "Arquitetura Orientada a Serviços (SOA) com Loose Coupling", status: "Coberta", page: "/#arquitetura" },
-      { number: "5.1.1", title: "Camada de Visualização (Flutter/Dart, Route 53 e CloudFront)", status: "Coberta", page: "/#arquitetura" },
-      { number: "5.1.2", title: "Lógica do Sistema em 3 módulos (FastAPI/Docker, Lambda e Cognito)", status: "Coberta", page: "/#arquitetura" },
-      { number: "5.1.3", title: "Armazenamento (RDS PostgreSQL + pgvector e S3 privado)", status: "Coberta", page: "/#arquitetura" },
-      { number: "5.2", title: "Quadro 4 — Tecnologias Utilizadas", status: "Coberta", page: "/#tecnologias" },
-      { number: "5.3", title: "Motor de Cálculo do Índice de Harmonia Estética (3 equações completas)", status: "Coberta", page: "/#ihe" },
+      covered("5.1", "Onboarding, perfil de estilo e digitalização", "/#onboarding"),
+      covered("5.1.1", "Perfil morfológico e colorimetria assistida", "/#onboarding"),
+      covered("5.1.2", "Segmentação de imagem e remoção de fundo", "/#onboarding"),
+      covered("5.1.3", "Atributos e catalogação taxonômica", "/#onboarding"),
+      covered("5.2", "Dashboards e inventário virtual", "/#inventario"),
+      covered("5.2.1", "Organização dinâmica e filtros avançados", "/#inventario"),
+      covered("5.2.2", "Rotação de acervo e Custo por Uso", "/#inventario"),
+      covered("5.2.3", "Edição de metadados e cápsulas temáticas", "/#inventario"),
+      covered("5.3", "Motor de cálculo e combinação estilística", "/#combinacoes"),
+      covered("5.3.1", "Variáveis de contexto e telemetria climática", "/#combinacoes"),
+      covered("5.3.2", "Índice de Harmonia Estética (IHE)", "/#combinacoes"),
+      covered("5.3.3", "Recomendações e retroalimentação", "/#combinacoes"),
+      covered("5.4", "Paridade de peças e provador em Realidade Aumentada", "/#provador"),
+      covered("5.4.1", "Captura e similaridade no ponto de venda", "/#provador"),
+      covered("5.4.2", "Ranqueamento de combinações viáveis", "/#provador"),
+      covered("5.4.3", "Simulação de caimento em AR", "/#provador"),
+      covered("5.5", "Feed social comunitário", "/#modulo-comunidade"),
+      covered("5.5.1", "Compartilhamento de looks e tags", "/#modulo-comunidade"),
+      covered("5.5.2", "Engajamento e moodboards privados", "/#modulo-comunidade"),
+      covered("5.5.3", "Busca por afinidade e privacidade", "/#modulo-comunidade"),
+      covered("5.6", "Afiliação com e-commerces parceiros", "/#afiliacao"),
+      covered("5.6.1", "Mapeamento de lacunas (Gap Analysis)", "/#afiliacao"),
+      covered("5.6.2", "Sugestões sincronizadas via catálogo", "/#afiliacao"),
+      covered("5.6.3", "Redirecionamento e rastreamento de afiliação", "/#afiliacao"),
     ],
   },
   {
     number: "6",
-    title: "Estimativa de custo de desenvolvimento (Ato 04 — Negócio & Viabilidade)",
-    page: "/#tema-negocio",
+    title: "Levantamento de requisitos do MVP",
+    page: "/#tema-requisitos",
     sections: [
-      { number: "6.1", title: "Premissas (24 semanas, 12 sprints, US$ 1 = R$ 5,50, U²-Net/rembg)", status: "Coberta", page: "/#premissas" },
-      { number: "6.2", title: "Cenário A: equipe contratada (R$ 354k) e distribuição por módulo", status: "Coberta", page: "/#cenario-a" },
-      { number: "6.3", title: "Infraestrutura e demais custos (R$ 23k em 6 meses)", status: "Coberta", page: "/#outros-custos" },
-      { number: "6.4", title: "Consolidado do Cenário A (≈ R$ 433.550 / R$ 434 mil)", status: "Coberta", page: "/#consolidado" },
-      { number: "6.5", title: "Cenário B: realidade do TCC (≈ R$ 6.038 + 1.920h = R$ 172.800)", status: "Coberta", page: "/#cenario-b" },
-      { number: "6.6", title: "Cronograma sugerido de 24 semanas (Fases 0 a 5)", status: "Coberta", page: "/#cronograma" },
-      { number: "6.7", title: "Custo operacional (1k/10k/50k MAU) e memória do Break-Even (10k MAU)", status: "Coberta", page: "/#operacao" },
-      { number: "6.8", title: "Riscos, Cenário Enxuto (≈ R$ 364 mil) e trade-off Lambda 3,5 s", status: "Coberta", page: "/#riscos" },
-      { number: "6.9", title: "Próximos passos executivos", status: "Coberta", page: "/#proximos-passos" },
+      covered("6.1", "17 Requisitos Funcionais (RF01–RF16 e RF18)", "/#funcionais"),
+      covered("6.2", "6 Requisitos Não Funcionais (RNF01–RNF06)", "/#nao-funcionais"),
+      covered("6.3", "5 Regras de Negócio (RN01–RN05)", "/#regras"),
     ],
   },
   {
     number: "7",
-    title: "Referências (Ato 08 — Referências & Chancela FECAP)",
+    title: "Características técnicas e arquitetura",
+    page: "/#tema-tecnologia",
+    sections: [
+      covered("7.1", "Arquitetura Orientada a Serviços (SOA)", "/#arquitetura"),
+      covered("7.1.1", "Camada de visualização", "/#arquitetura"),
+      covered("7.1.2", "Lógica do sistema em módulos autônomos", "/#arquitetura"),
+      covered("7.1.3", "Armazenamento relacional, vetorial e de mídia", "/#arquitetura"),
+      covered("7.2", "Tecnologias utilizadas", "/#tecnologias"),
+      covered("7.3", "Motor de cálculo do Índice de Harmonia Estética", "/#ihe"),
+    ],
+  },
+  {
+    number: "8",
+    title: "Estimativa de custo de desenvolvimento",
+    page: "/#tema-negocio",
+    sections: [
+      covered("8.1", "Premissas de prazo, escopo, equipe, câmbio e IA", "/#premissas"),
+      covered("8.2", "Cenário A: equipe contratada e custos de mercado", "/#cenario-a"),
+      covered("8.3", "Cenário B: realidade do TCC", "/#cenario-b"),
+      covered("8.4", "Cronograma sugerido de 24 semanas", "/#cronograma"),
+      covered("8.5", "Riscos e medidas de redução de custos", "/#riscos"),
+      covered("8.6", "Próximos passos executivos", "/#proximos-passos"),
+    ],
+  },
+  {
+    number: "9",
+    title: "Referências e links",
     page: "/#tema-institucional",
     sections: [
-      { number: "7.1", title: "Associação Brasileira do Varejo Têxtil (ABVTEX, 2025)", status: "Coberta", page: "/#referencias-home" },
-      { number: "7.2", title: "Lei Geral de Proteção de Dados Pessoais — Lei nº 13.709/2018 (LGPD)", status: "Coberta", page: "/#referencias-home" },
-      { number: "7.3", title: "Comissão Internacional de Iluminação — Espaço CIE L*a*b*", status: "Coberta", page: "/#referencias-home" },
+      covered("9.1", "Referências: ABVTEX, LGPD, CIE, ABIT, IEMI e McKinsey/BoF", "/#referencias-home"),
+      covered("9.2", "Site do projeto e apresentação", "/documentacao#links-projeto"),
     ],
   },
 ];
@@ -139,31 +181,25 @@ export const documentSectionGroups: DocumentSectionGroup[] = [
 export function createDocumentationMarkdown() {
   const sections = documentSectionGroups.map((group) => {
     const heading = `## ${group.number}. ${group.title}`;
-    const entries = group.sections.map((section) => {
-      const checkbox = section.status === "Coberta" ? "x" : " ";
-      const previousStatus = getInitialSectionStatus(section.number).toLowerCase();
-      return `- [${checkbox}] **${section.number} ${section.title}** — cobertura atual: ${section.status.toLowerCase()}; avaliação inicial: ${previousStatus}. [Abrir](${section.page})`;
-    });
+    const entries = group.sections.map(
+      (section) =>
+        `- [x] **${section.number} ${section.title}** — cobertura atual: ${section.status.toLowerCase()}. [Abrir](${section.page})`,
+    );
     return [heading, ...entries].join("\n");
   });
 
   return [
-    "# HarmonIA — Mapa de Cobertura Documental (Estrutura em 8 Atos)",
+    "# HarmonIA — Mapa de Cobertura Documental",
     "",
-    "> Rastreabilidade integral entre o documento oficial do TCC em Ciência da Computação (FECAP, 2026), as 3 pranchas de personas e os 8 atos da página principal.",
+    "> Rastreabilidade entre o documento do produto (FECAP, 2026) e os oito atos da página principal.",
     "",
     ...sections.flatMap((section) => [section, ""]),
     "## Notas de fidelidade documental",
     "",
-    "- A página principal organiza o conteúdo em 8 atos estratégicos, posicionando Personas (Ato 03) e Modelo de Negócio/Viabilidade (Ato 04) imediatamente antes da Experiência unificada dos 6 Módulos do MVP (Ato 05).",
-    "- A arquitetura técnica oficial (Seções 5.1 e 5.2) especifica Flutter/Dart, enquanto as premissas orçamentárias (Seção 6.1) citam React Native/TypeScript como referência salarial equivalente.",
-    "- No Quadro 1 do PDF original, a numeração passa de RF16 para RF18 (17 requisitos funcionais no total), preservada fielmente no Ato 07.",
-    "",
-    "## Referências fundamentais",
-    "",
-    "- Associação Brasileira do Varejo Têxtil (ABVTEX, 2025) — dados mercadológicos e subutilização têxtil.",
-    "- Lei nº 13.709/2018 — Lei Geral de Proteção de Dados Pessoais (LGPD).",
-    "- Comissão Internacional de Iluminação (CIE) — espaço de cor perceptualmente uniforme CIE L*a*b*.",
+    "- A numeração deste mapa segue os capítulos originais do documento; os atos do site agrupam esses capítulos em uma narrativa própria.",
+    "- A arquitetura técnica (Seção 7) especifica Flutter/Dart, enquanto as premissas orçamentárias (Seção 8.1) usam React Native/TypeScript como referência de custo.",
+    "- No Quadro 2, a numeração dos requisitos funcionais passa de RF16 para RF18; os 17 identificadores foram preservados.",
+    "- Valores e projeções de mercado são premissas do documento e devem ser validados com as fontes e cotações vigentes.",
     "",
   ].join("\n");
 }

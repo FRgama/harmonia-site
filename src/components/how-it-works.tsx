@@ -72,7 +72,7 @@ export function HowItWorks() {
             </p>
           </div>
           <span className="absolute right-5 top-5 border border-[#c2a05a]/50 bg-[#efe6d2] px-3 py-2 text-[9px] font-bold uppercase text-[#151a1f] md:right-8 md:top-8">
-            Jornada do MVP · 3.1 a 3.6
+            Jornada do MVP · 5.1 a 5.6
           </span>
         </div>
       </div>

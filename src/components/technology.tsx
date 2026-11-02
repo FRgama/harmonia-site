@@ -45,7 +45,7 @@ export function Technology() {
         <ScrollReveal>
           <div className="technology-section__heading">
             <div>
-              <span className="eyebrow">5.3 / Motor de Cálculo do Índice de Harmonia Estética (IHE)</span>
+              <span className="eyebrow">7.3 / Motor de Cálculo do Índice de Harmonia Estética (IHE)</span>
               <h2 className="display-title">
                 Modelagem determinística <em>multivariada.</em>
               </h2>

@@ -35,17 +35,22 @@ export const topicGroups = [
   },
   {
     number: "04",
-    title: "Modelo de negócio e viabilidade",
+    title: "Mercado, negócio e viabilidade",
     description:
-      "Freemium/Premium e afiliação C&A e Renner, Cenários A e B, cronograma de 24 semanas e break-even em 10k MAU.",
+      "Análise de mercado e concorrência, proposta de valor B2C/B2B, canais, parcerias, receitas, custos e execução do MVP.",
     links: [
-      { href: "/#tema-negocio", label: "Modelo de negócio e finanças" },
-      { href: "/#planos", label: "Freemium, Premium e afiliação" },
+      { href: "/#tema-negocio", label: "Visão geral do mercado e negócio" },
+      { href: "/#analise-mercado", label: "Panorama e posicionamento competitivo" },
+      { href: "/#dimensionamento-mercado", label: "Dimensionamento TAM, SAM e SOM" },
+      { href: "/#modelo-negocio-detalhado", label: "Proposta de valor e segmentos" },
+      { href: "/#canais", label: "Canais de distribuição e comunicação" },
+      { href: "/#parcerias", label: "Parcerias estratégicas" },
+      { href: "/#planos", label: "Fontes de receita" },
       { href: "/#cenario-a", label: "Cenário A (mercado · R$ 434 mil)" },
       { href: "/#cenario-b", label: "Cenário B (TCC · R$ 6 mil + horas)" },
       { href: "/#cronograma", label: "Cronograma de 24 semanas" },
       { href: "/#operacao", label: "Operação e break-even (10k MAU)" },
-      { href: "/#riscos", label: "Riscos e cenário enxuto" },
+      { href: "/#riscos", label: "Riscos e próximos passos" },
     ],
   },
   {
@@ -55,12 +60,12 @@ export const topicGroups = [
       "Jornada completa do produto unificada em sequência, do onboarding morfocromático à afiliação varejista.",
     links: [
       { href: "/#tema-experiencia", label: "Visão geral da experiência" },
-      { href: "/#onboarding", label: "3.1 Onboarding e digitalização" },
-      { href: "/#inventario", label: "3.2 Dashboards e inventário" },
-      { href: "/#combinacoes", label: "3.3 Combinações por IA" },
-      { href: "/#provador", label: "3.4 Paridade em loja e AR" },
-      { href: "/#modulo-comunidade", label: "3.5 Feed social comunitário" },
-      { href: "/#afiliacao", label: "3.6 Afiliação C&A e Renner" },
+      { href: "/#onboarding", label: "5.1 Onboarding e digitalização" },
+      { href: "/#inventario", label: "5.2 Dashboards e inventário" },
+      { href: "/#combinacoes", label: "5.3 Combinações por IA" },
+      { href: "/#provador", label: "5.4 Paridade em loja e AR" },
+      { href: "/#modulo-comunidade", label: "5.5 Feed social comunitário" },
+      { href: "/#afiliacao", label: "5.6 Afiliação C&A e Renner" },
     ],
   },
   {
@@ -70,9 +75,9 @@ export const topicGroups = [
       "Equações matemáticas do IHE (CIE L*a*b* e pgvector) e os 3 pilares da arquitetura desacoplada na AWS.",
     links: [
       { href: "/#tema-tecnologia", label: "Diferencial científico e técnico" },
-      { href: "/#ihe", label: "5.3 Equações do Motor IHE" },
-      { href: "/#arquitetura", label: "5.1 Arquitetura SOA em 3 pilares" },
-      { href: "/#tecnologias", label: "5.2 Quadro 4 de tecnologias" },
+      { href: "/#ihe", label: "7.3 Equações do Motor IHE" },
+      { href: "/#arquitetura", label: "7.1 Arquitetura SOA em 3 pilares" },
+      { href: "/#tecnologias", label: "7.2 Quadro 5 de tecnologias" },
     ],
   },
   {
@@ -83,21 +88,21 @@ export const topicGroups = [
     links: [
       { href: "/#tema-requisitos", label: "Engenharia de requisitos" },
       { href: "/#privacidade", label: "Quatro pilares de confiança" },
-      { href: "/#funcionais", label: "4.1 Requisitos funcionais (RF)" },
-      { href: "/#nao-funcionais", label: "4.2 Requisitos não funcionais (RNF)" },
-      { href: "/#regras", label: "4.3 Regras de negócio (RN)" },
+      { href: "/#funcionais", label: "6.1 Requisitos funcionais (RF)" },
+      { href: "/#nao-funcionais", label: "6.2 Requisitos não funcionais (RNF)" },
+      { href: "/#regras", label: "6.3 Regras de negócio (RN)" },
     ],
   },
   {
     number: "08",
     title: "Referências e chancela FECAP",
     description:
-      "Fontes fundamentais (ABVTEX, LGPD e CIE), autoria acadêmica em Ciência da Computação e PDF oficial.",
+      "Referências (ABVTEX, ABIT, IEMI, LGPD, CIE e McKinsey/BoF), autoria acadêmica e documento oficial.",
     links: [
       { href: "/#tema-institucional", label: "Fundamentação e autoria" },
-      { href: "/#referencias-home", label: "Referências (ABVTEX, LGPD, CIE)" },
-      { href: "/#autoria-fecap", label: "Equipe, orientador e PDF oficial" },
-      { href: "/documentacao", label: "Mapa de cobertura do PDF" },
+      { href: "/#referencias-home", label: "Referências (ABVTEX, ABIT, IEMI, LGPD, CIE)" },
+      { href: "/#autoria-fecap", label: "Equipe, orientador e documento oficial" },
+      { href: "/documentacao", label: "Mapa de cobertura documental" },
     ],
   },
 ] as const;

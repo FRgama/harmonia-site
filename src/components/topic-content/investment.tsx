@@ -17,7 +17,7 @@ const moduleCosts = [
   ["Inventário e dashboards", "RF06", "10%", "R$ 35.400"],
   ["Motor IHE e combinações", "RF07, RF13", "18%", "R$ 63.720"],
   ["Provador, paridade e AR", "RF08–RF10", "20%", "R$ 70.800"],
-  ["Feed social", "Módulo 3.5", "7%", "R$ 24.780"],
+  ["Feed social", "Módulo 5.5", "7%", "R$ 24.780"],
   ["Afiliação e recomendação de peças", "RF11, RF12", "5%", "R$ 17.700"],
 ];
 
@@ -73,7 +73,7 @@ export function InvestmentContent() {
   return (
     <DocumentPage
       embedded
-      eyebrow="04 / Seção 6 · Viabilidade econômico-financeira"
+      eyebrow="04 / Seção 8 · Viabilidade econômico-financeira"
       index="04"
       title={<>Investimento estruturado. <em>Viabilidade demonstrada.</em></>}
       description="Planejamento financeiro de 24 semanas comparando o custo de mercado (Cenário A), a execução acadêmica do TCC (Cenário B), a operação pós-lançamento e o ponto de equilíbrio."
@@ -83,7 +83,7 @@ export function InvestmentContent() {
           <CircleDollarSign size={23} aria-hidden="true" />
         </div>
         <div>
-          <span className="eyebrow">6.1 / Premissas de desenvolvimento</span>
+          <span className="eyebrow">8.1 / Premissas de desenvolvimento</span>
           <h2>24 semanas (6 meses) · 12 sprints de 2 semanas · US$ 1 = R$ 5,50</h2>
           <p>
             Salários de referência do mercado de <strong>São Paulo</strong> (já com encargos ou
@@ -98,7 +98,7 @@ export function InvestmentContent() {
 
       <section id="cenario-a" className="investment-section">
         <div className="document-section-heading">
-          <span className="eyebrow">6.2 / Cenário A · Equipe contratada (custo de mercado)</span>
+          <span className="eyebrow">8.2 / Cenário A · Equipe contratada (custo de mercado)</span>
           <h2 className="display-title">Alocação de especialistas <em>por papel e módulo.</em></h2>
           <p>Seis perfis complementares ao longo de 6 meses, totalizando R$ 354.000 em capital humano.</p>
         </div>
@@ -149,7 +149,7 @@ export function InvestmentContent() {
 
       <section id="outros-custos" className="investment-section investment-section--tint">
         <div className="document-section-heading">
-          <span className="eyebrow">6.3 &amp; 6.4 / Infraestrutura, demais custos e consolidado</span>
+          <span className="eyebrow">8.2 / Infraestrutura, demais custos e consolidado</span>
           <h2 className="display-title">Consolidação do <em>Cenário A.</em></h2>
           <p>Seis meses de infraestrutura AWS, licenças, dados rotulados, adequação jurídica LGPD, testes e registro de marca.</p>
         </div>
@@ -189,7 +189,7 @@ export function InvestmentContent() {
 
       <section id="cenario-b" className="investment-section">
         <div className="document-section-heading">
-          <span className="eyebrow">6.5 / Cenário B · Realidade do TCC (4 alunos sem remuneração)</span>
+          <span className="eyebrow">8.3 / Cenário B · Realidade do TCC (4 alunos sem remuneração)</span>
           <h2 className="display-title">Baixo desembolso direto. <em>Alto capital intelectual.</em></h2>
           <p>Viabilidade prática de execução acadêmica combinando créditos educacionais em nuvem e dedicação direta dos autores.</p>
         </div>
@@ -222,7 +222,7 @@ export function InvestmentContent() {
 
       <section id="cronograma" className="investment-section">
         <div className="document-section-heading">
-          <span className="eyebrow">6.6 / Cronograma executivo de 24 semanas</span>
+          <span className="eyebrow">8.4 / Cronograma executivo de 24 semanas</span>
           <h2 className="display-title">Seis fases com entregas <em>paralelas e incrementais.</em></h2>
         </div>
 
@@ -243,7 +243,7 @@ export function InvestmentContent() {
 
       <section id="operacao" className="investment-section investment-section--dark">
         <div className="document-section-heading">
-          <span className="eyebrow">6.7 / Operação pós-lançamento e ponto de equilíbrio</span>
+          <span className="eyebrow">3.7.3 / Operação pós-lançamento e ponto de equilíbrio</span>
           <h2 className="display-title">Ganho de escala e <em>break-even em 10.000 MAU.</em></h2>
           <p>
             Como o processamento pesado de visão computacional concentra-se no cadastro inicial
@@ -313,7 +313,7 @@ export function InvestmentContent() {
 
       <section id="riscos" className="investment-section">
         <div className="document-section-heading">
-          <span className="eyebrow">6.8 &amp; 6.9 / Gestão de riscos, redução de escopo e próximos passos</span>
+          <span className="eyebrow">8.5 / Gestão de riscos e redução de escopo</span>
           <h2 className="display-title">Cenário enxuto e <em>trade-offs de engenharia.</em></h2>
         </div>
 
@@ -358,7 +358,7 @@ export function InvestmentContent() {
         </div>
 
         <div id="proximos-passos" className="next-steps">
-          <span className="eyebrow">6.9 / Próximos passos executivos</span>
+          <span className="eyebrow">8.6 / Próximos passos executivos</span>
           <ul>
             <li>Validar faixas salariais e câmbio com cotações de mercado vigentes.</li>
             <li>Solicitar créditos AWS em programas educacionais e de fomento a startups.</li>

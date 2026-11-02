@@ -175,23 +175,23 @@ export function RequirementsContent() {
   return (
     <DocumentPage
       embedded
-      eyebrow="07 / Seção 4 · Especificação de engenharia de software"
+      eyebrow="07 / Seção 6 · Especificação de engenharia de software"
       index="07"
       title={<>Escopo verificável. <em>Garantias mensuráveis.</em></>}
-      description="Consolidação dos 4 pilares de confiança com os Quadros 1, 2 e 3 da documentação oficial: Requisitos Funcionais (RF), Requisitos Não Funcionais (RNF) e Regras de Negócio (RN)."
+      description="Consolidação dos 4 pilares de confiança com os Quadros 2, 3 e 4 da documentação oficial: Requisitos Funcionais (RF), Requisitos Não Funcionais (RNF) e Regras de Negócio (RN)."
     >
       <section className="requirements-summary" aria-label="Resumo quantitativo da especificação">
         <div>
           <strong>17</strong>
-          <span>Requisitos Funcionais (Quadro 1 · RF01–RF18)</span>
+          <span>Requisitos Funcionais (Quadro 2 · RF01–RF18)</span>
         </div>
         <div>
           <strong>06</strong>
-          <span>Requisitos Não Funcionais (Quadro 2 · RNF01–RNF06)</span>
+          <span>Requisitos Não Funcionais (Quadro 3 · RNF01–RNF06)</span>
         </div>
         <div>
           <strong>05</strong>
-          <span>Regras de Negócio (Quadro 3 · RN01–RN05)</span>
+          <span>Regras de Negócio (Quadro 4 · RN01–RN05)</span>
         </div>
       </section>
 
@@ -199,7 +199,7 @@ export function RequirementsContent() {
 
       <section id="funcionais" className="requirement-section">
         <div className="document-section-heading">
-          <span className="eyebrow">4.1 / Quadro 1 — Requisitos Funcionais</span>
+          <span className="eyebrow">6.1 / Quadro 2 — Requisitos Funcionais</span>
           <h2 className="display-title">
             Dezessete capacidades <em>essenciais do MVP.</em>
           </h2>
@@ -224,7 +224,7 @@ export function RequirementsContent() {
         <aside className="document-note">
           <AlertCircle size={17} aria-hidden="true" />
           <p>
-            <strong>Fidelidade documental (numeração original):</strong> no Quadro 1 do documento
+            <strong>Fidelidade documental (numeração original):</strong> no Quadro 2 do documento
             oficial, a sequência passa diretamente de <strong>RF16</strong> para{" "}
             <strong>RF18</strong> (sem registro de <code>RF17</code>), totalizando 17 requisitos
             funcionais preservados com seus identificadores originais.
@@ -234,7 +234,7 @@ export function RequirementsContent() {
 
       <section id="nao-funcionais" className="requirement-section requirement-section--dark">
         <div className="document-section-heading">
-          <span className="eyebrow">4.2 / Quadro 2 — Requisitos Não Funcionais</span>
+          <span className="eyebrow">6.2 / Quadro 3 — Requisitos Não Funcionais</span>
           <h2 className="display-title">
             SLAs, criptografia e <em>qualidade automatizada.</em>
           </h2>
@@ -260,7 +260,7 @@ export function RequirementsContent() {
 
       <section id="regras" className="requirement-section">
         <div className="document-section-heading">
-          <span className="eyebrow">4.3 / Quadro 3 — Regras de Negócio</span>
+          <span className="eyebrow">6.3 / Quadro 4 — Regras de Negócio</span>
           <h2 className="display-title">
             Diretrizes operacionais e <em>soberania do usuário.</em>
           </h2>

@@ -3,7 +3,7 @@ import { DocumentPage } from "@/components/document-page";
 
 const soaPillars = [
   {
-    code: "5.1.1",
+    code: "7.1.1",
     name: "Pilar 1 · Camada de Visualização",
     icon: Smartphone,
     headline: "Flutter / Dart · AWS Route 53 · CDN AWS CloudFront",
@@ -15,7 +15,7 @@ const soaPillars = [
     ],
   },
   {
-    code: "5.1.2",
+    code: "7.1.2",
     name: "Pilar 2 · Lógica do Sistema (3 Módulos Autônomos)",
     icon: Cpu,
     headline: "FastAPI em Docker (EC2 / App Runner) · AWS Lambda · AWS Cognito",
@@ -43,7 +43,7 @@ const soaPillars = [
     ],
   },
   {
-    code: "5.1.3",
+    code: "7.1.3",
     name: "Pilar 3 · Camada de Armazenamento Híbrido",
     icon: Database,
     headline: "Amazon RDS PostgreSQL + pgvector · Amazon S3 Privado",
@@ -93,14 +93,14 @@ export function ArchitectureContent() {
   return (
     <DocumentPage
       embedded
-      eyebrow="06 / Seções 5.1 & 5.2 · Engenharia de sistemas em nuvem"
+      eyebrow="06 / Seções 7.1 & 7.2 · Engenharia de sistemas em nuvem"
       index="06"
       title={<>Arquitetura Orientada a Serviços <em>(SOA).</em></>}
       description="Pautada pelo desacoplamento (Loose Coupling) entre visualização, processamento assíncrono de IA e persistência híbrida relacional-vetorial na nuvem AWS."
     >
       <section id="arquitetura" className="architecture-section">
         <div className="document-section-heading">
-          <span className="eyebrow">5.1 / Três pilares com desacoplamento (Loose Coupling)</span>
+          <span className="eyebrow">7.1 / Três pilares com desacoplamento (Loose Coupling)</span>
           <h2 className="display-title">
             Serviços autônomos. <em>Escala sem gargalos.</em>
           </h2>
@@ -154,13 +154,13 @@ export function ArchitectureContent() {
 
       <section id="tecnologias" className="architecture-section">
         <div className="document-section-heading">
-          <span className="eyebrow">5.2 / Quadro 4 — Tecnologias Utilizadas</span>
+          <span className="eyebrow">7.2 / Quadro 5 — Tecnologias Utilizadas</span>
           <h2 className="display-title">
             Mapeamento tecnológico <em>e justificativas de engenharia.</em>
           </h2>
         </div>
 
-        <div className="technology-table" role="table" aria-label="Quadro 4 — Tecnologias Utilizadas no MVP">
+        <div className="technology-table" role="table" aria-label="Quadro 5 — Tecnologias Utilizadas no MVP">
           <div className="technology-table__head" role="row">
             <span role="columnheader">Camada</span>
             <span role="columnheader">Tecnologia</span>
@@ -179,8 +179,8 @@ export function ArchitectureContent() {
           <span className="document-note__mark">i</span>
           <p>
             <strong>Nota editorial de stack mobile:</strong> a arquitetura técnica oficial
-            (Seções 5.1.1 e 5.2) especifica <strong>Flutter / Dart</strong> para a camada de
-            visualização multiplataforma, enquanto as premissas orçamentárias da Seção 6.1 fazem
+            (Seções 7.1.1 e 7.2) especifica <strong>Flutter / Dart</strong> para a camada de
+            visualização multiplataforma, enquanto as premissas orçamentárias da Seção 8.1 fazem
             menção pontual a <em>React Native + TypeScript</em> como referência equivalente de
             mercado para desenvolvimento mobile.
           </p>

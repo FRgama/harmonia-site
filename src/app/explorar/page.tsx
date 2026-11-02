@@ -71,11 +71,11 @@ export default function ExplorePage() {
         <div>
           <span className="eyebrow">Rastreabilidade documental</span>
           <p>
-            Para auditar item por item a correspondência entre o sumário do PDF oficial e os 8
-            atos da página principal, consulte o mapa de cobertura documental.
+            Para consultar a correspondência entre os capítulos do documento oficial e os 8
+            atos da página principal, abra o mapa de cobertura documental.
           </p>
           <Link className="document-text-link" href="/documentacao">
-            Abrir mapa de cobertura do PDF <ArrowUpRight size={14} aria-hidden="true" />
+            Abrir mapa de cobertura do documento <ArrowUpRight size={14} aria-hidden="true" />
           </Link>
         </div>
       </aside>

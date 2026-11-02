@@ -5,7 +5,7 @@ const footerLinks = [
   { href: "/#inicio", label: "01 · Início" },
   { href: "/#tema-visao", label: "02 · Visão & ESG" },
   { href: "/#tema-pessoas", label: "03 · Personas" },
-  { href: "/#tema-negocio", label: "04 · Negócio & Custos" },
+  { href: "/#tema-negocio", label: "04 · Mercado, Negócio & Custos" },
   { href: "/#tema-experiencia", label: "05 · Módulos MVP" },
   { href: "/#tema-tecnologia", label: "06 · IHE & Arquitetura" },
   { href: "/#tema-requisitos", label: "07 · Requisitos" },

@@ -9,6 +9,8 @@ import { Problem } from "@/components/problem";
 import { SiteHeader } from "@/components/site-header";
 import { Solution } from "@/components/solution";
 import { Technology } from "@/components/technology";
+import { BusinessModel } from "@/components/business-model";
+import { MarketAnalysis } from "@/components/market-analysis";
 import { ArchitectureContent } from "@/components/topic-content/architecture";
 import { InvestmentContent } from "@/components/topic-content/investment";
 import { PersonasContent } from "@/components/topic-content/personas";
@@ -75,20 +77,21 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ATO 04 — Modelo de Negócio, Viabilidade Financeira e Cronograma (#tema-negocio) */}
+        {/* ATO 04 — Modelo de Negócio, Mercado e Viabilidade (#tema-negocio) */}
         <section className="project-theme" id="tema-negocio">
           <div className="project-theme__inner">
             <header className="project-theme__heading">
-              <span className="eyebrow">04 / Modelo de Negócio, Viabilidade e Cronograma · Seção 6</span>
+              <span className="eyebrow">04 / Mercado, Modelo de Negócio e Viabilidade · Seções 3, 4 e 8</span>
               <h2>
-                Sustentabilidade financeira e <em>execução em 24 semanas.</em>
+                Uma oportunidade real. <em>Um modelo para sustentá-la.</em>
               </h2>
               <p>
-                Monetização Freemium e afiliação B2B2C (C&amp;A e Lojas Renner), comparativo entre
-                custo de mercado (Cenário A) e realidade do TCC (Cenário B), cronograma e memória
-                de cálculo do break-even.
+                Do panorama competitivo e dos segmentos de clientes às fontes de receita,
+                parcerias, custos operacionais e estimativas de desenvolvimento do MVP.
               </p>
             </header>
+            <MarketAnalysis />
+            <BusinessModel />
             <Plans />
             <div className="document-content document-content--embedded">
               <InvestmentContent />
@@ -100,7 +103,7 @@ export default function Home() {
         <section className="project-theme" id="tema-experiencia">
           <div className="project-theme__inner">
             <header className="project-theme__heading">
-              <span className="eyebrow">05 / A Experiência do Produto · Seção 3</span>
+              <span className="eyebrow">05 / A Experiência do Produto · Seção 5</span>
               <h2>
                 Os seis módulos <em>unificados do MVP.</em>
               </h2>
@@ -122,7 +125,7 @@ export default function Home() {
         <section className="project-theme" id="tema-tecnologia">
           <div className="project-theme__inner">
             <header className="project-theme__heading">
-              <span className="eyebrow">06 / Diferencial Científico e Tecnológico · Seção 5</span>
+              <span className="eyebrow">06 / Diferencial Científico e Tecnológico · Seção 7</span>
               <h2>
                 Motor matemático IHE e <em>arquitetura SOA.</em>
               </h2>
@@ -142,7 +145,7 @@ export default function Home() {
         <section className="project-theme" id="tema-requisitos">
           <div className="project-theme__inner">
             <header className="project-theme__heading">
-              <span className="eyebrow">07 / Engenharia de Software · Seção 4</span>
+              <span className="eyebrow">07 / Engenharia de Software · Seção 6</span>
               <h2>
                 Requisitos, qualidade e <em>regras de negócio.</em>
               </h2>

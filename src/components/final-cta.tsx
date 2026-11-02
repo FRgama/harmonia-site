@@ -33,6 +33,27 @@ const references = [
     detail:
       "Órgão responsável pelo desenvolvimento do espaço de cor tridimensional perceptualmente uniforme CIE L*a*b*, base algorítmica do cálculo de distância cromática euclidiana (ΔE*ab) no Índice de Harmonia Estética (IHE).",
   },
+  {
+    code: "04 / Indústria Têxtil",
+    icon: TrendingUp,
+    title: "Associação Brasileira da Indústria Têxtil e de Confecção (ABIT, 2025)",
+    detail:
+      "Referência para o panorama macroeconômico e produtivo da cadeia têxtil e de confecção brasileira.",
+  },
+  {
+    code: "05 / Dimensionamento de Mercado",
+    icon: TrendingUp,
+    title: "IEMI — Inteligência de Mercado (2025)",
+    detail:
+      "Levantamentos e projeções de desempenho do varejo de vestuário e calçados utilizados na estimativa do mercado endereçável.",
+  },
+  {
+    code: "06 / Tendências Globais",
+    icon: TrendingUp,
+    title: "McKinsey & Company e Business of Fashion (2025)",
+    detail:
+      "Relatório The State of Fashion, citado para contextualizar devoluções no varejo de moda e o uso de inteligência artificial na personalização.",
+  },
 ];
 
 const authors = [
@@ -98,13 +119,12 @@ export function FinalCta() {
 
               <div className="institutional-dossier__actions">
                 <a
-                  href="/Docs/HarmonIA%20-%20Documenta%C3%A7%C3%A3o%20(1).pdf"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/Docs/HarmonIA%20-%20Documenta%C3%A7%C3%A3o.docx"
+                  download
                   className="institutional-btn institutional-btn--primary"
                 >
                   <FileDown size={15} aria-hidden="true" />
-                  Abrir / Baixar PDF Oficial
+                  Baixar Documento Oficial (.docx)
                   <ArrowUpRight size={14} aria-hidden="true" />
                 </a>
 

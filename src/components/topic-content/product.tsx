@@ -29,22 +29,22 @@ const modules: ProductModule[] = [
   {
     id: "onboarding",
     anchorId: "onboarding",
-    number: "Módulo 3.1",
+    number: "Módulo 5.1",
     title: "Onboarding, Perfil de Estilo e Digitalização do Acervo.",
     summary:
       "Etapa primordial concebida para eliminar a fricção de entrada, mapear o perfil morfocromático com precisão e converter fotos domésticas em ativos padronizados de catálogo.",
     icon: Camera,
     steps: [
       [
-        "3.1.1 · Perfil Morfológico e Teste Assistido de Colorimetria",
+        "5.1.1 · Perfil Morfológico e Teste Assistido de Colorimetria",
         "Fluxo interativo para definição dos 5 biótipos corporais (Ampulheta, Retângulo, Triângulo, Triângulo Invertido ou Oval), seguido de teste assistido via câmera frontal que calcula temperatura de subtom de pele, contraste e saturação para enquadramento em uma das 12 cartelas sazonais expandidas.",
       ],
       [
-        "3.1.2 · Digitalização Ágil por Segmentação e Remoção de Fundo",
+        "5.1.2 · Digitalização Ágil por Segmentação e Remoção de Fundo",
         "Adição simplificada por câmera ou galeria em até 3 toques (RNF06). O pipeline serverless em nuvem detecta o contorno da vestimenta, remove cenários como lençóis, cabides e paredes e gera um PNG transparente padronizado.",
       ],
       [
-        "3.1.3 · Extração de Atributos e Catalogação Taxonômica",
+        "5.1.3 · Extração de Atributos e Catalogação Taxonômica",
         "O motor de visão computacional extrai centróides cromáticos predominantes no espaço CIE L*a*b*, categoria da peça (camisa, calça, vestido, saia, calçado), padrão têxtil e formalidade intrínseca, com confirmação rápida pelo usuário.",
       ],
     ],
@@ -53,22 +53,22 @@ const modules: ProductModule[] = [
   {
     id: "inventario",
     anchorId: "inventario",
-    number: "Módulo 3.2",
+    number: "Módulo 5.2",
     title: "Dashboards e Inventário Virtual.",
     summary:
       "Banco de dados visual do patrimônio têxtil do usuário, centralizando a gestão do acervo e entregando inteligência analítica sobre rotação e custo por uso.",
     icon: Layers3,
     steps: [
       [
-        "3.2.1 · Organização Dinâmica em Grade e Filtros Avançados",
+        "5.2.1 · Organização Dinâmica em Grade e Filtros Avançados",
         "Interface em grade (grid) otimizada para baixa latência via CDN, equipada com filtros multicritérios combináveis por tipo de peça, paletas de cores isoladas, estações do ano e grau de formalidade.",
       ],
       [
-        "3.2.2 · Dashboard Analítico de Rotação de Acervo",
+        "5.2.2 · Dashboard Analítico de Rotação de Acervo",
         "Painel de saúde do guarda-roupa que contrasta a taxa de peças ativas com peças ociosas sem uso há mais de 30, 60 ou 90 dias, além de mapear a proporção cromática dominante e a métrica de Custo por Uso (CPU).",
       ],
       [
-        "3.2.3 · Gestão Manual de Metadados e Cápsulas Temáticas",
+        "5.2.3 · Gestão Manual de Metadados e Cápsulas Temáticas",
         "Controle total para reclassificar categorias, ajustar formalidade, registrar exclusão de peças doadas ou descartadas e agrupar itens em cápsulas temáticas — como mala de viagem ou roupas de ginástica.",
       ],
     ],
@@ -77,22 +77,22 @@ const modules: ProductModule[] = [
   {
     id: "combinacoes",
     anchorId: "combinacoes",
-    number: "Módulo 3.3",
+    number: "Módulo 5.3",
     title: "Motor de Cálculo e IA de Combinação Estilística.",
     summary:
       "Núcleo de inteligência que automatiza a consultoria diária de estilo, eliminando a sobrecarga cognitiva matinal por meio de cruzamento multivariável e aprendizado contínuo.",
     icon: Sparkles,
     steps: [
       [
-        "3.3.1 · Coleta de Variáveis de Contexto e Telemetria Climática",
+        "5.3.1 · Coleta de Variáveis de Contexto e Telemetria Climática",
         "Captura de telemetria climática em tempo real via API externa (temperatura e previsão de chuva por geolocalização mediante permissão explícita) combinada à seleção da ocasião de destino (corporativo, casual ou gala).",
       ],
       [
-        "3.3.2 · Processamento do Índice de Harmonia Estética (IHE)",
+        "5.3.2 · Processamento do Índice de Harmonia Estética (IHE)",
         "Cruzamento matemático entre o inventário disponível, restrições meteorológicas, biótipo corporal e cartela de colorimetria pessoal para assegurar harmonia cromática e compensação de silhueta.",
       ],
       [
-        "3.3.3 · Interface em Cards Visuais e Retroalimentação Contínua",
+        "5.3.3 · Interface em Cards Visuais e Retroalimentação Contínua",
         "Recomendações entregues em cards visuais detalhando o look completo, com botões interativos de aprovar/salvar ou descartar que retroalimentam o vetor latente de preferências do usuário.",
       ],
     ],
@@ -101,7 +101,7 @@ const modules: ProductModule[] = [
       <div className="product-module__visual">
         <PinnedStory
           mode="outfit"
-          eyebrow="Módulo 3.3 / Composição Assistida por IA"
+          eyebrow="Módulo 5.3 / Composição Assistida por IA"
           title="Peças diferentes. Uma leitura só sua."
           chapters={[
             {
@@ -132,22 +132,22 @@ const modules: ProductModule[] = [
   {
     id: "provador",
     anchorId: "provador",
-    number: "Módulo 3.4",
+    number: "Módulo 5.4",
     title: "Paridade de Peças em Provador e Provador em Realidade Aumentada (AR).",
     summary:
       "Assistente de compras em tempo real concebido para substituir fotos indecisas no WhatsApp por validação analítica e visual dentro da loja física.",
     icon: ScanSearch,
     steps: [
       [
-        "3.4.1 · Captura e Análise de Similaridade no Ponto de Venda",
+        "5.4.1 · Captura e Análise de Similaridade no Ponto de Venda",
         "Ao fotografar uma peça de interesse na arara ou no provador, o sistema extrai instantaneamente seus atributos cromáticos e taxonômicos e executa uma varredura comparativa em todo o banco de dados residencial.",
       ],
       [
-        "3.4.2 · Ranqueamento de Combinações Viáveis",
+        "5.4.2 · Ranqueamento de Combinações Viáveis",
         "Exibição imediata de uma lista ranqueada com as roupas que o usuário já possui em casa de maior paridade estética com a peça da loja, comprovando a utilidade prática antes da compra.",
       ],
       [
-        "3.4.3 · Simulação de Caimento em Realidade Aumentada (“Espelho Inteligente”)",
+        "5.4.3 · Simulação de Caimento em Realidade Aumentada (“Espelho Inteligente”)",
         "Câmera em modo “espelho inteligente” sobrepõe graficamente peças selecionadas do armário virtual sobre o reflexo do usuário em tempo real, permitindo visualizar a coordenação física e digital simultaneamente.",
       ],
     ],
@@ -156,7 +156,7 @@ const modules: ProductModule[] = [
       <div className="product-module__visual product-module__visual--stack">
         <PinnedStory
           mode="compare"
-          eyebrow="Módulo 3.4 / Paridade Instantânea no Ponto de Venda"
+          eyebrow="Módulo 5.4 / Paridade Instantânea no Ponto de Venda"
           title="Uma nova peça na loja. Conexão imediata com o seu armário."
           chapters={[
             {
@@ -178,7 +178,7 @@ const modules: ProductModule[] = [
         />
         <PinnedStory
           mode="ar"
-          eyebrow="Módulo 3.4 / Espelho Inteligente em Realidade Aumentada"
+          eyebrow="Módulo 5.4 / Espelho Inteligente em Realidade Aumentada"
           title="Experimente a combinação completa sobre o seu reflexo."
           chapters={[
             {
@@ -199,22 +199,22 @@ const modules: ProductModule[] = [
   {
     id: "comunidade",
     anchorId: "modulo-comunidade",
-    number: "Módulo 3.5",
+    number: "Módulo 5.5",
     title: "Feed Social Comunitário.",
     summary:
       "Rede de inspiração e prova social integrada ao guarda-roupa virtual, unindo descoberta qualificada por perfil físico/cromático e governança estrita de privacidade.",
     icon: UsersRound,
     steps: [
       [
-        "3.5.1 · Criação de Conteúdo e Compartilhamento de Looks Reais",
+        "5.5.1 · Criação de Conteúdo e Compartilhamento de Looks Reais",
         "Montagem e fotografia de combinações reais publicadas em um feed central, enriquecidas com tags estruturadas de ocasião, estilo e paleta de cores.",
       ],
       [
-        "3.5.2 · Engajamento e Curadoria em Moodboards Privados",
+        "5.5.2 · Engajamento e Curadoria em Moodboards Privados",
         "Interação por curtidas e reações aliada ao salvamento de looks de terceiros em painéis semânticos privados (moodboards) para consulta posterior como repertório de estilo.",
       ],
       [
-        "3.5.3 · Busca Direcionada por Biótipo/Cartela e Chave de Privacidade",
+        "5.5.3 · Busca Direcionada por Biótipo/Cartela e Chave de Privacidade",
         "Filtro dedicado para encontrar pessoas com o mesmo biótipo ou a mesma cartela sazonal, acompanhado da chave Perfil Público vs. Privado (RN05).",
       ],
     ],
@@ -228,22 +228,22 @@ const modules: ProductModule[] = [
   {
     id: "afiliacao",
     anchorId: "afiliacao",
-    number: "Módulo 3.6",
+    number: "Módulo 5.6",
     title: "Afiliação com E-commerces Parceiros — C&A e Lojas Renner.",
     summary:
       "Canal estratégico de recomendação e monetização B2B2C voltado para suprir lacunas reais do guarda-roupa com precisão contextual e estoque sincronizado.",
     icon: ShoppingBag,
     steps: [
       [
-        "3.6.1 · Mapeamento Analítico de Lacunas (Gap Analysis)",
+        "5.6.1 · Mapeamento Analítico de Lacunas (Gap Analysis)",
         "O motor de IA audita periodicamente o inventário e identifica ausências estratégicas — como uma peça neutra capaz de destravar dezenas de novas combinações com partes de baixo existentes.",
       ],
       [
-        "3.6.2 · Sugestão Contextual Sincronizada via API de Estoque",
+        "5.6.2 · Sugestão Contextual Sincronizada via API de Estoque",
         "Integração com os catálogos da C&A e das Lojas Renner injeta produtos específicos com imagens reais e preços atualizados, ocultando automaticamente itens esgotados (RN03).",
       ],
       [
-        "3.6.3 · Redirecionamento Externo e Rastreamento UTM",
+        "5.6.3 · Redirecionamento Externo e Rastreamento UTM",
         "Ao tocar no item sugerido, o usuário é direcionado ao e-commerce oficial da marca parceira via link parametrizado (UTM/Afiliação), realizando o checkout no ambiente seguro do varejista.",
       ],
     ],
@@ -300,10 +300,10 @@ export function ProductContent({
   return (
     <DocumentPage
       embedded
-      eyebrow="05 / Seção 3 · Escopo completo do MVP"
+      eyebrow="05 / Seção 5 · Escopo completo do MVP"
       index="05"
       title={<>Seis módulos unificados. <em>Uma jornada contínua.</em></>}
-      description="Todos os módulos delimitados para o Produto Mínimo Viável (3.1 a 3.6) organizados em fluxo sequencial, articulando visão computacional, análise de acervo, motor IHE, provador AR, comunidade e varejo parceiro."
+      description="Todos os módulos delimitados para o Produto Mínimo Viável (5.1 a 5.6) organizados em fluxo sequencial, articulando visão computacional, análise de acervo, motor IHE, provador AR, comunidade e varejo parceiro."
     >
       <div className="product-modules">
         {visibleModules.map(({ id, anchorId, number, title, summary, icon: Icon, steps, requirements, visual }) => (

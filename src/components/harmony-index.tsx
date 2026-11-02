@@ -72,7 +72,7 @@ export function HarmonyIndex() {
       </div>
 
       <div className="technology-result__copy">
-        <span>CLASSIFICAÇÃO · SEÇÃO 5.3</span>
+        <span>CLASSIFICAÇÃO · SEÇÃO 7.3</span>
         <h3>Look Fortemente Recomendado</h3>
         <p>
           O motor compila o IHE em tempo real de <strong>0% a 100%</strong>. Combinações com{" "}
