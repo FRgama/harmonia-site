@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { Cloud, ScanFace, Sparkles, SwatchBook, Waypoints } from "lucide-react";
 import { HarmonyIndex } from "@/components/harmony-index";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { DaVinciLines } from "@/../public/componentes/backgrounds/davinci-lines";
 
 const harmonyFactors = [
   {
@@ -40,8 +41,9 @@ const harmonyFactors = [
 
 export function Technology() {
   return (
-    <section id="ihe" className="technology-section">
-      <div className="technology-section__inner">
+    <section id="ihe" className="technology-section relative isolate">
+      <DaVinciLines className="pointer-events-none absolute -right-48 top-32 z-0 size-[min(100vw,720px)] text-[var(--acid)] opacity-60" />
+      <div className="technology-section__inner relative z-10">
         <ScrollReveal>
           <div className="technology-section__heading">
             <div>

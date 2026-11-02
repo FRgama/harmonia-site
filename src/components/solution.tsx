@@ -1,6 +1,7 @@
 import { Coins, Database, SwatchBook } from "lucide-react";
 import { PinnedStory } from "@/components/pinned-story";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { StylePromptExplorer } from "@/components/style-prompt-explorer";
 
 const justificationPillars = [
   {
@@ -69,6 +70,7 @@ export function Solution() {
           ))}
         </div>
       </div>
+      <StylePromptExplorer />
     </>
   );
 }

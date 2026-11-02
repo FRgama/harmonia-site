@@ -12,6 +12,8 @@ import {
 import { Community } from "@/components/community";
 import { DocumentPage } from "@/components/document-page";
 import { PinnedStory } from "@/components/pinned-story";
+import { BentoGrid, BentoItem } from "@/../public/componentes/cards/bento-grid";
+import { FeatureCard } from "@/../public/componentes/cards/feature-card";
 
 type ProductModule = {
   id: string;
@@ -305,6 +307,29 @@ export function ProductContent({
       title={<>Seis módulos unificados. <em>Uma jornada contínua.</em></>}
       description="Todos os módulos delimitados para o Produto Mínimo Viável (5.1 a 5.6) organizados em fluxo sequencial, articulando visão computacional, análise de acervo, motor IHE, provador AR, comunidade e varejo parceiro."
     >
+      <BentoGrid
+        columns={3}
+        className="mb-12"
+        ariaLabel="Visão geral dos seis módulos do MVP"
+      >
+        {visibleModules.map(({ id, anchorId, number, title, summary, icon: Icon, requirements }) => (
+          <BentoItem key={id} span={id === "combinacoes" ? 2 : 1}>
+            <FeatureCard
+              eyebrow={`${number} / ${requirements}`}
+              title={title}
+              description={summary}
+              href={`#${anchorId}`}
+              ctaText="Explorar módulo"
+              variant="paper"
+              media={
+                <div className="grid size-14 place-items-center border border-[var(--line)]/50 bg-[var(--paper)] text-[var(--coral)]">
+                  <Icon size={24} strokeWidth={1.4} aria-hidden="true" />
+                </div>
+              }
+            />
+          </BentoItem>
+        ))}
+      </BentoGrid>
       <div className="product-modules">
         {visibleModules.map(({ id, anchorId, number, title, summary, icon: Icon, steps, requirements, visual }) => (
           <section className="product-module" id={anchorId} key={id}>

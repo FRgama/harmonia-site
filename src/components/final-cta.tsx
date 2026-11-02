@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { EditorialImage } from "@/components/editorial-image";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { PillButton } from "@/../public/componentes/actions/pill-button";
 
 const references = [
   {
@@ -170,12 +171,11 @@ export function FinalCta() {
                   contexto, ciência cromática e propósito.
                 </p>
               </div>
-              <Link
-                href="/#inicio"
-                className="button-inverse-label flex items-center gap-3 rounded-none border border-[#e3c783]/40 bg-[#151a1f] px-6 py-4 text-[11px] font-bold uppercase tracking-[.12em] transition hover:bg-[#2b2119]"
-              >
-                Voltar ao topo <ArrowUpRight size={14} aria-hidden="true" />
-              </Link>
+              <PillButton href="/#inicio" variant="dark" size="lg">
+                <span className="inline-flex items-center gap-2.5">
+                  Voltar ao topo <ArrowUpRight size={14} aria-hidden="true" />
+                </span>
+              </PillButton>
             </ScrollReveal>
             <EditorialImage
               src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=88"

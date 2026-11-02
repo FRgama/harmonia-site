@@ -1,13 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import { topicGroups } from "@/data/topic-index";
+import { SearchModal } from "@/../public/componentes/overlays/search-modal";
+import type { SearchResult } from "@/../public/componentes/overlays/search-modal";
 
 export function SiteNavigationDrawer() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
+
+  const searchItems: SearchResult[] = topicGroups.flatMap(({ title, links }) =>
+    links.map(({ href, label }) => ({
+      id: `${href}-${label}`,
+      title: label,
+      category: title,
+      href,
+    })),
+  );
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -22,19 +35,45 @@ export function SiteNavigationDrawer() {
     if (dialogRef.current?.open) dialogRef.current.close();
   }
 
+  function openSearch() {
+    if (dialogRef.current?.open) dialogRef.current.close();
+    setIsOpen(false);
+    setIsSearchOpen(true);
+  }
+
+  function closeSearch() {
+    setIsSearchOpen(false);
+    window.requestAnimationFrame(() => searchButtonRef.current?.focus());
+  }
+
   return (
     <>
-      <button
-        type="button"
-        className="site-navigation-trigger"
-        aria-haspopup="dialog"
-        aria-expanded={isOpen}
-        aria-controls="site-navigation-dialog"
-        onClick={() => setIsOpen(true)}
-      >
-        <Menu size={17} aria-hidden="true" />
-        <span>8 Atos</span>
-      </button>
+      <div className="flex items-center gap-2">
+        <button
+          ref={searchButtonRef}
+          type="button"
+          className="site-navigation-trigger"
+          aria-label="Buscar no site"
+          aria-haspopup="dialog"
+          aria-expanded={isSearchOpen}
+          aria-controls="site-search-dialog"
+          onClick={openSearch}
+        >
+          <Search size={16} aria-hidden="true" />
+          <span className="hidden sm:inline">Buscar</span>
+        </button>
+        <button
+          type="button"
+          className="site-navigation-trigger"
+          aria-haspopup="dialog"
+          aria-expanded={isOpen}
+          aria-controls="site-navigation-dialog"
+          onClick={() => setIsOpen(true)}
+        >
+          <Menu size={17} aria-hidden="true" />
+          <span>8 Atos</span>
+        </button>
+      </div>
       <dialog
         id="site-navigation-dialog"
         ref={dialogRef}
@@ -102,6 +141,12 @@ export function SiteNavigationDrawer() {
           </Link>
         </div>
       </dialog>
+      <SearchModal
+        isOpen={isSearchOpen}
+        onOpen={openSearch}
+        onClose={closeSearch}
+        items={searchItems}
+      />
     </>
   );
 }

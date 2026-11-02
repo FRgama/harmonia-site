@@ -16,6 +16,18 @@ import { InvestmentContent } from "@/components/topic-content/investment";
 import { PersonasContent } from "@/components/topic-content/personas";
 import { ProductContent } from "@/components/topic-content/product";
 import { RequirementsContent } from "@/components/topic-content/requirements";
+import { ChapterNav } from "@/../public/componentes/navigation/chapter-nav";
+
+const HOME_CHAPTERS = [
+  { roman: "I", title: "Visão & ESG", targetId: "inicio" },
+  { roman: "II", title: "Problema & solução", targetId: "tema-visao" },
+  { roman: "III", title: "Personas", targetId: "tema-pessoas" },
+  { roman: "IV", title: "Mercado & negócio", targetId: "tema-negocio" },
+  { roman: "V", title: "Módulos do MVP", targetId: "tema-experiencia" },
+  { roman: "VI", title: "Motor IHE", targetId: "tema-tecnologia" },
+  { roman: "VII", title: "Requisitos", targetId: "tema-requisitos" },
+  { roman: "VIII", title: "FECAP & referências", targetId: "tema-institucional" },
+];
 
 export const metadata: Metadata = {
   title: "HarmonIA — Plataforma inteligente de gestão de guarda-roupa e estilo",
@@ -30,6 +42,7 @@ export default function Home() {
         Pular para o conteúdo
       </a>
       <SiteHeader />
+      <ChapterNav chapters={HOME_CHAPTERS} />
       <main id="conteudo" tabIndex={-1}>
         {/* ATO 01 — Hero & Proposta de Valor Instantânea (#inicio) */}
         <Hero />
