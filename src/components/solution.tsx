@@ -35,6 +35,7 @@ export function Solution() {
         mode="closet"
         eyebrow="1.2 / Justificativa da Solução (To-Be)"
         title="Do armário físico a um patrimônio têxtil inteligente."
+        autoPlay
         chapters={[
           {
             number: "01",

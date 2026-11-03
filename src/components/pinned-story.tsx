@@ -1,8 +1,8 @@
 "use client";
 
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from "motion/react";
-import { useState } from "react";
-import { ArrowDownRight, Check, ScanLine, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowDownRight, Check, Pause, Play, ScanLine, Sparkles } from "lucide-react";
 import { EditorialImage } from "@/components/editorial-image";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
@@ -20,6 +20,9 @@ type PinnedStoryProps = {
   eyebrow: string;
   title: string;
   chapters: StoryChapter[];
+  autoPlay?: boolean;
+  secondaryImage?: string;
+  secondaryImageAlt?: string;
 };
 
 const sceneImages = {
@@ -35,13 +38,36 @@ const itemImages = [
   "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=280&q=75",
 ];
 
-export function PinnedStory({ id, mode, eyebrow, title, chapters }: PinnedStoryProps) {
+export function PinnedStory({
+  id,
+  mode,
+  eyebrow,
+  title,
+  chapters,
+  autoPlay = false,
+  secondaryImage,
+  secondaryImageAlt,
+}: PinnedStoryProps) {
   const [activeChapter, setActiveChapter] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(autoPlay);
   const reduceMotion = useReducedMotion();
   const active = chapters[activeChapter];
 
+  useEffect(() => {
+    if (!autoPlay || !isPlaying || reduceMotion || chapters.length < 2) return;
+
+    const timer = window.setInterval(() => {
+      setActiveChapter((current) => (current + 1) % chapters.length);
+    }, 5000);
+
+    return () => window.clearInterval(timer);
+  }, [autoPlay, chapters.length, isPlaying, reduceMotion]);
+
   return (
-    <section id={id} className={`pinned-story pinned-story--${mode}`}>
+    <section
+      id={id}
+      className={`pinned-story pinned-story--${mode}${secondaryImage ? " pinned-story--has-secondary" : ""}`}
+    >
       <div className="pinned-story__intro">
         <ScrollReveal>
           <span className="eyebrow">{eyebrow}</span>
@@ -65,7 +91,7 @@ export function PinnedStory({ id, mode, eyebrow, title, chapters }: PinnedStoryP
                 </motion.div>
               </AnimatePresence>
             </MotionConfig>
-            <div className="pinned-story__caption" aria-live="polite">
+            <div className="pinned-story__caption" aria-live={autoPlay ? "off" : "polite"}>
               <span>{active.number}</span>
               <div>
                 <strong>{active.title}</strong>
@@ -74,26 +100,85 @@ export function PinnedStory({ id, mode, eyebrow, title, chapters }: PinnedStoryP
               <ArrowDownRight size={18} aria-hidden="true" />
             </div>
           </div>
+          {secondaryImage && (
+            <div className="pinned-story__secondary">
+              <EditorialImage
+                src={secondaryImage}
+                alt={secondaryImageAlt ?? ""}
+                className="pinned-story__secondary-image"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <span>VISÃO COMPLEMENTAR</span>
+            </div>
+          )}
         </div>
-        <div className="pinned-story__chapters">
-          {chapters.map((chapter, index) => (
-            <motion.article
-              key={chapter.number}
-              className={`pinned-story__chapter ${index === activeChapter ? "is-active" : ""}`}
-              onViewportEnter={() => setActiveChapter(index)}
-              viewport={{ amount: 0.55, margin: "-15% 0px -15% 0px" }}
-              initial={{ opacity: 1, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: reduceMotion ? 0 : 0.45 }}
-            >
-              <span className="pinned-story__number">{chapter.number}</span>
-              <div>
-                <h3>{chapter.title}</h3>
-                <p>{chapter.text}</p>
+        {autoPlay ? (
+          <div className="pinned-story__chapters pinned-story__chapters--carousel">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.article
+                key={active.number}
+                className="pinned-story__chapter pinned-story__chapter--current"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+                transition={{ duration: reduceMotion ? 0 : 0.3 }}
+                aria-live="polite"
+              >
+                <span className="pinned-story__number">{active.number}</span>
+                <div>
+                  <h3>{active.title}</h3>
+                  <p>{active.text}</p>
+                </div>
+              </motion.article>
+            </AnimatePresence>
+            <div className="pinned-story__carousel-controls" role="group" aria-label="Controles da justificativa">
+              <div className="pinned-story__carousel-dots">
+                {chapters.map((chapter, index) => (
+                  <button
+                    key={chapter.number}
+                    type="button"
+                    aria-label={`Mostrar etapa ${chapter.number}: ${chapter.title}`}
+                    aria-pressed={index === activeChapter}
+                    onClick={() => {
+                      setActiveChapter(index);
+                      setIsPlaying(false);
+                    }}
+                  />
+                ))}
               </div>
-            </motion.article>
-          ))}
-        </div>
+              <button
+                className="pinned-story__carousel-toggle"
+                type="button"
+                aria-label={isPlaying && !reduceMotion ? "Pausar carrossel" : "Retomar carrossel"}
+                aria-pressed={!(isPlaying && !reduceMotion)}
+                disabled={Boolean(reduceMotion)}
+                onClick={() => setIsPlaying((playing) => !playing)}
+              >
+                {isPlaying && !reduceMotion ? <Pause size={15} aria-hidden="true" /> : <Play size={15} aria-hidden="true" />}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="pinned-story__chapters">
+            {chapters.map((chapter, index) => (
+              <motion.article
+                key={chapter.number}
+                className={`pinned-story__chapter ${index === activeChapter ? "is-active" : ""}`}
+                onViewportEnter={() => setActiveChapter(index)}
+                viewport={{ amount: 0.55, margin: "-15% 0px -15% 0px" }}
+                initial={{ opacity: 1, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.45 }}
+              >
+                <span className="pinned-story__number">{chapter.number}</span>
+                <div>
+                  <h3>{chapter.title}</h3>
+                  <p>{chapter.text}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { EditorialImage } from "@/components/editorial-image";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 import { PillButton } from "@/../public/componentes/actions/pill-button";
 
 const references = [
@@ -95,7 +96,8 @@ export function FinalCta() {
         </section>
 
         <ScrollReveal delay={0.12}>
-          <section id="autoria-fecap" className="institutional-dossier" aria-label="Ficha técnica institucional FECAP">
+          <section id="autoria-fecap" className="institutional-dossier subtle-starfield" aria-label="Ficha técnica institucional FECAP">
+            <SubtleStarfield count={25} />
             <div className="institutional-dossier__main">
               <div className="institutional-dossier__badge">
                 <GraduationCap size={19} strokeWidth={1.5} aria-hidden="true" />
@@ -158,20 +160,20 @@ export function FinalCta() {
 
         <div id="conheca" className="mt-14">
           <div className="relative grid min-h-[420px] overflow-hidden rounded-[2px] border border-[#2019121a] bg-[linear-gradient(135deg,#b5653f_0%,#9a4d3a_45%,#d5b98d_100%)] md:grid-cols-[1.15fr_.85fr]">
-            <ScrollReveal className="relative z-10 flex flex-col items-start justify-between p-7 md:p-12">
+            <ScrollReveal className="relative z-10 flex flex-col items-start justify-between p-6 sm:p-8 md:p-12">
               <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#fff5ea]">
                 HarmonIA / Ciência, Estilo e Consciência
               </span>
-              <div className="py-10 md:py-6">
-                <h2 className="m-0 max-w-[630px] font-(family-name:--serif) text-[clamp(52px,7vw,96px)] font-normal leading-[.88] text-[#f8f2e8]">
+              <div className="py-6 sm:py-8 md:py-6">
+                <h2 className="m-0 max-w-[630px] font-(family-name:--serif) text-[clamp(40px,7vw,96px)] font-normal leading-[.92] text-[#f8f2e8] break-words">
                   Vista o que você já é.
                 </h2>
-                <p className="mb-0 mt-5 max-w-[410px] text-[13px] leading-6 text-[#f7e9dc]">
+                <p className="mb-0 mt-4 sm:mt-5 max-w-[410px] text-[12.5px] sm:text-[13px] leading-6 text-[#f7e9dc]">
                   Do patrimônio têxtil que já habita o seu armário às próximas escolhas com
                   contexto, ciência cromática e propósito.
                 </p>
               </div>
-              <PillButton href="/#inicio" variant="dark" size="lg">
+              <PillButton href="/#inicio" variant="dark" size="lg" className="!text-white">
                 <span className="inline-flex items-center gap-2.5">
                   Voltar ao topo <ArrowUpRight size={14} aria-hidden="true" />
                 </span>
@@ -180,7 +182,7 @@ export function FinalCta() {
             <EditorialImage
               src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=88"
               alt="Look de moda com cores e silhueta marcantes"
-              className="cta-image relative min-h-[300px] md:min-h-[420px]"
+              className="cta-image relative min-h-[260px] sm:min-h-[300px] md:min-h-[420px]"
               sizes="(max-width: 768px) 100vw, 42vw"
             />
           </div>

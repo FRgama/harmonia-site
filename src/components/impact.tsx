@@ -1,5 +1,6 @@
 import { Leaf, Store, Target } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 
 const GOALS = [
   {
@@ -22,7 +23,8 @@ const GOALS = [
 
 export function Impact() {
   return (
-    <section id="impacto" className="impact-section">
+    <section id="impacto" className="impact-section subtle-starfield">
+      <SubtleStarfield count={25} />
       <div className="impact-section__inner">
         <div className="impact-section__heading">
           <div>

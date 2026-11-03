@@ -1,6 +1,7 @@
 import { ArrowRight, Camera, ScanFace, Shirt, Sparkles } from "lucide-react";
 import { EditorialImage } from "@/components/editorial-image";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 
 const steps = [
   {
@@ -31,7 +32,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="como-funciona" className="how-section">
+    <section id="como-funciona" className="how-section subtle-starfield">
+      <SubtleStarfield count={25} />
       <div className="how-section__inner">
         <div className="how-section__copy">
           <ScrollReveal>
@@ -63,15 +65,15 @@ export function HowItWorks() {
             className="step-photo absolute inset-0 rounded-[3px]"
             sizes="(max-width: 768px) 100vw, 55vw"
           />
-          <div className="absolute bottom-5 left-5 flex max-w-[260px] items-center gap-3 rounded-none border border-[#c2a05a]/60 bg-[#efe6d2] p-4 md:bottom-8 md:left-8">
-            <div className="grid size-9 shrink-0 place-items-center bg-[#151a1f] text-[#c2a05a]">
-              <ArrowRight size={15} aria-hidden="true" />
+          <div className="absolute bottom-3 left-3 flex max-w-[calc(100%-24px)] sm:max-w-[260px] items-center gap-2.5 sm:gap-3 rounded-none border border-[#c2a05a]/60 bg-[#efe6d2] p-3 sm:p-4 md:bottom-8 md:left-8">
+            <div className="grid size-8 sm:size-9 shrink-0 place-items-center bg-[#151a1f] text-[#c2a05a]">
+              <ArrowRight size={14} aria-hidden="true" />
             </div>
-            <p className="m-0 text-[10px] font-semibold leading-4 text-[#151a1f]">
+            <p className="m-0 text-[9.5px] sm:text-[10px] font-semibold leading-4 text-[#151a1f]">
               Seis módulos conectados: do armário de casa ao espelho do provador.
             </p>
           </div>
-          <span className="absolute right-5 top-5 border border-[#c2a05a]/50 bg-[#efe6d2] px-3 py-2 text-[9px] font-bold uppercase text-[#151a1f] md:right-8 md:top-8">
+          <span className="absolute right-3 top-3 border border-[#c2a05a]/50 bg-[#efe6d2] px-2.5 py-1.5 sm:px-3 sm:py-2 text-[8.5px] sm:text-[9px] font-bold uppercase text-[#151a1f] md:right-8 md:top-8">
             Jornada do MVP · 5.1 a 5.6
           </span>
         </div>

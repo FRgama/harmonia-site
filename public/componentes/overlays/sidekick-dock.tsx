@@ -33,10 +33,10 @@ export function SidekickDock({
     <div className={`w-full max-w-2xl mx-auto ${className}`}>
       <form
         onSubmit={handleSend}
-        className="relative flex items-center rounded-full border border-[var(--line)]/35 bg-[var(--ink)]/90 p-1.5 text-[var(--paper)] shadow-2xl backdrop-blur-2xl transition-all focus-within:ring-2 focus-within:ring-[var(--coral)]"
+        className="relative flex items-center rounded-full border border-[var(--line)]/35 bg-[var(--ink)]/90 p-1 sm:p-1.5 text-[var(--paper)] shadow-2xl backdrop-blur-2xl transition-all focus-within:ring-2 focus-within:ring-[var(--coral)]"
       >
-        <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--coral)] to-[var(--acid)] text-[var(--paper)] shadow-md">
-          <Sparkles size={18} aria-hidden="true" />
+        <div className="flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[var(--coral)] to-[var(--acid)] text-[var(--paper)] shadow-md">
+          <Sparkles size={16} className="sm:size-[18px]" aria-hidden="true" />
         </div>
 
         <input
@@ -45,21 +45,21 @@ export function SidekickDock({
           onChange={(e) => setValue(e.target.value)}
           aria-label="Pergunte à inteligência de estilo HarmonIA"
           placeholder={placeholder}
-          className="min-w-0 flex-1 bg-transparent px-4 py-2 font-sans text-sm text-[var(--paper)] placeholder-[var(--paper)]/55 focus:outline-none"
+          className="min-w-0 flex-1 bg-transparent px-2.5 sm:px-4 py-2 font-sans text-xs sm:text-sm text-[var(--paper)] placeholder-[var(--paper)]/55 focus:outline-none"
         />
 
         <button
           type="submit"
           disabled={!value.trim()}
-          className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-[var(--paper)] transition-all hover:bg-white/20 disabled:pointer-events-none disabled:opacity-30"
+          className="flex size-9 sm:size-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-[var(--paper)] transition-all hover:bg-white/20 disabled:pointer-events-none disabled:opacity-30"
           aria-label="Enviar prompt"
         >
-          <CornerDownLeft size={16} aria-hidden="true" />
+          <CornerDownLeft size={15} className="sm:size-[16px]" aria-hidden="true" />
         </button>
       </form>
 
       {quickPrompts && quickPrompts.length > 0 && (
-        <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
           {quickPrompts.map((p) => (
             <button
               key={p}
@@ -68,10 +68,10 @@ export function SidekickDock({
                 setValue(p);
                 if (onSubmit) onSubmit(p);
               }}
-              className="flex items-center gap-1.5 rounded-full border border-[var(--line)]/25 bg-[var(--ink)]/5 px-3 py-1 font-mono text-xs text-[var(--ink)]/75 backdrop-blur-md transition-all hover:bg-[var(--coral)]/10 hover:text-[var(--coral)]"
+              className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-[var(--line)]/25 bg-[var(--ink)]/5 px-2.5 sm:px-3 py-1 font-mono text-[10.5px] sm:text-xs text-[var(--ink)]/75 backdrop-blur-md transition-all hover:bg-[var(--coral)]/10 hover:text-[var(--coral)]"
             >
-              <span>{p}</span>
-              <ArrowRight size={10} className="opacity-60" aria-hidden="true" />
+              <span className="truncate max-w-[200px] sm:max-w-none">{p}</span>
+              <ArrowRight size={10} className="shrink-0 opacity-60" aria-hidden="true" />
             </button>
           ))}
         </div>

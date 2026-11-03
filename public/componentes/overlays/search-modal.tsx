@@ -52,7 +52,7 @@ export function SearchModal({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 pt-20">
+        <div className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 pt-12 sm:pt-20">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -89,28 +89,28 @@ export function SearchModal({
             }}
             className="relative z-10 w-full max-w-xl overflow-hidden rounded-sm border border-[var(--line)]/40 bg-[var(--ink)] text-[var(--paper)] shadow-2xl"
           >
-            <div className="flex items-center border-b border-white/10 px-4">
-              <Search size={18} className="mr-3 opacity-50" aria-hidden="true" />
+            <div className="flex items-center border-b border-white/10 px-3 sm:px-4">
+              <Search size={18} className="mr-2.5 sm:mr-3 opacity-50 shrink-0" aria-hidden="true" />
               <input
                 type="text"
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 aria-label="Buscar módulos, tópicos ou documentação"
-                placeholder="Buscar módulos, tópicos ou documentação..."
-                className="w-full bg-transparent py-4 text-sm placeholder-white/40 focus:outline-none"
+                placeholder="Buscar módulos, tópicos..."
+                className="w-full bg-transparent py-3.5 sm:py-4 text-xs sm:text-sm placeholder-white/40 focus:outline-none"
               />
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Fechar busca"
-                className="rounded-md p-1 text-white/60 hover:bg-white/10 hover:text-white"
+                className="rounded-md p-1.5 text-white/60 hover:bg-white/10 hover:text-white shrink-0"
               >
                 <X size={16} aria-hidden="true" />
               </button>
             </div>
 
-            <div className="max-h-80 overflow-y-auto p-2">
+            <div className="max-h-[60vh] sm:max-h-80 overflow-y-auto p-1.5 sm:p-2">
               {filtered.length === 0 ? (
                 <div className="py-8 text-center text-xs opacity-50">
                   Nenhum resultado encontrado para &quot;{query}&quot;
@@ -121,15 +121,15 @@ export function SearchModal({
                     key={item.id}
                     href={item.href}
                     onClick={onClose}
-                    className="flex items-center justify-between p-3 rounded-xl hover:bg-white/10 transition-colors group"
+                    className="flex items-center justify-between p-2.5 sm:p-3 rounded-lg sm:rounded-xl hover:bg-white/10 transition-colors group"
                   >
-                    <div>
-                      <span className="block text-sm font-medium">{item.title}</span>
-                      <span className="text-[10px] font-mono opacity-50 uppercase tracking-wider">
+                    <div className="min-w-0 pr-2">
+                      <span className="block text-xs sm:text-sm font-medium truncate">{item.title}</span>
+                      <span className="text-[9.5px] sm:text-[10px] font-mono opacity-50 uppercase tracking-wider block truncate">
                         {item.category}
                       </span>
                     </div>
-                    <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
                       Ir &rarr;
                     </span>
                   </a>
@@ -137,9 +137,9 @@ export function SearchModal({
               )}
             </div>
 
-            <div className="flex items-center justify-between border-t border-white/10 bg-black/30 px-4 py-2.5 text-[11px] font-mono opacity-60">
+            <div className="flex items-center justify-between border-t border-white/10 bg-black/30 px-3 sm:px-4 py-2 sm:py-2.5 text-[10px] sm:text-[11px] font-mono opacity-60">
               <span>Esc para fechar</span>
-              <span className="flex items-center gap-1">
+              <span className="hidden xs:flex items-center gap-1 sm:flex">
                 Ctrl / <Command size={10} aria-hidden="true" /> + K para alternar
               </span>
             </div>

@@ -11,7 +11,8 @@ import {
 } from "lucide-react";
 import { Community } from "@/components/community";
 import { DocumentPage } from "@/components/document-page";
-import { PinnedStory } from "@/components/pinned-story";
+import { ProductFeatureShowcase } from "@/components/product-feature-showcase";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 import { BentoGrid, BentoItem } from "@/../public/componentes/cards/bento-grid";
 import { FeatureCard } from "@/../public/componentes/cards/feature-card";
 
@@ -101,33 +102,9 @@ const modules: ProductModule[] = [
     requirements: "RF07 · RF13 · RF16",
     visual: (
       <div className="product-module__visual">
-        <PinnedStory
-          mode="outfit"
-          eyebrow="Módulo 5.3 / Composição Assistida por IA"
-          title="Peças diferentes. Uma leitura só sua."
-          chapters={[
-            {
-              number: "01",
-              title: "Clima, ocasião e ponto de partida",
-              text: "Telemetria meteorológica e evento do dia definem as restrições iniciais para selecionar a peça-base no acervo.",
-            },
-            {
-              number: "02",
-              title: "Equilíbrio cromático e morfológico",
-              text: "Centróides em CIE L*a*b* e matrizes de biótipo orientam a escolha de camadas que valorizam sua silhueta.",
-            },
-            {
-              number: "03",
-              title: "Afinidade vetorial de estilo",
-              text: "Consultas em pgvector aproximam a composição do histórico de aprovações e do repertório pessoal.",
-            },
-            {
-              number: "04",
-              title: "Card de look e retroalimentação",
-              text: "Combinação pronta em menos de 1,5 s (RNF03), com botões de aprovar, salvar ou descartar para aprendizado contínuo.",
-            },
-          ]}
-        />
+        <div className="product-feature-showcase-grid product-feature-showcase-grid--single">
+          <ProductFeatureShowcase variant="styling" />
+        </div>
       </div>
     ),
   },
@@ -155,46 +132,11 @@ const modules: ProductModule[] = [
     ],
     requirements: "RF08–RF10",
     visual: (
-      <div className="product-module__visual product-module__visual--stack">
-        <PinnedStory
-          mode="compare"
-          eyebrow="Módulo 5.4 / Paridade Instantânea no Ponto de Venda"
-          title="Uma nova peça na loja. Conexão imediata com o seu armário."
-          chapters={[
-            {
-              number: "01",
-              title: "Captura na arara ou provador",
-              text: "Antes de passar no caixa, fotografe a peça para extrair cor CIE L*a*b*, categoria e formalidade.",
-            },
-            {
-              number: "02",
-              title: "Varredura vetorial no acervo de casa",
-              text: "A HarmonIA cruza o novo item com todas as peças já cadastradas no seu guarda-roupa virtual.",
-            },
-            {
-              number: "03",
-              title: "Ranking de looks já viáveis",
-              text: "Veja a nota de paridade e quantas combinações completas a peça destrava antes da decisão comercial.",
-            },
-          ]}
-        />
-        <PinnedStory
-          mode="ar"
-          eyebrow="Módulo 5.4 / Espelho Inteligente em Realidade Aumentada"
-          title="Experimente a combinação completa sobre o seu reflexo."
-          chapters={[
-            {
-              number: "01",
-              title: "Enquadramento em modo espelho inteligente",
-              text: "A Realidade Aumentada reconhece a silhueta e posiciona graficamente itens do seu acervo digital.",
-            },
-            {
-              number: "02",
-              title: "Físico e virtual na mesma cena",
-              text: "Valide caimento, contraste cromático e proporção combinando a peça da loja com o que já está em casa.",
-            },
-          ]}
-        />
+      <div className="product-module__visual">
+        <div className="product-feature-showcase-grid">
+          <ProductFeatureShowcase variant="parity" />
+          <ProductFeatureShowcase variant="mirror" />
+        </div>
       </div>
     ),
   },
@@ -252,7 +194,8 @@ const modules: ProductModule[] = [
     requirements: "RF11–RF12 · RN03",
     visual: (
       <div className="product-module__visual">
-        <div className="affiliation-showcase">
+        <div className="affiliation-showcase subtle-starfield">
+          <SubtleStarfield count={15} />
           <div className="affiliation-showcase__header">
             <div className="affiliation-showcase__badge">
               <Store size={18} strokeWidth={1.5} aria-hidden="true" />
@@ -332,7 +275,11 @@ export function ProductContent({
       </BentoGrid>
       <div className="product-modules">
         {visibleModules.map(({ id, anchorId, number, title, summary, icon: Icon, steps, requirements, visual }) => (
-          <section className="product-module" id={anchorId} key={id}>
+          <section
+            className={`product-module${id === "onboarding" ? " product-module--onboarding" : ""}`}
+            id={anchorId}
+            key={id}
+          >
             <div className="product-module__heading">
               <div className="product-module__icon">
                 <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
@@ -342,12 +289,18 @@ export function ProductContent({
             <h2>{title}</h2>
             <p className="product-module__summary">{summary}</p>
             <div className="product-module__steps">
-              {steps.map(([stepTitle, detail]) => (
-                <article className="product-module__step" key={stepTitle}>
-                  <h3>{stepTitle}</h3>
-                  <p>{detail}</p>
-                </article>
-              ))}
+              {steps.map(([stepTitle, detail]) => {
+                const [stepNumber, ...titleParts] = stepTitle.split(" · ");
+                const title = titleParts.join(" · ") || stepTitle;
+
+                return (
+                  <article className="product-module__step" key={stepTitle}>
+                    <span className="product-module__step-number">{stepNumber}</span>
+                    <h3>{title}</h3>
+                    <p>{detail}</p>
+                  </article>
+                );
+              })}
             </div>
             {visual}
           </section>

@@ -209,7 +209,7 @@ export function RequirementsContent() {
           </p>
         </div>
 
-        <div className="requirements-list">
+        <div className="requirements-list requirements-list--functional">
           {functionalRequirements.map(([id, title, detail]) => (
             <article className="requirement-row" key={id}>
               <span>{id}</span>
@@ -266,7 +266,7 @@ export function RequirementsContent() {
           </h2>
         </div>
 
-        <div className="business-rules">
+        <div className="business-rules business-rules--cards">
           {businessRules.map(([id, title, detail]) => (
             <article className="business-rule" key={id}>
               <span>{id}</span>

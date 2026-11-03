@@ -11,10 +11,10 @@ export function BrandIdentity({ className = "" }: BrandIdentityProps) {
     <Link
       href="/"
       aria-label="HarmonIA, página inicial"
-      className={`inline-flex items-center gap-2.5 ${className}`}
+      className={`inline-flex items-center gap-2 sm:gap-2.5 shrink-0 ${className}`}
     >
       <BrandLogo />
-      <BrandWordmark className="text-[13px]" />
+      <BrandWordmark className="text-[12px] sm:text-[13px]" />
     </Link>
   );
 }

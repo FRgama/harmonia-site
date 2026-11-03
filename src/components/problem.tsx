@@ -1,5 +1,6 @@
 import { ArrowDownRight, Home, MessageCircleWarning, Sparkles } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 
 const scenarios = [
   {
@@ -83,7 +84,8 @@ export function Problem() {
       <div className="problem-scenarios">
         {scenarios.map(({ tag, icon: Icon, title, text, highlight }, index) => (
           <ScrollReveal key={tag} delay={0.08 * index}>
-            <article className={`problem-scenario-card ${highlight ? "problem-scenario-card--tobe" : ""}`}>
+            <article className={`problem-scenario-card ${highlight ? "problem-scenario-card--tobe subtle-starfield" : ""}`}>
+              {highlight && <SubtleStarfield count={15} />}
               <div className="problem-scenario-card__top">
                 <span>{tag}</span>
                 <Icon size={18} strokeWidth={1.5} aria-hidden="true" />

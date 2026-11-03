@@ -64,7 +64,7 @@ const personas = [
     quote:
       "Não é só uma questão de estética. Eu consigo mostrar por que aquela combinação funciona e transformar isso em conteúdo.",
     image: "/personas/rafaela.webp",
-    boardUrl: "/Docs/Persona%20Rafaela.png",
+    boardUrl: "/Docs/Persona%20Rafaela.webp",
     icon: UsersRound,
     habits:
       "Extrovertida e estratégica quanto à imagem online, orientada a métricas de alcance, engajamento e salvamentos no Instagram, TikTok e Reels. Planeja pauta semanal e monetiza com parcerias comerciais e consultoria de estilo.",
@@ -172,7 +172,7 @@ export function PersonasContent() {
                   rel="noreferrer"
                   className="person-card__board-link"
                 >
-                  Visualizar prancha original (PNG)
+                  Visualizar prancha original
                   <ExternalLink size={13} aria-hidden="true" />
                 </a>
               </div>

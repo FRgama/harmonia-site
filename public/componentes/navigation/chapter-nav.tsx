@@ -71,7 +71,7 @@ export function ChapterNav({
   return (
     <nav
       aria-label="Navegação pelos atos da página inicial"
-      className={`fixed bottom-6 left-1/2 z-40 -translate-x-1/2 ${className}`}
+      className={`site-chapter-navigation fixed bottom-4 sm:bottom-6 left-1/2 z-40 -translate-x-1/2 max-w-[calc(100vw-24px)] ${className}`}
       onKeyDown={(event) => {
         if (event.key === "Escape" && expanded) {
           setExpanded(false);
@@ -81,26 +81,26 @@ export function ChapterNav({
     >
       <motion.div
         layout={reduceMotion ? false : true}
-        className="flex items-center gap-3 rounded-full border border-[var(--line)]/35 bg-[var(--ink)]/90 px-4 py-2 text-[var(--paper)] shadow-2xl backdrop-blur-2xl"
+        className="flex items-center gap-2 sm:gap-3 rounded-full border border-[var(--line)]/35 bg-[var(--ink)]/90 px-3 py-1.5 sm:px-4 sm:py-2 text-[var(--paper)] shadow-2xl backdrop-blur-2xl"
       >
         <button
           ref={triggerRef}
           type="button"
           onClick={() => setExpanded(!expanded)}
           aria-expanded={expanded}
-          className="flex items-center gap-2.5 text-xs font-mono uppercase tracking-wider transition-opacity hover:opacity-80"
+          className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider transition-opacity hover:opacity-80"
         >
-          <span className="flex size-5 items-center justify-center rounded-full bg-[var(--coral)] text-[10px] font-bold text-white">
+          <span className="flex size-5 items-center justify-center rounded-full bg-[var(--coral)] text-[10px] font-bold text-white shrink-0">
             {active.roman}
           </span>
-          <span className="max-w-[120px] truncate font-sans font-medium sm:max-w-none">{active.title}</span>
+          <span className="max-w-[110px] sm:max-w-none truncate font-sans font-medium">{active.title}</span>
           <ChevronDown
             size={14}
-            className={`transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+            className={`shrink-0 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
           />
         </button>
 
-        <div className="h-4 w-px bg-white/20" />
+        <div className="hidden h-4 w-px bg-white/20 lg:block" />
 
         <div className="hidden items-center gap-1 lg:flex">
           {chapters.map((ch, idx) => (
@@ -129,7 +129,7 @@ export function ChapterNav({
             initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduceMotion ? undefined : { opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-full left-1/2 mb-3 flex w-72 -translate-x-1/2 flex-col gap-1 rounded-2xl border border-[var(--line)]/35 bg-[var(--ink)]/95 p-3 text-[var(--paper)] shadow-2xl backdrop-blur-2xl"
+            className="absolute bottom-full left-1/2 mb-3 flex w-[min(300px,calc(100vw-32px))] max-h-[60vh] overflow-y-auto -translate-x-1/2 flex-col gap-1 rounded-2xl border border-[var(--line)]/35 bg-[var(--ink)]/95 p-3 text-[var(--paper)] shadow-2xl backdrop-blur-2xl"
           >
             {chapters.map((ch, idx) => (
               <button
@@ -143,7 +143,7 @@ export function ChapterNav({
                     : "hover:bg-white/5 text-white/70 hover:text-white"
                 }`}
               >
-                <span className="flex size-5 items-center justify-center rounded-md bg-white/10 text-[10px] font-mono font-bold">
+                <span className="flex size-5 shrink-0 items-center justify-center rounded-md bg-white/10 text-[10px] font-mono font-bold">
                   {ch.roman}
                 </span>
                 <span className="truncate">{ch.title}</span>

@@ -1,5 +1,6 @@
 import { Bookmark, LockKeyhole, Search, Share2 } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 
 const POSTS = [
   { user: "@beatriz.af", palette: "Outono Quente · Ampulheta", tone: "linear-gradient(160deg,#a65f46,#6e2a2a)" },
@@ -88,7 +89,8 @@ export function Community() {
             </div>
 
             <ScrollReveal delay={0.1}>
-              <div className="community-gap">
+              <div className="community-gap subtle-starfield">
+                <SubtleStarfield count={15} />
                 <span>Chave de Privacidade · RN05</span>
                 <strong>Controle absoluto: Perfil Público ou Privado.</strong>
                 <p>

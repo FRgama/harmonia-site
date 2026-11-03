@@ -1,5 +1,6 @@
 import { Crown, Shirt, Store } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { SubtleStarfield } from "@/components/subtle-starfield";
 
 const PLANS = [
   {
@@ -82,7 +83,8 @@ export function Plans() {
         <div className="plans-grid">
           {PLANS.map(({ variant, tag, icon: Icon, big, unit, title, description, items }, i) => (
             <ScrollReveal key={tag} delay={i * 0.1}>
-              <article className={`plan-card plan-card--${variant}`}>
+              <article className={`plan-card plan-card--${variant}${variant === "premium" ? " subtle-starfield" : ""}`}>
+                {variant === "premium" && <SubtleStarfield count={25} />}
                 <div className="plan-card__top">
                   <span>{tag}</span>
                   <Icon size={18} aria-hidden="true" />
