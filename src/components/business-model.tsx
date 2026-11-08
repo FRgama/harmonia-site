@@ -3,7 +3,6 @@ import {
   BarChart3,
   Crown,
   Layers,
-  ShieldCheck,
   Store,
   TrendingUp,
 } from "lucide-react";

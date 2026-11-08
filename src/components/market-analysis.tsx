@@ -1,4 +1,4 @@
-import { Compass, Globe2, MapPin, TrendingUp, Users } from "lucide-react";
+import { Globe2, MapPin, TrendingUp, Users } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SubtleStarfield } from "@/components/subtle-starfield";
 

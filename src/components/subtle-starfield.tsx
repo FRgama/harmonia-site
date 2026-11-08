@@ -29,7 +29,7 @@ const STARS = [
 ];
 
 type SubtleStarfieldProps = {
-  count?: 15 | 25;
+  count?: 15 | 20 | 25;
 };
 
 export function SubtleStarfield({ count = 15 }: SubtleStarfieldProps) {
