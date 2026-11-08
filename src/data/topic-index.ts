@@ -1,108 +1,71 @@
 export const topicGroups = [
   {
     number: "01",
-    title: "Início e proposta de valor",
+    title: "A Tese em 5 Segundos (Hero)",
     description:
-      "Apresentação instantânea da HarmonIA: visão computacional, ciência cromática e estilo com intenção.",
+      "A ponte de IA entre o armário doméstico e o varejo de moda: patrimônio digital ativo, redução de devoluções e consumo consciente.",
     links: [
-      { href: "/#inicio", label: "Hero e proposta de valor" },
-      { href: "/#tema-visao", label: "Explorar narrativa em 8 atos" },
+      { href: "/#inicio", label: "Proposta de valor e métricas de impacto" },
+      { href: "/#problema", label: "Avançar para o gargalo do setor têxtil" },
     ],
   },
   {
     number: "02",
-    title: "Problema, solução e impacto ESG",
+    title: "O Problema (Ineficiência Têxtil)",
     description:
-      "Diagnóstico ABVTEX (2025), contraste As-Is vs. To-Be, Custo por Uso e impactos socioambiental e no varejo.",
+      "O gargalo duplo que onera consumidor (>66% de peças sem uso) e varejista (20% a 40% de devoluções no e-commerce de moda).",
     links: [
-      { href: "/#tema-visao", label: "Visão geral (As-Is vs. To-Be)" },
-      { href: "/#parte-problema", label: "Dados ABVTEX e dor no provador" },
-      { href: "/#solucao", label: "Patrimônio têxtil e Custo por Uso" },
-      { href: "/#impacto", label: "Impacto ESG (ODS 12) e varejo" },
+      { href: "/#problema", label: "Diagnóstico ABVTEX e subutilização" },
+      { href: "/#parte-problema", label: "Dor do Consumidor vs. Dor do Varejo" },
     ],
   },
   {
     number: "03",
-    title: "As 3 personas do projeto",
+    title: "A Solução & Produto",
     description:
-      "Beatriz (Hard User), Thiago (Casual User) e Rafaela (Influenciadora): dores, hábitos, citações e pranchas.",
+      "HarmonIA na prática: Digitalização Inteligente em 1 clique, Consultoria Diária por IA e Paridade no PDV com Provador AR.",
     links: [
-      { href: "/#tema-pessoas", label: "Para quem construímos" },
-      { href: "/#persona-beatriz", label: "2.1 Beatriz · Hard User" },
-      { href: "/#persona-thiago", label: "2.2 Thiago · Casual User" },
-      { href: "/#persona-rafaela", label: "2.3 Rafaela · Influenciadora" },
+      { href: "/#solucao", label: "Do armário físico ao ativo digital" },
+      { href: "/#solucao", label: "Paridade no Ponto de Venda & Provador AR" },
     ],
   },
   {
     number: "04",
-    title: "Mercado, negócio e viabilidade",
+    title: "Diferencial Tecnológico (Moat)",
     description:
-      "Análise de mercado e concorrência, proposta de valor B2C/B2B, canais, parcerias, receitas, custos e execução do MVP.",
+      "Motor algorítmico proprietário IHE (CIE L*a*b*, Biótipos, Clima e pgvector) e Benchmarking contra Acloset, Whering e Pinterest.",
     links: [
-      { href: "/#tema-negocio", label: "Visão geral do mercado e negócio" },
-      { href: "/#analise-mercado", label: "Panorama e posicionamento competitivo" },
-      { href: "/#dimensionamento-mercado", label: "Dimensionamento TAM, SAM e SOM" },
-      { href: "/#modelo-negocio-detalhado", label: "Proposta de valor e segmentos" },
-      { href: "/#canais", label: "Canais de distribuição e comunicação" },
-      { href: "/#parcerias", label: "Parcerias estratégicas" },
-      { href: "/#planos", label: "Fontes de receita" },
-      { href: "/#cenario-a", label: "Cenário A (mercado · R$ 434 mil)" },
-      { href: "/#cenario-b", label: "Cenário B (TCC · R$ 6 mil + horas)" },
-      { href: "/#cronograma", label: "Cronograma de 24 semanas" },
-      { href: "/#operacao", label: "Operação e break-even (10k MAU)" },
-      { href: "/#riscos", label: "Riscos e próximos passos" },
+      { href: "/#moat-tecnologico", label: "Equação multivariada do Motor IHE" },
+      { href: "/#benchmarking", label: "Matriz de Benchmarking Competitivo" },
     ],
   },
   {
     number: "05",
-    title: "Experiência: os 6 módulos do MVP",
+    title: "Oportunidade de Mercado",
     description:
-      "Jornada completa do produto unificada em sequência, do onboarding morfocromático à afiliação varejista.",
+      "Dimensionamento TAM (R$ 314,9 Bi), SAM (18M+ jovens digitalizados) e SOM (10k a 50k MAU em São Paulo e Salvador).",
     links: [
-      { href: "/#tema-experiencia", label: "Visão geral da experiência" },
-      { href: "/#onboarding", label: "5.1 Onboarding e digitalização" },
-      { href: "/#inventario", label: "5.2 Dashboards e inventário" },
-      { href: "/#combinacoes", label: "5.3 Combinações por IA" },
-      { href: "/#provador", label: "5.4 Paridade em loja e AR" },
-      { href: "/#modulo-comunidade", label: "5.5 Feed social comunitário" },
-      { href: "/#afiliacao", label: "5.6 Afiliação C&A e Renner" },
+      { href: "/#mercado", label: "Dimensionamento TAM, SAM e SOM" },
+      { href: "/#mercado", label: "Polos lançadores: São Paulo e Salvador" },
     ],
   },
   {
     number: "06",
-    title: "Motor IHE e arquitetura SOA",
+    title: "Modelo de Negócio & Unit Economics",
     description:
-      "Equações matemáticas do IHE (CIE L*a*b* e pgvector) e os 3 pilares da arquitetura desacoplada na AWS.",
+      "Três frentes escaláveis (B2C Premium, B2B2C Afiliação Varejo e B2B Market Intelligence) com Break-Even em 10.000 MAU.",
     links: [
-      { href: "/#tema-tecnologia", label: "Diferencial científico e técnico" },
-      { href: "/#ihe", label: "7.3 Equações do Motor IHE" },
-      { href: "/#arquitetura", label: "7.1 Arquitetura SOA em 3 pilares" },
-      { href: "/#tecnologias", label: "7.2 Quadro 5 de tecnologias" },
+      { href: "/#modelo-negocio", label: "Frentes de receita B2C, B2B2C e B2B" },
+      { href: "/#unit-economics", label: "Custo marginal decrescente e Break-Even (10k MAU)" },
     ],
   },
   {
     number: "07",
-    title: "Requisitos e regras de negócio",
+    title: "Chancela Institucional FECAP",
     description:
-      "Os 4 pilares de confiança integrados aos 17 Requisitos Funcionais, 6 Não Funcionais e 5 Regras de Negócio.",
+      "Fundamentação científica e mercadológica chancelada pelo Centro Universitário Álvares Penteado (FECAP).",
     links: [
-      { href: "/#tema-requisitos", label: "Engenharia de requisitos" },
-      { href: "/#privacidade", label: "Quatro pilares de confiança" },
-      { href: "/#funcionais", label: "6.1 Requisitos funcionais (RF)" },
-      { href: "/#nao-funcionais", label: "6.2 Requisitos não funcionais (RNF)" },
-      { href: "/#regras", label: "6.3 Regras de negócio (RN)" },
-    ],
-  },
-  {
-    number: "08",
-    title: "Referências e chancela FECAP",
-    description:
-      "Referências (ABVTEX, ABIT, IEMI, LGPD, CIE e McKinsey/BoF), autoria acadêmica e documento oficial.",
-    links: [
-      { href: "/#tema-institucional", label: "Fundamentação e autoria" },
-      { href: "/#referencias-home", label: "Referências (ABVTEX, ABIT, IEMI, LGPD, CIE)" },
-      { href: "/#autoria-fecap", label: "Equipe, orientador e documento oficial" },
-      { href: "/documentacao", label: "Mapa de cobertura documental" },
+      { href: "/#chancela-fecap", label: "Chancela institucional FECAP" },
     ],
   },
 ] as const;

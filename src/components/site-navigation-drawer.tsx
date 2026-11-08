@@ -71,7 +71,7 @@ export function SiteNavigationDrawer() {
           onClick={() => setIsOpen(true)}
         >
           <Menu size={17} aria-hidden="true" />
-          <span>8 Atos</span>
+          <span>Pitch Deck</span>
         </button>
       </div>
       <dialog
@@ -102,8 +102,8 @@ export function SiteNavigationDrawer() {
         <div className="site-navigation-dialog__inner">
           <div className="site-navigation-dialog__header">
             <div>
-              <span className="eyebrow">Estrutura em 8 Atos</span>
-              <h2 id="site-navigation-title">Navegue pela HarmonIA.</h2>
+              <span className="eyebrow">Narrativa Executiva · 7 Blocos</span>
+              <h2 id="site-navigation-title">Tese &amp; Negócio HarmonIA.</h2>
             </div>
             <button
               type="button"
@@ -115,11 +115,14 @@ export function SiteNavigationDrawer() {
               <X size={19} aria-hidden="true" />
             </button>
           </div>
-          <nav aria-label="Todos os 8 atos do projeto" className="site-navigation-groups">
+          <nav
+            aria-label="Todos os 7 blocos da apresentação executiva"
+            className="site-navigation-groups"
+          >
             {topicGroups.map(({ number, title, links }) => (
               <section className="site-navigation-group" key={number}>
                 <h3>
-                  <span>ATO {number}</span>
+                  <span>BLOCO {number}</span>
                   {title}
                 </h3>
                 <ul>
@@ -135,10 +138,16 @@ export function SiteNavigationDrawer() {
               </section>
             ))}
           </nav>
-          <Link className="site-navigation-index-link" href="/explorar" onClick={closeDrawer}>
-            Ver índice completo dos 8 atos
+          <a
+            className="site-navigation-index-link"
+            href="https://www.canva.com/design/DAHYsH4ZWy4/Bx8Nya7r4n3V0eC80bdb0A/edit"
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeDrawer}
+          >
+            Abrir Pitch Deck Executivo Completo
             <ArrowUpRight size={14} aria-hidden="true" />
-          </Link>
+          </a>
         </div>
       </dialog>
       <SearchModal

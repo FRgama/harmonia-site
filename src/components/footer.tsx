@@ -2,14 +2,13 @@ import Link from "next/link";
 import { BrandIdentity } from "@/components/brand-identity";
 
 const footerLinks = [
-  { href: "/#inicio", label: "01 · Início" },
-  { href: "/#tema-visao", label: "02 · Visão & ESG" },
-  { href: "/#tema-pessoas", label: "03 · Personas" },
-  { href: "/#tema-negocio", label: "04 · Mercado, Negócio & Custos" },
-  { href: "/#tema-experiencia", label: "05 · Módulos MVP" },
-  { href: "/#tema-tecnologia", label: "06 · IHE & Arquitetura" },
-  { href: "/#tema-requisitos", label: "07 · Requisitos" },
-  { href: "/#tema-institucional", label: "08 · FECAP & Referências" },
+  { href: "/#inicio", label: "01 · A Tese" },
+  { href: "/#problema", label: "02 · O Problema" },
+  { href: "/#solucao", label: "03 · A Solução" },
+  { href: "/#moat-tecnologico", label: "04 · Moat & Motor IHE" },
+  { href: "/#mercado", label: "05 · Mercado (TAM/SAM/SOM)" },
+  { href: "/#modelo-negocio", label: "06 · Unit Economics" },
+  { href: "/#equipe-institucional", label: "07 · Chancela FECAP" },
 ];
 
 export function Footer() {
@@ -19,25 +18,23 @@ export function Footer() {
         <div>
           <BrandIdentity />
           <p className="mb-0 mt-2 text-[10px] text-[#777970]">
-            Projeto Startup · Ciência da Computação · FECAP (São Paulo, 2026)
+            HarmonIA · FashionTech &amp; DeepTech · Chancela Institucional FECAP (São Paulo, 2026)
           </p>
         </div>
 
         <nav
-          aria-label="Navegação pelos 8 atos do projeto"
+          aria-label="Navegação pelos 7 blocos da apresentação"
           className="flex flex-wrap gap-x-4 sm:gap-x-5 gap-y-2.5 sm:gap-y-3 text-[10px] font-medium text-[#55574f]"
         >
           {footerLinks.map(({ href, label }) => (
-            <Link key={href} href={href} className="inline-flex min-h-[36px] items-center py-1 transition hover:text-[#7b3b3f]">
+            <Link
+              key={href}
+              href={href}
+              className="inline-flex min-h-[36px] items-center py-1 transition hover:text-[#7b3b3f]"
+            >
               {label}
             </Link>
           ))}
-          <Link href="/explorar" className="inline-flex min-h-[36px] items-center py-1 transition hover:text-[#7b3b3f]">
-            Índice temático
-          </Link>
-          <Link href="/documentacao" className="inline-flex min-h-[36px] items-center py-1 font-bold text-[#7b3b3f]">
-            Mapa do documento
-          </Link>
         </nav>
 
         <span className="text-[9px] text-[#85877f]">© 2026 HarmonIA · FECAP</span>

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
-import { Cloud, ScanFace, Sparkles, SwatchBook, Waypoints } from "lucide-react";
+import { Cloud, ScanFace, ShieldCheck, Sparkles, SwatchBook, Waypoints } from "lucide-react";
 import { HarmonyIndex } from "@/components/harmony-index";
+import { IheExecutiveSimulator } from "@/components/ihe-executive-simulator";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SubtleStarfield } from "@/components/subtle-starfield";
 import { DaVinciLines } from "@/../public/componentes/backgrounds/davinci-lines";
@@ -10,7 +11,7 @@ const harmonyFactors = [
     number: "01 · w_c = 0.35",
     symbol: "S_cor (35%)",
     name: "Harmonia Cromática · CIE L*a*b*",
-    note: "Proximidade euclidiana ΔE*ab entre os tons da peça e a cartela do usuário.",
+    note: "Distância perceptual euclidiana ΔE*ab entre os tons da peça e a cartela sazonal do usuário.",
     score: "94%",
     icon: SwatchBook,
   },
@@ -18,7 +19,7 @@ const harmonyFactors = [
     number: "02 · w_m = 0.25",
     symbol: "S_bio (25%)",
     name: "Compensação Morfológica",
-    note: "Equilíbrio proporcional dos cortes frente aos 5 biótipos corporais.",
+    note: "Equilíbrio proporcional de modelagens e recortes frente aos 5 biótipos corporais.",
     score: "89%",
     icon: ScanFace,
   },
@@ -26,7 +27,7 @@ const harmonyFactors = [
     number: "03 · w_o = 0.20",
     symbol: "S_ocasion (20%)",
     name: "Contexto e Clima",
-    note: "Adequação formal ao evento combinada à telemetria meteorológica.",
+    note: "Adequação formal ao evento combinada à telemetria meteorológica local em tempo real.",
     score: "95%",
     icon: Cloud,
   },
@@ -34,30 +35,90 @@ const harmonyFactors = [
     number: "04 · w_v = 0.20",
     symbol: "S_cos (20%)",
     name: "Similaridade Vetorial · pgvector",
-    note: "Cosseno entre o vetor latente do usuário (u) e o vetor do look (v_look).",
+    note: "Cosseno entre o vetor latente de estilo do usuário e o embedding multidimensional do look.",
     score: "91%",
     icon: Waypoints,
   },
 ];
 
+const benchmarkComparison = [
+  [
+    "Atuação ponta a ponta (Acervo Doméstico ↔ Provador Físico)",
+    "Sim · Nativo",
+    "Não (Catálogo passivo)",
+    "Não (Catálogo passivo)",
+    "Não (Inspiração isolada)",
+  ],
+  [
+    "Harmonia Cromática Perceptual (Espaço CIE L*a*b*) e Biótipos",
+    "Sim · Determinístico",
+    "Não",
+    "Não",
+    "Não",
+  ],
+  [
+    "Validação em tempo real na arara / Provador AR no Brasil",
+    "Sim · Câmara & AR",
+    "Não",
+    "Não",
+    "Não",
+  ],
+  [
+    "Recomendações diárias orientadas a Clima, Ocasião e Vetores",
+    "Sim · Motor IHE",
+    "Parcial",
+    "Básico",
+    "Não",
+  ],
+  [
+    "Integração B2B2C (Gap Analysis) e Market Intelligence B2B",
+    "Sim · C&A / Renner",
+    "Não localizado",
+    "Foco Europa",
+    "Apenas Ads genéricos",
+  ],
+];
+
+const moatNotes = [
+  {
+    label: "Apps Globais (Acloset & Whering)",
+    text: "Operam como meros catálogos passivos de guarda-roupa: carecem de ciência colorimétrica CIE L*a*b*, matrizes de compensação morfológica, validação por câmera no provador físico e integração transacional com varejistas brasileiros.",
+  },
+  {
+    label: "Redes Sociais (Pinterest, Instagram, TikTok)",
+    text: "Entregam referências aspiracionais desconectadas da realidade do armário doméstico — estimulando compras por impulso sem qualquer validação de paridade com o que o consumidor já possui em casa.",
+  },
+  {
+    label: "O Moat HarmonIA (Ponta a Ponta)",
+    text: "Única plataforma que fecha o ciclo entre o patrimônio doméstico e o ponto de venda brasileiro: quanto maior o acervo catalogado, mais defensável é o grafo vetorial de preferências e maior a conversão para o varejo parceiro.",
+  },
+];
+
 export function Technology() {
   return (
-    <section id="ihe" className="technology-section subtle-starfield relative isolate">
+    <section id="moat-tecnologico" className="technology-section subtle-starfield relative isolate">
       <SubtleStarfield count={25} />
-      <DaVinciLines className="pointer-events-none absolute left-1/2 top-[48%] z-0 size-[min(100vw,960px)] -translate-x-1/2 -translate-y-1/2 text-[var(--acid)] opacity-60" />
+      <DaVinciLines className="pointer-events-none absolute left-1/2 top-[38%] z-0 size-[min(100vw,960px)] -translate-x-1/2 -translate-y-1/2 text-[var(--acid)] opacity-55" />
       <div className="technology-section__inner relative z-10">
         <ScrollReveal>
           <div className="technology-section__heading">
             <div>
-              <span className="eyebrow">7.3 / Motor de Cálculo do Índice de Harmonia Estética (IHE)</span>
+              <span className="eyebrow">
+                04 / Diferencial Tecnológico Defensável · O &ldquo;Moat&rdquo; do Negócio
+              </span>
+              <p className="mb-3 mt-4 border-l-2 border-[var(--gilt)] pl-3.5 font-(family-name:--serif) text-[18px] sm:text-[22px] italic text-[var(--gilt)]">
+                “Essa assertividade não depende de palpites subjetivos, mas de um motor algorítmico
+                proprietário.”
+              </p>
               <h2 className="display-title">
-                Modelagem determinística <em>multivariada.</em>
+                O Motor IHE: <em>ciência cromática e álgebra vetorial.</em>
               </h2>
             </div>
             <p>
-              Para tornar a coordenação de roupas objetiva e reprodutível, o núcleo analítico da
-              HarmonIA combina ciência colorimétrica, geometria morfológica, telemetria climática e
-              álgebra vetorial em uma única métrica normalizada.
+              O <strong>Índice de Harmonia Estética (IHE)</strong> substitui o “achismo” na hora de
+              vestir e comprar por uma equação multivariada proprietária que cruza percepção visual
+              humana no espaço <strong>CIE L*a*b*</strong>, compensação de silhuetas, clima e
+              similaridade de cosseno em banco vetorial (<strong>pgvector</strong>).
             </p>
           </div>
         </ScrollReveal>
@@ -66,7 +127,7 @@ export function Technology() {
           <ScrollReveal className="technology-section__factors">
             <div className="technology-section__label">
               <Sparkles size={14} aria-hidden="true" />
-              <span>QUATRO DIMENSÕES PONDERADAS · SOMA DOS PESOS = 1.00</span>
+              <span>MOTOR ALGORÍTMICO PROPRIETÁRIO · 4 VARIÁVEIS PONDERADAS (SOMA = 1.00)</span>
             </div>
             <div className="technology-section__factor-grid">
               {harmonyFactors.map(({ number, name, note, score, icon: Icon }, index) => (
@@ -97,90 +158,90 @@ export function Technology() {
           <HarmonyIndex />
         </div>
 
-        <div className="ihe-math-panel">
-          <div className="ihe-math-panel__eq-main">
-            <span className="ihe-math-panel__tag">Equação 1 · Fórmula Geral Multivariada</span>
-            <code className="ihe-formula-block">
-              IHE = w_c · S_cor + w_m · S_bio + w_o · S_ocasion + w_v · S_cos
-            </code>
-            <p>
-              Condição estrita de normalização:{" "}
-              <code>w_c + w_m + w_o + w_v = 1.0</code> — calibrada em produção com{" "}
-              <strong>w_c = 0.35</strong> (35%), <strong>w_m = 0.25</strong> (25%),{" "}
-              <strong>w_o = 0.20</strong> (20%) e <strong>w_v = 0.20</strong> (20%).
-            </p>
-          </div>
+        {/* Interactive Executive Simulator adapted from @site */}
+        <ScrollReveal delay={0.1}>
+          <IheExecutiveSimulator />
+        </ScrollReveal>
 
-          <div className="ihe-math-grid">
-            <article className="ihe-math-card">
-              <span className="ihe-math-card__index">Variável 1 · S_cor (35%) · Espaço CIE L*a*b*</span>
-              <h3>Distância Euclidiana Perceptualmente Uniforme</h3>
-              <p>
-                Desenvolvido pela <strong>Comissão Internacional de Iluminação (CIE)</strong>, o
-                espaço tridimensional <strong>CIE L*a*b*</strong> espelha fielmente a percepção
-                visual humana nos três eixos — luminosidade (<strong>L*</strong>), gradiente
-                verde-vermelho (<strong>a*</strong>) e gradiente azul-amarelo (<strong>b*</strong>) —
-                superando as distorções de dispositivos dos padrões RGB e CMYK.
-              </p>
-              <div className="ihe-math-card__formulas">
-                <div>
-                  <small>Equação 2a · Distância cromática euclidiana</small>
-                  <code>ΔE*ab = √[ (L*i - L*k)² + (a*i - a*k)² + (b*i - b*k)² ]</code>
-                </div>
-                <div>
-                  <small>Equação 2b · Conversão exponencial normalizada (σ_c = 18.0)</small>
-                  <code>S_cor = exp( -ΔE*ab / σ_c )   onde   σ_c = 18.0</code>
-                </div>
+        {/* Competitive Benchmarking Matrix inside Section 4 as requested */}
+        <ScrollReveal delay={0.14}>
+          <div id="benchmarking" className="mt-14 border border-white/15 bg-white/[0.03] p-6 sm:p-9">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <span className="eyebrow !text-[var(--gilt)]">
+                  4.2 / O Diferencial Competitivo · Benchmarking Global vs. HarmonIA
+                </span>
+                <h3 className="mt-3 font-(family-name:--serif) text-[clamp(28px,3.8vw,46px)] font-medium leading-tight text-white">
+                  De catálogos passivos à{" "}
+                  <em className="text-[var(--gilt)]">validação em tempo real no provador.</em>
+                </h3>
               </div>
-            </article>
+              <span className="inline-flex items-center gap-2 border border-[var(--gilt)]/40 bg-[var(--gilt)]/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-[var(--gilt)]">
+                <ShieldCheck size={14} aria-hidden="true" /> Defensabilidade de Dados &amp; Rede
+              </span>
+            </div>
 
-            <article className="ihe-math-card">
-              <span className="ihe-math-card__index">Variável 4 · S_cos (20%) · PostgreSQL + pgvector</span>
-              <h3>Similaridade de Cosseno no Espaço Latente</h3>
-              <p>
-                Calculada diretamente no motor do banco de dados via extensão{" "}
-                <strong>pgvector</strong>, compara o ângulo entre o vetor latente de preferências
-                do perfil do usuário (<strong>u</strong>, retroalimentado pelos feedbacks{" "}
-                <code>RF13</code>) e o vetor multidimensional resultante das peças que compõem o
-                look (<strong>v_look</strong>).
-              </p>
-              <div className="ihe-math-card__formulas">
-                <div>
-                  <small>Equação 3 · Similaridade vetorial de cosseno</small>
-                  <code>S_cos = (u · v_look) / ( ||u|| · ||v_look|| )</code>
-                </div>
-                <div>
-                  <small>Limiar de recomendação em tempo real (0% a 100%)</small>
-                  <code>IHE ≥ 75%  →  “Looks Fortemente Recomendados”</code>
-                </div>
-              </div>
-            </article>
+            <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-3">
+              {moatNotes.map(({ label, text }) => (
+                <article
+                  key={label}
+                  className="border border-white/12 bg-black/35 p-5"
+                >
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--gilt)]">
+                    {label}
+                  </span>
+                  <p className="mt-2.5 mb-0 text-xs leading-relaxed text-[#c5c2b6]">{text}</p>
+                </article>
+              ))}
+            </div>
 
-            <article className="ihe-math-card ihe-math-card--compact">
-              <span className="ihe-math-card__index">Variável 2 · S_bio (25%)</span>
-              <h3>Matriz de Compensação Morfológica</h3>
-              <p>
-                Avalia matematicamente se as modelagens, comprimentos e linhas estruturais das
-                peças equilibram proporcionalmente a silhueta corporal mapeada no onboarding:{" "}
-                <strong>Ampulheta, Retângulo, Oval, Triângulo ou Triângulo Invertido</strong>.
-              </p>
-            </article>
-
-            <article className="ihe-math-card ihe-math-card--compact">
-              <span className="ihe-math-card__index">Variável 3 · S_ocasion (20%)</span>
-              <h3>Adequação Contextual e Restrição Meteorológica</h3>
-              <p>
-                Pondera o grau de formalidade intrínseco das peças frente ao evento informado
-                (corporativo, casual, gala) cruzado com a telemetria climática em tempo real
-                (temperatura e precipitação via API meteorológica — <code>RF16</code>).
-              </p>
-            </article>
+            <div
+              className="overflow-x-auto border border-white/15 bg-[#0c111d]"
+              role="region"
+              aria-label="Matriz de Benchmarking Competitivo"
+              tabIndex={0}
+            >
+              <table className="w-full min-w-[680px] border-collapse text-left text-xs">
+                <thead>
+                  <tr className="border-b border-white/15 bg-black/50 font-mono text-[10px] uppercase tracking-wider text-[var(--gilt)]">
+                    <th scope="col" className="p-3.5">
+                      Capacidade Estratégica
+                    </th>
+                    <th scope="col" className="p-3.5 text-white">
+                      HarmonIA
+                    </th>
+                    <th scope="col" className="p-3.5 text-white/60">
+                      Acloset
+                    </th>
+                    <th scope="col" className="p-3.5 text-white/60">
+                      Whering
+                    </th>
+                    <th scope="col" className="p-3.5 text-white/60">
+                      Pinterest &amp; Redes
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/10">
+                  {benchmarkComparison.map(([criterion, harmonia, acloset, whering, social]) => (
+                    <tr key={criterion} className="hover:bg-white/[0.02]">
+                      <th scope="row" className="p-3.5 font-medium text-[#e9dfc8]">
+                        {criterion}
+                      </th>
+                      <td className="p-3.5 font-bold text-[var(--gilt)]">{harmonia}</td>
+                      <td className="p-3.5 text-[#aeb0a6]">{acloset}</td>
+                      <td className="p-3.5 text-[#aeb0a6]">{whering}</td>
+                      <td className="p-3.5 text-[#aeb0a6]">{social}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="technology-section__foot">
-          <span>CIE L*a*b* · ΔE*ab · σ_c = 18.0 · Similaridade de Cosseno (pgvector)</span>
-          <span>Pontuação 0%–100% · IHE ≥ 75%: Looks Fortemente Recomendados</span>
+          <span>CIE L*a*b* (ΔE*ab) · Matriz de 5 Biótipos · Telemetria Climática · pgvector</span>
+          <span>Barreira Competitiva: Grafo Proprietário de Patrimônio Têxtil &amp; Estilo</span>
         </div>
       </div>
     </section>

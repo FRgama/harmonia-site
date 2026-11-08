@@ -18,6 +18,7 @@ type PinnedStoryProps = {
   id?: string;
   mode: StoryMode;
   eyebrow: string;
+  transitionQuote?: string;
   title: string;
   chapters: StoryChapter[];
   autoPlay?: boolean;
@@ -42,6 +43,7 @@ export function PinnedStory({
   id,
   mode,
   eyebrow,
+  transitionQuote,
   title,
   chapters,
   autoPlay = false,
@@ -71,6 +73,11 @@ export function PinnedStory({
       <div className="pinned-story__intro">
         <ScrollReveal>
           <span className="eyebrow">{eyebrow}</span>
+          {transitionQuote && (
+            <p className="mb-3 mt-4 border-l-2 border-[#d8b36a] pl-3.5 font-(family-name:--serif) text-[18px] sm:text-[22px] italic text-[#d8b36a]">
+              {transitionQuote}
+            </p>
+          )}
           <h2 className="display-title">{title}</h2>
         </ScrollReveal>
       </div>

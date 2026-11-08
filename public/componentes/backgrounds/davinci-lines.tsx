@@ -16,9 +16,13 @@ export function DaVinciLines({
 }: DaVinciLinesProps) {
   const reduceMotion = useReducedMotion();
   const shouldAnimate = animate && !reduceMotion;
+  const hasCustomPosition = /\b(absolute|fixed|sticky)\b/.test(className);
 
   return (
-    <div className={`pointer-events-none relative overflow-hidden select-none ${className}`} aria-hidden="true">
+    <div
+      className={`pointer-events-none ${hasCustomPosition ? "" : "relative"} overflow-hidden select-none ${className}`}
+      aria-hidden="true"
+    >
       <motion.svg
         viewBox="0 0 1000 1000"
         fill="none"

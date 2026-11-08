@@ -1,192 +1,76 @@
-import {
-  ArrowUpRight,
-  BookOpenCheck,
-  FileDown,
-  GraduationCap,
-  Scale,
-  SwatchBook,
-  TrendingUp,
-} from "lucide-react";
-import Link from "next/link";
-import { EditorialImage } from "@/components/editorial-image";
+import { GraduationCap } from "lucide-react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SubtleStarfield } from "@/components/subtle-starfield";
-import { PillButton } from "@/../public/componentes/actions/pill-button";
-
-const references = [
-  {
-    code: "01 / Mercado & Sustentabilidade",
-    icon: TrendingUp,
-    title: "Associação Brasileira do Varejo Têxtil (ABVTEX, 2025)",
-    detail:
-      "Fornece os dados mercadológicos sobre o setor de vestuário no Brasil — que movimenta centenas de bilhões de reais anualmente — e fundamenta o diagnóstico de desperdício têxtil expressivo e subutilização estrutural das roupas pelos consumidores.",
-  },
-  {
-    code: "02 / Marco Legal & RNF01",
-    icon: Scale,
-    title: "Lei nº 13.709/2018 (Lei Geral de Proteção de Dados Pessoais — LGPD)",
-    detail:
-      "Base legal estabelecida como o primeiro requisito não funcional (RNF01) do projeto, regendo o consentimento explícito no primeiro acesso, a criptografia AES-256 em repouso e os mecanismos de exclusão física definitiva de imagens.",
-  },
-  {
-    code: "03 / Ciência Colorimétrica",
-    icon: SwatchBook,
-    title: "Comissão Internacional de Iluminação (CIE — Espaço CIE L*a*b*)",
-    detail:
-      "Órgão responsável pelo desenvolvimento do espaço de cor tridimensional perceptualmente uniforme CIE L*a*b*, base algorítmica do cálculo de distância cromática euclidiana (ΔE*ab) no Índice de Harmonia Estética (IHE).",
-  },
-  {
-    code: "04 / Indústria Têxtil",
-    icon: TrendingUp,
-    title: "Associação Brasileira da Indústria Têxtil e de Confecção (ABIT, 2025)",
-    detail:
-      "Referência para o panorama macroeconômico e produtivo da cadeia têxtil e de confecção brasileira.",
-  },
-  {
-    code: "05 / Dimensionamento de Mercado",
-    icon: TrendingUp,
-    title: "IEMI — Inteligência de Mercado (2025)",
-    detail:
-      "Levantamentos e projeções de desempenho do varejo de vestuário e calçados utilizados na estimativa do mercado endereçável.",
-  },
-  {
-    code: "06 / Tendências Globais",
-    icon: TrendingUp,
-    title: "McKinsey & Company e Business of Fashion (2025)",
-    detail:
-      "Relatório The State of Fashion, citado para contextualizar devoluções no varejo de moda e o uso de inteligência artificial na personalização.",
-  },
-];
-
-const authors = [
-  "Maria Kassandra Alves Gomes",
-  "Rodrigo Correa da Gama",
-  "Sabrinna Cristina Gomes Vicente",
-  "Sátiro Gabriel de Souza Santos",
-];
 
 export function FinalCta() {
   return (
-    <section className="project-theme" id="tema-institucional">
+    <section className="project-theme" id="equipe-institucional">
       <div className="project-theme__inner">
-        <header className="project-theme__heading">
-          <span className="eyebrow">08 / Fundamentação, Autoria e Chancela Acadêmica</span>
-          <h2>
-            Referências e chancela <em>FECAP.</em>
-          </h2>
-          <p>
-            As bases científicas, regulatórias e mercadológicas da HarmonIA e a ficha técnica
-            oficial do Trabalho de Conclusão de Curso em Ciência da Computação.
-          </p>
-        </header>
+        <ScrollReveal>
+          <header className="project-theme__heading">
+            <span className="eyebrow">07 / Institucional · Chancela Acadêmica &amp; Científica</span>
+            <p className="mb-3 mt-4 border-l-2 border-[var(--coral)] pl-3.5 font-(family-name:--serif) text-[18px] sm:text-[22px] italic text-[var(--coral)]">
+              “Uma visão fundamentada em pesquisa acadêmica de ponta e execução técnica
+              multidisciplinar.”
+            </p>
+            <h2>
+              Chancela institucional <em>FECAP.</em>
+            </h2>
+          </header>
+        </ScrollReveal>
 
-        <section id="referencias-home" aria-label="Referências fundamentais do projeto" className="institutional-references">
-          {references.map(({ code, icon: Icon, title, detail }, index) => (
-            <ScrollReveal key={code} delay={index * 0.08}>
-              <article className="institutional-ref-card">
-                <div className="institutional-ref-card__top">
-                  <span>{code}</span>
-                  <Icon size={18} strokeWidth={1.5} aria-hidden="true" />
-                </div>
-                <h3>{title}</h3>
-                <p>{detail}</p>
-              </article>
-            </ScrollReveal>
-          ))}
-        </section>
-
-        <ScrollReveal delay={0.12}>
-          <section id="autoria-fecap" className="institutional-dossier subtle-starfield" aria-label="Ficha técnica institucional FECAP">
+        {/* FECAP Institutional Endorsement Dossier */}
+        <ScrollReveal delay={0.1}>
+          <section
+            id="chancela-fecap"
+            className="institutional-dossier subtle-starfield"
+            aria-label="Chancela Institucional FECAP"
+          >
             <SubtleStarfield count={25} />
             <div className="institutional-dossier__main">
               <div className="institutional-dossier__badge">
                 <GraduationCap size={19} strokeWidth={1.5} aria-hidden="true" />
-                <span>Ficha Técnica Institucional · São Paulo, 2026</span>
+                <span>Chancela Institucional · Centro Universitário Álvares Penteado</span>
               </div>
 
               <h3>
-                Fundação Escola de Comércio Álvares Penteado — <em>FECAP</em>
+                Projeto chancelado pela <em>FECAP.</em>
               </h3>
               <p className="institutional-dossier__subtitle">
-                Centro Universitário Álvares Penteado · Bacharelado em{" "}
-                <strong>Ciência da Computação</strong> — Trabalho de Conclusão de Curso (
-                <em>Projeto Startup: HarmonIA — Documentação do Produto</em>).
+                Desenvolvido no âmbito do Bacharelado em <strong>Ciência da Computação</strong> da{" "}
+                <strong>Fundação Escola de Comércio Álvares Penteado (FECAP)</strong>, combinando
+                rigor científico em visão computacional e álgebra vetorial com modelagem de
+                viabilidade para o mercado brasileiro de moda e varejo.
               </p>
 
               <p className="institutional-dossier__note">
-                <strong>Nota de contexto acadêmico:</strong> este portal institucional consolida a
-                arquitetura de produto, a modelagem matemática do Motor IHE, a engenharia de
-                requisitos e o plano de viabilidade econômico-financeira concebidos para o MVP da
-                startup HarmonIA no âmbito acadêmico da FECAP (2026).
+                <strong>Fundamentação Mercadológica &amp; Científica:</strong> tese validada com
+                dados setoriais da <strong>ABVTEX</strong>, <strong>ABIT</strong>,{" "}
+                <strong>IEMI</strong> e <strong>McKinsey / Business of Fashion</strong>, operando
+                sob espaço colorimétrico <strong>CIE L*a*b*</strong> e conformidade nativa{" "}
+                <strong>LGPD (Privacy by Design)</strong>.
               </p>
-
-              <div className="institutional-dossier__actions">
-                <a
-                  href="/Docs/HarmonIA%20-%20Documenta%C3%A7%C3%A3o.docx"
-                  download
-                  className="institutional-btn institutional-btn--primary"
-                >
-                  <FileDown size={15} aria-hidden="true" />
-                  Baixar Documento Oficial (.docx)
-                  <ArrowUpRight size={14} aria-hidden="true" />
-                </a>
-
-                <Link href="/documentacao" className="institutional-btn institutional-btn--secondary">
-                  <BookOpenCheck size={15} aria-hidden="true" />
-                  Mapa de Cobertura Documental
-                  <ArrowUpRight size={14} aria-hidden="true" />
-                </Link>
-              </div>
             </div>
 
             <div className="institutional-dossier__credits">
               <div className="institutional-credits-block">
-                <span>Autores do Projeto</span>
-                <ul>
-                  {authors.map((author) => (
-                    <li key={author}>{author}</li>
-                  ))}
-                </ul>
+                <span>Instituição Chanceladora</span>
+                <strong className="mt-2 block font-(family-name:--serif) text-[26px] font-medium text-white">
+                  Centro Universitário Álvares Penteado (FECAP)
+                </strong>
+                <small className="mt-1 block text-xs text-[#c5c2b6]">
+                  São Paulo, SP · Ciência da Computação
+                </small>
               </div>
 
               <div className="institutional-credits-block institutional-credits-block--advisor">
-                <span>Orientação Acadêmica</span>
+                <span>Orientação &amp; Banca Executiva</span>
                 <strong>Prof. Leonardo Fabris Lugoboni</strong>
-                <small>Ciência da Computação · FECAP · 2026</small>
+                <small>Pesquisa Aplicada &amp; Inovação · FECAP · 2026</small>
               </div>
             </div>
           </section>
         </ScrollReveal>
-
-        <div id="conheca" className="mt-14">
-          <div className="relative grid min-h-[420px] overflow-hidden rounded-[2px] border border-[#2019121a] bg-[linear-gradient(135deg,#b5653f_0%,#9a4d3a_45%,#d5b98d_100%)] md:grid-cols-[1.15fr_.85fr]">
-            <ScrollReveal className="relative z-10 flex flex-col items-start justify-between p-6 sm:p-8 md:p-12">
-              <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#fff5ea]">
-                HarmonIA / Ciência, Estilo e Consciência
-              </span>
-              <div className="py-6 sm:py-8 md:py-6">
-                <h2 className="m-0 max-w-[630px] font-(family-name:--serif) text-[clamp(40px,7vw,96px)] font-normal leading-[.92] text-[#f8f2e8] break-words">
-                  Vista o que você já é.
-                </h2>
-                <p className="mb-0 mt-4 sm:mt-5 max-w-[410px] text-[12.5px] sm:text-[13px] leading-6 text-[#f7e9dc]">
-                  Do patrimônio têxtil que já habita o seu armário às próximas escolhas com
-                  contexto, ciência cromática e propósito.
-                </p>
-              </div>
-              <PillButton href="/#inicio" variant="dark" size="lg" className="!text-white">
-                <span className="inline-flex items-center gap-2.5">
-                  Voltar ao topo <ArrowUpRight size={14} aria-hidden="true" />
-                </span>
-              </PillButton>
-            </ScrollReveal>
-            <EditorialImage
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=88"
-              alt="Look de moda com cores e silhueta marcantes"
-              className="cta-image relative min-h-[260px] sm:min-h-[300px] md:min-h-[420px]"
-              sizes="(max-width: 768px) 100vw, 42vw"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -1,38 +1,30 @@
 import type { Metadata } from "next";
+import { BusinessModel } from "@/components/business-model";
+import { DaVinciScrollAura } from "@/components/davinci-scroll-aura";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
-import { HowItWorks } from "@/components/how-it-works";
-import { Impact } from "@/components/impact";
-import { Plans } from "@/components/plans";
+import { MarketAnalysis } from "@/components/market-analysis";
 import { Problem } from "@/components/problem";
 import { SiteHeader } from "@/components/site-header";
 import { Solution } from "@/components/solution";
 import { Technology } from "@/components/technology";
-import { BusinessModel } from "@/components/business-model";
-import { MarketAnalysis } from "@/components/market-analysis";
-import { ArchitectureContent } from "@/components/topic-content/architecture";
-import { InvestmentContent } from "@/components/topic-content/investment";
-import { PersonasContent } from "@/components/topic-content/personas";
-import { ProductContent } from "@/components/topic-content/product";
-import { RequirementsContent } from "@/components/topic-content/requirements";
 import { ChapterNav } from "@/../public/componentes/navigation/chapter-nav";
 
 const HOME_CHAPTERS = [
-  { roman: "I", title: "Visão & ESG", targetId: "inicio" },
-  { roman: "II", title: "Problema & solução", targetId: "tema-visao" },
-  { roman: "III", title: "Personas", targetId: "tema-pessoas" },
-  { roman: "IV", title: "Mercado & negócio", targetId: "tema-negocio" },
-  { roman: "V", title: "Módulos do MVP", targetId: "tema-experiencia" },
-  { roman: "VI", title: "Motor IHE", targetId: "tema-tecnologia" },
-  { roman: "VII", title: "Requisitos", targetId: "tema-requisitos" },
-  { roman: "VIII", title: "FECAP & referências", targetId: "tema-institucional" },
+  { roman: "I", title: "A Tese", targetId: "inicio" },
+  { roman: "II", title: "O Problema", targetId: "problema" },
+  { roman: "III", title: "A Solução", targetId: "solucao" },
+  { roman: "IV", title: "Moat & Motor IHE", targetId: "moat-tecnologico" },
+  { roman: "V", title: "Mercado (TAM/SAM/SOM)", targetId: "mercado" },
+  { roman: "VI", title: "Unit Economics", targetId: "modelo-negocio" },
+  { roman: "VII", title: "Chancela FECAP", targetId: "equipe-institucional" },
 ];
 
 export const metadata: Metadata = {
-  title: "HarmonIA — Plataforma inteligente de gestão de guarda-roupa e estilo",
+  title: "HarmonIA — A ponte de IA entre o armário doméstico e o varejo de moda",
   description:
-    "Conheça a visão ESG, as personas, o modelo de negócio, os 6 módulos do MVP, o Motor IHE (CIE L*a*b* e pgvector), a arquitetura SOA, os requisitos e a chancela acadêmica FECAP da HarmonIA.",
+    "A HarmonIA transforma roupas ociosas em patrimônio digital ativo, gerando recomendações personalizadas no dia a dia e compras assertivas no provador — eliminando devoluções e impulsionando o consumo consciente.",
 };
 
 export default function Home() {
@@ -41,139 +33,31 @@ export default function Home() {
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
+      <DaVinciScrollAura />
       <SiteHeader />
       <ChapterNav chapters={HOME_CHAPTERS} />
-      <main id="conteudo" tabIndex={-1}>
-        {/* ATO 01 — Hero & Proposta de Valor Instantânea (#inicio) */}
+      <main id="conteudo" tabIndex={-1} className="relative z-10">
+        {/* BLOCO 1 — HERO & INTRODUÇÃO (A Tese em 5 Segundos) */}
         <Hero />
 
-        {/* ATO 02 — O Problema (As-Is), a Solução (To-Be) e o Impacto ESG (#tema-visao) */}
-        <section className="project-theme" id="tema-visao">
-          <div className="project-theme__inner">
-            <header className="project-theme__heading">
-              <span className="eyebrow">02 / O Problema, a Solução e o Impacto ESG · Seção 1</span>
-              <h2>
-                Do armário subutilizado ao <em>consumo com contexto.</em>
-              </h2>
-              <p>
-                O diagnóstico do varejo têxtil brasileiro (ABVTEX, 2025), a transição do cenário
-                analógico (As-Is) para o patrimônio digital (To-Be) e o duplo impacto ESG e
-                mercadológico.
-              </p>
-            </header>
-            <div id="parte-problema">
-              <Problem />
-              <Solution />
-            </div>
-            <div id="parte-impacto">
-              <Impact />
-            </div>
-          </div>
-        </section>
+        {/* BLOCO 2 — O PROBLEMA (A Ineficiência do Setor Têxtil) */}
+        <div id="problema" className="scroll-mt-20">
+          <Problem />
+        </div>
 
-        {/* ATO 03 — Para Quem Construímos: As 3 Personas (#tema-pessoas) */}
-        <section className="project-theme" id="tema-pessoas">
-          <div className="project-theme__inner">
-            <header className="project-theme__heading">
-              <span className="eyebrow">03 / Para Quem Construímos · Seção 2</span>
-              <h2>
-                As três personas <em>da HarmonIA.</em>
-              </h2>
-              <p>
-                Perfis reais de uso diário, compra pragmática e criação de conteúdo que justificam
-                cada módulo e regra de negócio do produto.
-              </p>
-            </header>
-            <div className="document-content document-content--embedded" id="personas">
-              <PersonasContent />
-            </div>
-          </div>
-        </section>
+        {/* BLOCO 3 — A SOLUÇÃO & PRODUTO (HarmonIA: Do Físico ao Ativo Digital) */}
+        <Solution />
 
-        {/* ATO 04 — Modelo de Negócio, Mercado e Viabilidade (#tema-negocio) */}
-        <section className="project-theme" id="tema-negocio">
-          <div className="project-theme__inner">
-            <header className="project-theme__heading">
-              <span className="eyebrow">04 / Mercado, Modelo de Negócio e Viabilidade · Seções 3, 4 e 8</span>
-              <h2>
-                Uma oportunidade real. <em>Um modelo para sustentá-la.</em>
-              </h2>
-              <p>
-                Do panorama competitivo e dos segmentos de clientes às fontes de receita,
-                parcerias, custos operacionais e estimativas de desenvolvimento do MVP.
-              </p>
-            </header>
-            <MarketAnalysis />
-            <BusinessModel />
-            <Plans />
-            <div className="document-content document-content--embedded">
-              <InvestmentContent />
-            </div>
-          </div>
-        </section>
+        {/* BLOCO 4 — DIFERENCIAL TECNOLÓGICO DEFENSÁVEL (O "Moat" do Negócio) */}
+        <Technology />
 
-        {/* ATO 05 — A Experiência do Produto: Os 6 Módulos do MVP (#tema-experiencia) */}
-        <section className="project-theme" id="tema-experiencia">
-          <div className="project-theme__inner">
-            <header className="project-theme__heading">
-              <span className="eyebrow">05 / A Experiência do Produto · Seção 5</span>
-              <h2>
-                Os seis módulos <em>unificados do MVP.</em>
-              </h2>
-              <p>
-                Da análise morfocromática e digitalização em nuvem ao inventário analítico, motor
-                de combinações, provador em Realidade Aumentada, feed comunitário e afiliação.
-              </p>
-            </header>
-            <div id="parte-app">
-              <HowItWorks />
-              <div className="document-content document-content--embedded">
-                <ProductContent />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* BLOCO 5 — OPORTUNIDADE DE MERCADO (TAM, SAM, SOM) */}
+        <MarketAnalysis />
 
-        {/* ATO 06 — O Diferencial Científico e Tecnológico: Motor IHE & Arquitetura SOA (#tema-tecnologia) */}
-        <section className="project-theme" id="tema-tecnologia">
-          <div className="project-theme__inner">
-            <header className="project-theme__heading">
-              <span className="eyebrow">06 / Diferencial Científico e Tecnológico · Seção 7</span>
-              <h2>
-                Motor matemático IHE e <em>arquitetura SOA.</em>
-              </h2>
-              <p>
-                As equações multivariadas no espaço CIE L*a*b* e pgvector aliadas à infraestrutura
-                desacoplada em nuvem AWS com Flutter, FastAPI e Lambda.
-              </p>
-            </header>
-            <Technology />
-            <div className="document-content document-content--embedded">
-              <ArchitectureContent />
-            </div>
-          </div>
-        </section>
+        {/* BLOCO 6 — MODELO DE NEGÓCIO E UNIT ECONOMICS (Como o Negócio Monetiza e Escala) */}
+        <BusinessModel />
 
-        {/* ATO 07 — Engenharia de Software: Requisitos (RF, RNF) e Regras de Negócio (RN) (#tema-requisitos) */}
-        <section className="project-theme" id="tema-requisitos">
-          <div className="project-theme__inner">
-            <header className="project-theme__heading">
-              <span className="eyebrow">07 / Engenharia de Software · Seção 6</span>
-              <h2>
-                Requisitos, qualidade e <em>regras de negócio.</em>
-              </h2>
-              <p>
-                Os quatro pilares de confiança integrados aos 17 Requisitos Funcionais, 6
-                Requisitos Não Funcionais e 5 Regras de Negócio do MVP.
-              </p>
-            </header>
-            <div className="document-content document-content--embedded">
-              <RequirementsContent />
-            </div>
-          </div>
-        </section>
-
-        {/* ATO 08 — Referências, Equipe e Chancela Acadêmica FECAP (#tema-institucional) */}
+        {/* BLOCO 7 — CHANCELA INSTITUCIONAL FECAP */}
         <FinalCta />
       </main>
       <Footer />
