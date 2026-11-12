@@ -115,7 +115,7 @@ export function BusinessModel() {
         </ScrollReveal>
 
         {/* Three Scalable Revenue Streams */}
-        <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
           {revenueStreams.map(
             (
               { code, tag, icon: Icon, highlightMetric, unit, title, description, bullets, dark },
@@ -157,7 +157,7 @@ export function BusinessModel() {
         <ScrollReveal delay={0.14}>
           <div
             id="unit-economics"
-            className="mt-12 border border-[rgba(194,160,90,0.6)] bg-[var(--night)] p-6 sm:p-10 text-[var(--paper)] subtle-starfield"
+            className="mt-8 border border-[rgba(194,160,90,0.6)] bg-[var(--night)] p-6 sm:p-8 text-[var(--paper)] subtle-starfield"
           >
             <SubtleStarfield count={20} />
             <div className="relative z-10">

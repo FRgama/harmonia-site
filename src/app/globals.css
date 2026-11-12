@@ -2474,6 +2474,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* CORREÇÕES DE LAYOUT EXECUTIVO, ESPAÇAMENTO E RESPONSIVIDADE (PITCH DECK)  */
 /* ========================================================================= */
 
+.display-title {
+	font-size: clamp(32px, 4.4vw, 68px);
+	line-height: 0.98;
+}
+
+.pinned-story__intro .display-title {
+	max-width: 980px;
+	font-size: clamp(32px, 4.2vw, 64px);
+}
+
 .features-section,
 .problem-section,
 .how-section,
@@ -2485,20 +2495,131 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .community-section,
 .market-section,
 .project-theme {
-	padding: clamp(44px, 6vw, 76px) 0;
+	padding: clamp(44px, 5.5vw, 72px) 0;
+}
+
+.features-section__heading,
+.problem-section__inner,
+.technology-section__heading,
+.trust-section__heading,
+.plans-section__heading,
+.impact-section__heading,
+.community-section__heading {
+	grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+	align-items: start;
+	gap: clamp(24px, 3.5vw, 48px);
+}
+
+.features-section__heading > p,
+.technology-section__heading > p,
+.trust-section__heading > p,
+.plans-section__heading > p,
+.impact-section__heading > p,
+.community-section__heading > p {
+	max-width: 520px;
+	margin: 28px 0 0;
+	font-size: 14.5px;
+	line-height: 1.78;
+}
+
+.problem-section__copy > div:first-child {
+	max-width: 100%;
+}
+
+.problem-section__copy > div:first-child > p:last-child {
+	max-width: 680px;
+	margin: 18px 0 0;
+	font-size: 14.5px;
+	line-height: 1.78;
+}
+
+.problem-section__stats {
+	margin-top: 28px;
+	padding-top: 14px;
+}
+
+.problem-section__side {
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: clamp(22px, 2.8vw, 32px);
+	background: rgba(248, 242, 232, 0.78);
+	border: 1px solid rgba(110, 80, 30, 0.42);
+	outline: 1px solid rgba(110, 80, 30, 0.2);
+	outline-offset: -6px;
+	box-shadow: 0 6px 18px rgba(32, 25, 18, 0.045);
+}
+
+.problem-section__index {
+	font-size: clamp(48px, 4.8vw, 68px);
+	line-height: 0.95;
+	color: var(--coral);
+}
+
+.problem-section__side > p {
+	max-width: 100%;
+	margin: 14px 0 16px;
+	font-size: clamp(24px, 2.4vw, 32px);
+	line-height: 1.08;
+}
+
+.problem-scenarios {
+	margin: 32px auto 0;
+	gap: 14px;
 }
 
 .solution-justification {
-	padding: 40px 0 56px;
+	padding: 36px 0 52px;
 }
 
 .pinned-story__intro {
-	margin: 0 auto 32px;
+	margin: 0 auto 28px;
+}
+
+.pinned-story__grid {
+	grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+	align-items: center;
+	gap: clamp(24px, 3.5vw, 44px);
 }
 
 .pinned-story__visual {
-	height: clamp(340px, 52vh, 480px);
-	min-height: 340px;
+	height: clamp(320px, 46vh, 430px);
+	min-height: 320px;
+}
+
+.technology-section__ihe {
+	margin-top: 28px;
+	padding: 24px;
+}
+
+.plans-section > .plans-section__inner > .mt-12 {
+	margin-top: 32px;
+}
+
+@media (max-width: 1024px) {
+	.features-section__heading,
+	.problem-section__inner,
+	.technology-section__heading,
+	.trust-section__heading,
+	.plans-section__heading,
+	.impact-section__heading,
+	.community-section__heading,
+	.market-section__header,
+	.pinned-story__grid {
+		grid-template-columns: 1fr;
+		gap: 24px;
+	}
+	.features-section__heading > p,
+	.technology-section__heading > p,
+	.trust-section__heading > p,
+	.plans-section__heading > p,
+	.impact-section__heading > p,
+	.community-section__heading > p,
+	.market-section__header > p:last-child {
+		max-width: 100%;
+		margin-top: 8px;
+	}
 }
 
 /* Seção 05: Oportunidade de Mercado (TAM, SAM, SOM) */
@@ -2520,8 +2641,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .market-section__header {
-	max-width: 860px;
-	margin-bottom: 36px;
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+	align-items: start;
+	gap: clamp(24px, 3.5vw, 48px);
+	margin-bottom: 32px;
 }
 
 .market-section__header .display-title {
@@ -2529,11 +2653,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .market-section__header > p:last-child {
-	max-width: 680px;
-	margin: 16px 0 0;
+	max-width: 520px;
+	margin: 28px 0 0;
 	color: #62645c;
 	font-size: 14.5px;
-	line-height: 1.8;
+	line-height: 1.78;
 }
 
 .market-scope-grid {
@@ -2700,6 +2824,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 /* Preserva o tamanho compacto dos botões de algarismos romanos no mobile */
 @media (max-width: 767px) {
+	.problem-section__side {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
 	.site-chapter-navigation button {
 		min-height: 0;
 		min-width: 0;

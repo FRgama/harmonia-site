@@ -87,7 +87,21 @@ export function Problem() {
             20–40% <span>devoluções</span>
           </div>
           <p>A fricção começa no armário e explode no provador.</p>
-          <a href="#solucao" className="inline-flex items-center gap-2 text-[11px] font-bold">
+          <div className="mt-4 flex flex-col gap-3 border-t border-[rgba(110,80,30,0.3)] pt-4">
+            <div className="flex items-center justify-between text-[11px] text-[#5d5848]">
+              <span>Abandono de provador físico</span>
+              <strong className="font-mono text-[#6e2a2a]">Elevado · Hesitação</strong>
+            </div>
+            <div className="flex items-center justify-between text-[11px] text-[#5d5848]">
+              <span>Causa primária de devolução</span>
+              <strong className="font-mono text-[#6e2a2a]">Caimento, Cor &amp; Acervo</strong>
+            </div>
+            <div className="flex items-center justify-between text-[11px] text-[#5d5848]">
+              <span>Custo reverso unitário</span>
+              <strong className="font-mono text-[#6e2a2a]">2× a 3× frete de ida</strong>
+            </div>
+          </div>
+          <a href="#solucao" className="mt-5 inline-flex items-center gap-2 text-[11px] font-bold text-[var(--coral)] hover:underline">
             Como a HarmonIA elimina essa fricção{" "}
             <ArrowDownRight size={15} aria-hidden="true" />
           </a>

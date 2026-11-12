@@ -159,7 +159,7 @@ export function Technology() {
 
         {/* Competitive Benchmarking Matrix inside Section 4 as requested */}
         <ScrollReveal delay={0.14}>
-          <div id="benchmarking" className="mt-14 border border-white/15 bg-white/[0.03] p-6 sm:p-9">
+          <div id="benchmarking" className="mt-8 border border-white/15 bg-white/[0.03] p-6 sm:p-8">
             <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <span className="eyebrow !text-[var(--gilt)]">

@@ -60,14 +60,16 @@ export function MarketAnalysis() {
       <div className="market-section__inner">
         <ScrollReveal>
           <header className="market-section__header">
-            <span className="eyebrow">05 / Oportunidade de Mercado · TAM, SAM &amp; SOM</span>
-            <p className="mb-3 mt-4 border-l-2 border-[var(--coral)] pl-3.5 font-(family-name:--serif) text-[18px] sm:text-[22px] italic text-[var(--coral)]">
-              “Essa inteligência estética atende a um mercado massivo em plena transição
-              comportamental.”
-            </p>
-            <h2 className="display-title">
-              Um oceano de <em>R$ 314,9 bilhões</em> pronto para inteligência de acervo.
-            </h2>
+            <div>
+              <span className="eyebrow">05 / Oportunidade de Mercado · TAM, SAM &amp; SOM</span>
+              <p className="mb-3 mt-4 border-l-2 border-[var(--coral)] pl-3.5 font-(family-name:--serif) text-[18px] sm:text-[22px] italic text-[var(--coral)]">
+                “Essa inteligência estética atende a um mercado massivo em plena transição
+                comportamental.”
+              </p>
+              <h2 className="display-title">
+                Um oceano de <em>R$ 314,9 bilhões</em> pronto para inteligência de acervo.
+              </h2>
+            </div>
             <p>
               Dimensionamos nossa oportunidade combinando dados setoriais oficiais (IEMI, ABVTEX e
               ABIT) com um recorte demográfico cirúrgico nas classes média e média-alta urbanas —
