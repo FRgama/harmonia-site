@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import { Cloud, ScanFace, ShieldCheck, Sparkles, SwatchBook, Waypoints } from "lucide-react";
 import { HarmonyIndex } from "@/components/harmony-index";
-import { IheExecutiveSimulator } from "@/components/ihe-executive-simulator";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { SubtleStarfield } from "@/components/subtle-starfield";
 import { DaVinciLines } from "@/../public/componentes/backgrounds/davinci-lines";
@@ -157,11 +156,6 @@ export function Technology() {
 
           <HarmonyIndex />
         </div>
-
-        {/* Interactive Executive Simulator adapted from @site */}
-        <ScrollReveal delay={0.1}>
-          <IheExecutiveSimulator />
-        </ScrollReveal>
 
         {/* Competitive Benchmarking Matrix inside Section 4 as requested */}
         <ScrollReveal delay={0.14}>

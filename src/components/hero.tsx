@@ -1,9 +1,8 @@
-import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { BrandWordmark } from "@/components/brand-wordmark";
 import { EditorialImage } from "@/components/editorial-image";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { DaVinciLines } from "@/../public/componentes/backgrounds/davinci-lines";
-import { PillButton } from "@/../public/componentes/actions/pill-button";
 
 const heroMetrics = [
   {
@@ -79,21 +78,6 @@ export function Hero() {
                 </strong>
               </p>
             </ScrollReveal>
-
-            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-              <PillButton href="#parte-problema" variant="coral" size="lg">
-                <span className="inline-flex items-center gap-2.5">
-                  Explorar Tese de Investimento <ArrowUpRight size={15} aria-hidden="true" />
-                </span>
-              </PillButton>
-              <a
-                href="#modelo-negocio"
-                className="inline-flex min-h-[44px] items-center gap-2 border border-[#c2a05a]/45 bg-[#151a1f]/65 px-5 py-2.5 text-[11px] font-bold uppercase tracking-wider text-[#f1e8d3] backdrop-blur-md transition hover:border-[#c2a05a] hover:bg-[#151a1f]/90"
-              >
-                <Sparkles size={13} className="text-[#d8b36a]" aria-hidden="true" />
-                Unit Economics &amp; Escala
-              </a>
-            </div>
           </div>
 
           <div className="flex w-full justify-center sm:justify-start md:items-center md:justify-end">
